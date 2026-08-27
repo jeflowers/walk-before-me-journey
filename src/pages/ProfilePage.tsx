@@ -9,8 +9,7 @@ import { PSALM_26 } from '@app/data/psalm26';
 import { supabase } from '@app/lib/supabase';
 import { useAuth } from '@app/lib/auth';
 import { ROUTES } from '@app/app/routes';
-import { FIXTURE_MEMBER_PROGRESS } from '@app/data/fixtures/member';
-import { evaluateStanding } from '@app/lib/standing';
+import { useStanding } from '@app/lib/useStanding';
 
 interface Profile {
   first_name: string | null;
@@ -33,6 +32,7 @@ interface ProgressEntry {
 export function ProfilePage() {
   const study = PSALM_26;
   const { user, loading: authLoading, signOut, refreshProfile } = useAuth();
+  const { standing } = useStanding();
 
   const [profile, setProfile] = useState<Profile | null>(null);
   const [reflections, setReflections] = useState<ReflectionEntry[]>([]);
@@ -249,7 +249,7 @@ export function ProfilePage() {
 
               <p className="font-narrative text-[14px] text-on-surface-variant">{user.email}</p>
               <div className="flex items-center gap-3">
-                <WaymarkBadge rank={evaluateStanding(FIXTURE_MEMBER_PROGRESS).currentRank} />
+                <WaymarkBadge rank={standing.currentRank} />
                 <Link to={ROUTES.standing} className="font-chrome text-[11px] uppercase tracking-[0.1em] text-secondary hover:text-gold">
                   View Standing
                 </Link>

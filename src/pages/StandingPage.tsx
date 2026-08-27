@@ -6,8 +6,7 @@ import { Icon } from '@app/components/Icon';
 import { RANK_IDS } from '@app/data/enums';
 import { RANK_LABELS, NEHUSHTAN_CLAUSE } from '@app/data/standing';
 import { PSALM_26 } from '@app/data/psalm26';
-import { FIXTURE_MEMBER_PROGRESS } from '@app/data/fixtures/member';
-import { evaluateStanding } from '@app/lib/standing';
+import { useStanding } from '@app/lib/useStanding';
 
 const DIVISION_LABELS: Record<string, string> = {
   torah: 'Torah',
@@ -17,7 +16,7 @@ const DIVISION_LABELS: Record<string, string> = {
 };
 
 export function StandingPage() {
-  const standing = evaluateStanding(FIXTURE_MEMBER_PROGRESS);
+  const { standing, progress } = useStanding();
 
   return (
     <div className="min-h-screen bg-surface flex flex-col">
@@ -84,7 +83,7 @@ export function StandingPage() {
           <h2 className="font-chrome text-[13px] font-bold uppercase tracking-[0.08em] text-parchment/60 mb-4">Canon Breadth</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             {(['torah', 'neviim', 'ketuvim', 'fulfillment'] as const).map((div) => {
-              const studied = FIXTURE_MEMBER_PROGRESS.divisionsStudied.includes(div);
+              const studied = progress.divisionsStudied.includes(div);
               return (
                 <div
                   key={div}
