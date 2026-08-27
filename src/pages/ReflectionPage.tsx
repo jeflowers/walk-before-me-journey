@@ -62,23 +62,25 @@ export function ReflectionPage() {
     const existing = savedRows[key];
 
     if (existing) {
-      const { data } = await supabase
+      const { data, error } = await supabase
         .from('reflections')
         .update({ body, updated_at: new Date().toISOString() })
         .eq('id', existing.id)
         .select('id, prompt_key, body')
         .maybeSingle();
+      if (error) console.error('Update failed:', error.message);
       if (data) {
         setSavedRows((prev) => ({ ...prev, [key]: data }));
         setShowUpdatedKey(key);
         setTimeout(() => setShowUpdatedKey(null), 2000);
       }
     } else {
-      const { data } = await supabase
+      const { data, error } = await supabase
         .from('reflections')
-        .insert({ study_id: study.id, prompt_key: key, body })
+        .insert({ study_id: study.id, prompt_key: key, body, user_id: user.id })
         .select('id, prompt_key, body')
         .maybeSingle();
+      if (error) console.error('Insert failed:', error.message);
       if (data) {
         setSavedRows((prev) => ({ ...prev, [key]: data }));
       }
