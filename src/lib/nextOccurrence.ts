@@ -5,8 +5,14 @@ export interface NextMeeting {
   isLive: boolean;
 }
 
-export function nextOccurrence(schedule: MeetingSchedule, now: Date = new Date(), hour12 = true): NextMeeting {
+export function nextOccurrence(
+  schedule: MeetingSchedule,
+  now: Date = new Date(),
+  hour12 = true,
+  displayTimeZone?: string,
+): NextMeeting {
   const { weekday, hour, minute, timeZone, durationMinutes } = schedule;
+  const showTz = displayTimeZone || timeZone;
 
   const parts = new Intl.DateTimeFormat('en-US', {
     timeZone,
@@ -37,40 +43,72 @@ export function nextOccurrence(schedule: MeetingSchedule, now: Date = new Date()
 
   if (daysUntil === 0) {
     if (nowInZoneMs >= startTodayMs && nowInZoneMs < endTodayMs) {
-      return { label: formatTime(hour, minute, timeZone, hour12), isLive: true };
+      const realStart = buildRealDate(currentYear, currentMonth, currentDay, hour, minute, timeZone);
+      return { label: formatTimeInZone(realStart, showTz, hour12), isLive: true };
     }
     if (nowInZoneMs >= endTodayMs) {
       daysUntil = 7;
     }
   }
 
-  const nextDate = new Date(Date.UTC(currentYear, currentMonth, currentDay + daysUntil, hour, minute));
-  const label = formatLabel(nextDate, timeZone, hour12);
+  const realStart = buildRealDate(currentYear, currentMonth, currentDay + daysUntil, hour, minute, timeZone);
+  const label = formatLabelInZone(realStart, showTz, hour12);
   return { label, isLive: false };
 }
 
-function formatTime(hour: number, minute: number, timeZone: string, hour12: boolean): string {
-  const d = new Date(Date.UTC(2024, 0, 1, hour, minute));
-  return new Intl.DateTimeFormat('en-US', {
+function buildRealDate(year: number, month: number, day: number, hour: number, minute: number, timeZone: string): Date {
+  const guess = new Date(Date.UTC(year, month, day, hour, minute));
+  const offsetParts = new Intl.DateTimeFormat('en-US', {
+    timeZone,
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false,
+  }).formatToParts(guess);
+
+  const g = (type: Intl.DateTimeFormatPartTypes) =>
+    parseInt(offsetParts.find((p) => p.type === type)?.value ?? '0', 10);
+
+  const diffMinutes = (g('hour') * 60 + g('minute')) - (hour * 60 + minute);
+  const diffDays = g('day') - day;
+  const totalDiffMin = diffDays * 1440 + diffMinutes;
+
+  return new Date(guess.getTime() - totalDiffMin * 60_000);
+}
+
+function formatTimeInZone(date: Date, timeZone: string, hour12: boolean): string {
+  const formatted = new Intl.DateTimeFormat('en-US', {
     hour: 'numeric',
     minute: '2-digit',
     hour12,
-    timeZone: 'UTC',
-  }).format(d) + ` ${shortZone(timeZone)}`;
+    timeZone,
+  }).format(date);
+  return `${formatted} ${shortZone(timeZone, date)}`;
 }
 
-function formatLabel(utcDate: Date, timeZone: string, hour12: boolean): string {
+function formatLabelInZone(date: Date, timeZone: string, hour12: boolean): string {
   const formatted = new Intl.DateTimeFormat('en-US', {
     weekday: 'long',
     hour: 'numeric',
     minute: '2-digit',
     hour12,
-    timeZone: 'UTC',
-  }).format(utcDate);
-  return `${formatted} ${shortZone(timeZone)}`;
+    timeZone,
+  }).format(date);
+  return `${formatted} ${shortZone(timeZone, date)}`;
 }
 
-function shortZone(timeZone: string): string {
+function shortZone(timeZone: string, date: Date): string {
+  try {
+    const parts = new Intl.DateTimeFormat('en-US', {
+      timeZone,
+      timeZoneName: 'short',
+    }).formatToParts(date);
+    const tzPart = parts.find((p) => p.type === 'timeZoneName');
+    if (tzPart) return tzPart.value;
+  } catch { /* fallback below */ }
+
   const map: Record<string, string> = {
     'America/Los_Angeles': 'PT',
     'America/Denver': 'MT',

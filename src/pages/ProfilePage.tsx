@@ -30,11 +30,33 @@ interface ProgressEntry {
   completed_at: string;
 }
 
+const COMMON_TIMEZONES = [
+  'America/New_York',
+  'America/Chicago',
+  'America/Denver',
+  'America/Los_Angeles',
+  'America/Anchorage',
+  'Pacific/Honolulu',
+  'America/Phoenix',
+  'America/Toronto',
+  'America/Vancouver',
+  'Europe/London',
+  'Europe/Paris',
+  'Europe/Berlin',
+  'Asia/Tokyo',
+  'Asia/Shanghai',
+  'Asia/Kolkata',
+  'Australia/Sydney',
+  'Pacific/Auckland',
+  'Africa/Lagos',
+  'Africa/Johannesburg',
+];
+
 export function ProfilePage() {
   const study = PSALM_26;
   const { user, loading: authLoading, signOut, refreshProfile } = useAuth();
   const { standing } = useStanding();
-  const { format: timeFormat, toggle: toggleTimeFormat } = useTimeFormat();
+  const { format: timeFormat, toggle: toggleTimeFormat, timeZone, setTimeZone } = useTimeFormat();
 
   const [profile, setProfile] = useState<Profile | null>(null);
   const [reflections, setReflections] = useState<ReflectionEntry[]>([]);
@@ -283,6 +305,21 @@ export function ProfilePage() {
                 >
                   {timeFormat === '12h' ? '12-hour' : '24-hour'}
                 </button>
+              </div>
+
+              {/* Time zone preference */}
+              <div className="flex items-center gap-3 mt-3 w-full">
+                <Icon name="public" size={18} className="text-on-surface-variant" />
+                <span className="font-chrome text-[11px] uppercase tracking-[0.1em] text-on-surface-variant">Zone</span>
+                <select
+                  value={timeZone}
+                  onChange={(e) => setTimeZone(e.target.value)}
+                  className="ml-auto font-chrome text-[12px] uppercase tracking-[0.05em] text-secondary bg-surface-container-low border border-secondary px-2 py-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-secondary"
+                >
+                  {COMMON_TIMEZONES.map((tz) => (
+                    <option key={tz} value={tz}>{tz.replace(/_/g, ' ')}</option>
+                  ))}
+                </select>
               </div>
 
               <div className="flex gap-3 mt-4">

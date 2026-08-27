@@ -14,12 +14,12 @@ export function MeetingCard() {
   const { user, loading: authLoading } = useAuth();
   const { approved, loading: roleLoading } = useRole();
   const meeting = useMeetingAccess(FAMILY_PRAYER.slug);
-  const { format, toggle } = useTimeFormat();
+  const { format, toggle, timeZone } = useTimeFormat();
   const [showPasscode, setShowPasscode] = useState(false);
   const [copied, setCopied] = useState(false);
 
   const hour12 = format === '12h';
-  const { label: nextLabel, isLive } = nextOccurrence(FAMILY_PRAYER, new Date(), hour12);
+  const { label: nextLabel, isLive } = nextOccurrence(FAMILY_PRAYER, new Date(), hour12, timeZone);
 
   const handleCopy = useCallback(async (text: string) => {
     await navigator.clipboard.writeText(text);
