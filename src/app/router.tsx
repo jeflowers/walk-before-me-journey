@@ -7,6 +7,7 @@ import { WaypointsPage } from '@app/pages/WaypointsPage';
 import { WaypointPage } from '@app/pages/WaypointPage';
 import { CommunityPage } from '@app/pages/CommunityPage';
 import { LexiconPage } from '@app/pages/LexiconPage';
+import { ProfilePage } from '@app/pages/ProfilePage';
 import { PlaceholderPage } from '@app/pages/PlaceholderPage';
 
 /** One entry per screen in the Psalm 26 flow. Replace each PlaceholderPage as the page is built. */
@@ -21,7 +22,7 @@ export const router = createBrowserRouter([
       { path: ROUTES.reflection, element: <PlaceholderPage name="Personal Reflection" reference="reference/desktop/personal_reflection_psalm_26.html" /> },
       { path: ROUTES.community, element: <CommunityPage /> },
       { path: ROUTES.lexicon, element: <LexiconPage /> },
-      { path: ROUTES.profile, element: <PlaceholderPage name="Profile / Sacred Archive" reference="reference/desktop/profile_sacred_archive.html" /> },
+      { path: ROUTES.profile, element: <ProfilePage /> },
       { path: ROUTES.commemoration, element: <PlaceholderPage name="Commemoration" reference="reference/desktop/commemoration_psalm_26.html" /> },
     ],
   },
