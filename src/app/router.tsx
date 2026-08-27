@@ -4,6 +4,7 @@ import { AppShell } from '@app/components/AppShell';
 import { StudyHomePage } from '@app/pages/StudyHomePage';
 import { LandingPage } from '@app/pages/LandingPage';
 import { WaypointsPage } from '@app/pages/WaypointsPage';
+import { WaypointPage } from '@app/pages/WaypointPage';
 import { PlaceholderPage } from '@app/pages/PlaceholderPage';
 
 /** One entry per screen in the Psalm 26 flow. Replace each PlaceholderPage as the page is built. */
@@ -14,7 +15,7 @@ export const router = createBrowserRouter([
       { path: ROUTES.landing, element: <LandingPage /> },
       { path: ROUTES.studyHome, element: <StudyHomePage /> },
       { path: ROUTES.waypoints, element: <WaypointsPage /> },
-      { path: ROUTES.waypoint, element: <PlaceholderPage name="Waypoint Detail" reference="reference/desktop/waypoint_05_the_petition.html" /> },
+      { path: ROUTES.waypoint, element: <WaypointPage /> },
       { path: ROUTES.reflection, element: <PlaceholderPage name="Personal Reflection" reference="reference/desktop/personal_reflection_psalm_26.html" /> },
       { path: ROUTES.community, element: <PlaceholderPage name="Community Feed" reference="reference/desktop/community_feed_psalm_26.html" /> },
       { path: ROUTES.lexicon, element: <PlaceholderPage name="Lexicon" reference="reference/desktop/lexicon_psalm_26.html" /> },
