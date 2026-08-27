@@ -192,14 +192,14 @@ export function ProfilePage() {
                     placeholder="First name"
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
-                    className="w-full border border-navy p-2 font-chrome text-[14px] text-navy bg-transparent focus:border-2 focus:outline-none"
+                    className="w-full border border-gold p-2 font-chrome text-[14px] text-parchment bg-navy/30 placeholder:text-parchment/50 focus:border-2 focus:border-secondary focus:outline-none"
                   />
                   <input
                     type="text"
                     placeholder="Last name"
                     value={lastName}
                     onChange={(e) => setLastName(e.target.value)}
-                    className="w-full border border-navy p-2 font-chrome text-[14px] text-navy bg-transparent focus:border-2 focus:outline-none"
+                    className="w-full border border-gold p-2 font-chrome text-[14px] text-parchment bg-navy/30 placeholder:text-parchment/50 focus:border-2 focus:border-secondary focus:outline-none"
                   />
                   <div className="flex gap-2 justify-center">
                     <button
