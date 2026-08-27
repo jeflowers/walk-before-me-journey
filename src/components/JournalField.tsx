@@ -67,15 +67,28 @@ export function JournalField({ prompt, rows = 8, value, onChange, onSave, onDele
         </div>
       ) : (
         <div className="flex items-center gap-3 mt-1">
-          <button
-            type="button"
-            onClick={onSave}
-            disabled={saving || !value.trim()}
-            className="inline-flex items-center gap-2 font-chrome text-[12px] font-bold uppercase tracking-[0.1em] px-4 py-2 bg-navy text-parchment border border-gold hover:bg-navy/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-secondary disabled:opacity-40 disabled:cursor-not-allowed"
-          >
-            <Icon name={saved ? 'sync' : 'check'} size={16} />
-            {saving ? 'Saving...' : saved ? 'Update' : 'Save'}
-          </button>
+          {!saved && (
+            <button
+              type="button"
+              onClick={onSave}
+              disabled={saving || !value.trim()}
+              className="inline-flex items-center gap-2 font-chrome text-[12px] font-bold uppercase tracking-[0.1em] px-4 py-2 bg-navy text-parchment border border-gold hover:bg-navy/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-secondary disabled:opacity-40 disabled:cursor-not-allowed"
+            >
+              <Icon name="check" size={16} />
+              {saving ? 'Saving...' : 'Save'}
+            </button>
+          )}
+          {saved && (
+            <button
+              type="button"
+              onClick={onSave}
+              disabled={saving || !value.trim()}
+              className="inline-flex items-center gap-2 font-chrome text-[12px] font-bold uppercase tracking-[0.1em] px-4 py-2 bg-navy text-parchment border border-gold hover:bg-navy/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-secondary disabled:opacity-40 disabled:cursor-not-allowed"
+            >
+              <Icon name="edit" size={16} />
+              {saving ? 'Saving...' : 'Modify'}
+            </button>
+          )}
           <button
             type="button"
             onClick={handleDelete}
@@ -88,7 +101,7 @@ export function JournalField({ prompt, rows = 8, value, onChange, onSave, onDele
           {showUpdated && (
             <span className="ml-auto font-chrome text-[11px] uppercase tracking-[0.1em] text-green-700 flex items-center gap-1">
               <Icon name="check_circle" size={14} />
-              Updated
+              Modified
             </span>
           )}
           {!showUpdated && saved && (
