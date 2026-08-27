@@ -13,6 +13,7 @@ import { ROUTES } from '@app/app/routes';
 interface Profile {
   first_name: string | null;
   last_name: string | null;
+  username: string | null;
   avatar_url: string | null;
 }
 
@@ -37,6 +38,7 @@ export function ProfilePage() {
   const [editing, setEditing] = useState(false);
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
+  const [username, setUsername] = useState('');
   const [saving, setSaving] = useState(false);
   const [uploading, setUploading] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -45,7 +47,7 @@ export function ProfilePage() {
     if (!user) return;
     async function load() {
       const [profileRes, reflectionsRes, progressRes] = await Promise.all([
-        supabase.from('profiles').select('first_name, last_name, avatar_url').eq('id', user!.id).maybeSingle(),
+        supabase.from('profiles').select('first_name, last_name, username, avatar_url').eq('id', user!.id).maybeSingle(),
         supabase.from('reflections').select('prompt_key, body, updated_at').eq('study_id', study.id).order('updated_at', { ascending: false }),
         supabase.from('waypoint_progress').select('waypoint_id, completed').eq('study_id', study.id),
       ]);
@@ -53,6 +55,7 @@ export function ProfilePage() {
         setProfile(profileRes.data);
         setFirstName(profileRes.data.first_name || '');
         setLastName(profileRes.data.last_name || '');
+        setUsername(profileRes.data.username || '');
       }
       if (reflectionsRes.data) setReflections(reflectionsRes.data);
       if (progressRes.data) setProgress(progressRes.data);
@@ -65,9 +68,9 @@ export function ProfilePage() {
     setSaving(true);
     const { data } = await supabase
       .from('profiles')
-      .update({ first_name: firstName.trim() || null, last_name: lastName.trim() || null, updated_at: new Date().toISOString() })
+      .update({ first_name: firstName.trim() || null, last_name: lastName.trim() || null, username: username.trim() || null, updated_at: new Date().toISOString() })
       .eq('id', user.id)
-      .select('first_name, last_name, avatar_url')
+      .select('first_name, last_name, username, avatar_url')
       .maybeSingle();
     if (data) setProfile(data);
     await refreshProfile();
@@ -103,7 +106,7 @@ export function ProfilePage() {
       .from('profiles')
       .update({ avatar_url: avatarUrl, updated_at: new Date().toISOString() })
       .eq('id', user.id)
-      .select('first_name, last_name, avatar_url')
+      .select('first_name, last_name, username, avatar_url')
       .maybeSingle();
     if (data) setProfile(data);
     setUploading(false);
@@ -190,6 +193,13 @@ export function ProfilePage() {
                 <div className="flex flex-col gap-3 w-full">
                   <input
                     type="text"
+                    placeholder="Username"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    className="w-full border border-gold p-2 font-chrome text-[14px] text-parchment bg-navy/30 placeholder:text-parchment/50 focus:border-2 focus:border-secondary focus:outline-none"
+                  />
+                  <input
+                    type="text"
                     placeholder="First name"
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
@@ -214,7 +224,7 @@ export function ProfilePage() {
                     </button>
                     <button
                       type="button"
-                      onClick={() => { setEditing(false); setFirstName(profile?.first_name || ''); setLastName(profile?.last_name || ''); }}
+                      onClick={() => { setEditing(false); setFirstName(profile?.first_name || ''); setLastName(profile?.last_name || ''); setUsername(profile?.username || ''); }}
                       className="inline-flex items-center gap-2 font-chrome text-[12px] font-bold uppercase tracking-[0.1em] px-4 py-2 bg-navy text-parchment border border-gold hover:bg-navy/90"
                     >
                       Cancel
