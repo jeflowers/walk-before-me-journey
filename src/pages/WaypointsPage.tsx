@@ -20,7 +20,7 @@ function NodeCard({ waypoint, selected, onSelect }: NodeCardProps) {
   const isCurrent = waypoint.state === 'current';
   const isLocked = waypoint.state === 'locked';
 
-  const dotClass = isCurrent
+  const dotClass = selected
     ? 'bg-secondary'
     : isLocked
       ? 'bg-surface border-2 border-outline-variant'
@@ -39,7 +39,7 @@ function NodeCard({ waypoint, selected, onSelect }: NodeCardProps) {
         className={`${cardClass} p-5 flex flex-col gap-2 w-full text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-secondary`}
       >
         <Chip style={selected ? 'filled' : 'outline'}>
-          {isCurrent ? 'Current Waypoint' : `Waypoint ${waypoint.number}`}
+          {selected ? 'Current Waypoint' : `Waypoint ${waypoint.number}`}
         </Chip>
         <h3 className={`font-chrome text-[18px] font-medium uppercase tracking-[0.05em] ${isLocked ? 'text-outline' : 'text-on-surface'}`}>
           {waypoint.trackerName} <span className="text-secondary">({waypoint.verses})</span>
