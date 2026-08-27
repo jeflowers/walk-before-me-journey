@@ -215,7 +215,7 @@ export function ProfilePage() {
                     <button
                       type="button"
                       onClick={() => { setEditing(false); setFirstName(profile?.first_name || ''); setLastName(profile?.last_name || ''); }}
-                      className="inline-flex items-center gap-2 font-chrome text-[12px] font-bold uppercase tracking-[0.1em] px-4 py-2 border border-navy/40 text-navy hover:border-navy"
+                      className="inline-flex items-center gap-2 font-chrome text-[12px] font-bold uppercase tracking-[0.1em] px-4 py-2 bg-navy text-parchment border border-gold hover:bg-navy/90"
                     >
                       Cancel
                     </button>
