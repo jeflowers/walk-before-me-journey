@@ -10,6 +10,7 @@ import { supabase } from '@app/lib/supabase';
 import { useAuth } from '@app/lib/auth';
 import { ROUTES } from '@app/app/routes';
 import { useStanding } from '@app/lib/useStanding';
+import { useTimeFormat } from '@app/lib/useTimeFormat';
 
 interface Profile {
   first_name: string | null;
@@ -33,6 +34,7 @@ export function ProfilePage() {
   const study = PSALM_26;
   const { user, loading: authLoading, signOut, refreshProfile } = useAuth();
   const { standing } = useStanding();
+  const { format: timeFormat, toggle: toggleTimeFormat } = useTimeFormat();
 
   const [profile, setProfile] = useState<Profile | null>(null);
   const [reflections, setReflections] = useState<ReflectionEntry[]>([]);
@@ -269,7 +271,21 @@ export function ProfilePage() {
                   View Standing
                 </Link>
               </div>
-              <div className="flex gap-3 mt-2">
+
+              {/* Time format preference */}
+              <div className="flex items-center gap-3 mt-4 border-t border-outline-variant pt-4 w-full">
+                <Icon name="schedule" size={18} className="text-on-surface-variant" />
+                <span className="font-chrome text-[11px] uppercase tracking-[0.1em] text-on-surface-variant">Clock</span>
+                <button
+                  type="button"
+                  onClick={toggleTimeFormat}
+                  className="ml-auto font-chrome text-[12px] font-bold uppercase tracking-[0.1em] px-3 py-1 border border-secondary text-secondary focus-visible:outline focus-visible:outline-2 focus-visible:outline-secondary"
+                >
+                  {timeFormat === '12h' ? '12-hour' : '24-hour'}
+                </button>
+              </div>
+
+              <div className="flex gap-3 mt-4">
                 <Button label="Sign Out" style="outline" icon="logout" onClick={signOut} />
               </div>
             </div>
