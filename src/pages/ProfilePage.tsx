@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@app/components/Button';
-import { Chip } from '@app/components/Chip';
+import { WaymarkBadge } from '@app/components/WaymarkBadge';
 import { Icon } from '@app/components/Icon';
 import { SiteHeader } from '@app/components/SiteHeader';
 import { SiteFooter } from '@app/components/SiteFooter';
@@ -9,6 +9,8 @@ import { PSALM_26 } from '@app/data/psalm26';
 import { supabase } from '@app/lib/supabase';
 import { useAuth } from '@app/lib/auth';
 import { ROUTES } from '@app/app/routes';
+import { FIXTURE_MEMBER_PROGRESS } from '@app/data/fixtures/member';
+import { evaluateStanding } from '@app/lib/standing';
 
 interface Profile {
   first_name: string | null;
@@ -246,7 +248,12 @@ export function ProfilePage() {
               )}
 
               <p className="font-narrative text-[14px] text-on-surface-variant">{user.email}</p>
-              <Chip style="outline">Student</Chip>
+              <div className="flex items-center gap-3">
+                <WaymarkBadge rank={evaluateStanding(FIXTURE_MEMBER_PROGRESS).currentRank} />
+                <Link to={ROUTES.standing} className="font-chrome text-[11px] uppercase tracking-[0.1em] text-secondary hover:text-gold">
+                  View Standing
+                </Link>
+              </div>
               <div className="flex gap-3 mt-2">
                 <Button label="Sign Out" style="outline" icon="logout" onClick={signOut} />
               </div>
