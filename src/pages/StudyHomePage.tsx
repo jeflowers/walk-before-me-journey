@@ -8,12 +8,15 @@ import { PSALM_26 } from '@app/data/psalm26';
 import { useProgress } from '@app/lib/useProgress';
 import type { Waypoint, WaypointState } from '@app/data/types';
 
-const QUICK_ACTIONS = [
-  { icon: 'menu_book', label: 'Lexicon', detail: 'Hebrew and Greek terms behind the walk', to: ROUTES.lexicon },
-  { icon: 'lightbulb', label: 'Reflections', detail: 'Journal prompts and saved entries', to: ROUTES.reflection },
-  { icon: 'library_books', label: 'Materials', detail: 'Facilitator guide, handouts, cards', to: ROUTES.waypoints },
-  { icon: 'group', label: 'Community', detail: 'Shared reflections on this track', to: ROUTES.community },
-];
+function getQuickActions(currentWpNumber: number) {
+  const materialsLink = ROUTES.waypoint.replace(':number', String(currentWpNumber)) + '#materials';
+  return [
+    { icon: 'menu_book', label: 'Lexicon', detail: 'Hebrew and Greek terms behind the walk', to: ROUTES.lexicon },
+    { icon: 'lightbulb', label: 'Reflections', detail: 'Journal prompts and saved entries', to: ROUTES.reflection },
+    { icon: 'library_books', label: 'Materials', detail: 'Facilitator guide, handouts, cards', to: materialsLink },
+    { icon: 'group', label: 'Community', detail: 'Shared reflections on this track', to: ROUTES.community },
+  ];
+}
 
 const NODE_STYLE: Record<WaypointState, string> = {
   complete: 'bg-secondary',
@@ -51,6 +54,7 @@ export function StudyHomePage() {
 
   const currentWp = study.waypoints.find((w) => getState(w.number) === 'current') ?? study.waypoints[0];
   const continueLink = ROUTES.waypoint.replace(':number', String(currentWp.number));
+  const quickActions = getQuickActions(currentWp.number);
 
   return (
     <>
@@ -77,7 +81,7 @@ export function StudyHomePage() {
         </div>
 
         <section className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mt-8">
-          {QUICK_ACTIONS.map((action) => (
+          {quickActions.map((action) => (
             <Link key={action.label} to={action.to} className="border border-outline-variant bg-surface-container-low p-5 md:p-6 flex flex-col gap-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-secondary">
               <Icon name={action.icon} className="text-secondary" />
               <span className="font-chrome text-label-technical uppercase text-on-surface">{action.label}</span>
