@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ROUTES } from '@app/app/routes';
 import { Button } from '@app/components/Button';
+import { MeetingCard } from '@app/components/MeetingCard';
 import { SiteHeader } from '@app/components/SiteHeader';
 import { SiteFooter } from '@app/components/SiteFooter';
 import { WaypointCard } from '@app/components/WaypointCard';
@@ -39,6 +40,10 @@ export function LandingPage() {
           <div className="md:col-span-6 h-[300px] md:h-[420px] border border-gold p-2 bg-surface-container-lowest">
             <img className="w-full h-full object-cover" src={study.heroImage} alt={study.title} />
           </div>
+        </section>
+
+        <section className="mt-10">
+          <MeetingCard />
         </section>
 
         {/* Waypoint cards */}

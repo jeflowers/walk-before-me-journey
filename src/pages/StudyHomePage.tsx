@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { ROUTES } from '@app/app/routes';
 import { Button } from '@app/components/Button';
 import { Icon } from '@app/components/Icon';
+import { MeetingCard } from '@app/components/MeetingCard';
 import { SiteHeader } from '@app/components/SiteHeader';
 import { SiteFooter } from '@app/components/SiteFooter';
 import { PSALM_26 } from '@app/data/psalm26';
@@ -88,6 +89,10 @@ export function StudyHomePage() {
               <span className="text-[16px] leading-[1.5] text-on-surface-variant hidden md:block">{action.detail}</span>
             </Link>
           ))}
+        </section>
+
+        <section className="mt-8">
+          <MeetingCard />
         </section>
 
         <section className="mt-12 border border-outline-variant bg-surface-container-low p-6 md:p-8">

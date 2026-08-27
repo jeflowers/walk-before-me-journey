@@ -12,6 +12,7 @@ import { CommemorationPage } from '@app/pages/CommemorationPage';
 import { ReflectionPage } from '@app/pages/ReflectionPage';
 import { AuthPage } from '@app/pages/AuthPage';
 import { StandingPage } from '@app/pages/StandingPage';
+import { MeetingAdminPage } from '@app/pages/MeetingAdminPage';
 
 export const router = createBrowserRouter([
   {
@@ -28,6 +29,7 @@ export const router = createBrowserRouter([
       { path: ROUTES.commemoration, element: <CommemorationPage /> },
       { path: ROUTES.standing, element: <StandingPage /> },
       { path: ROUTES.auth, element: <AuthPage /> },
+      { path: ROUTES.adminMeetings, element: <MeetingAdminPage /> },
     ],
   },
 ]);

@@ -11,6 +11,7 @@ export const ROUTES = {
   commemoration: '/study/psalm-26/complete',
   standing: '/standing',
   auth: '/auth',
+  adminMeetings: '/admin/meetings',
 } as const;
 
 export type RouteKey = keyof typeof ROUTES;
