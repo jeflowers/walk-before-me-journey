@@ -23,7 +23,7 @@ export function SiteHeader({ title = 'Walk Before Me', progress = 0 }: { title?:
         </div>
         <nav className="hidden md:flex items-center gap-6" aria-label="Primary">
           {NAV.map((item) => (
-            <NavLink key={item.to} to={item.to} className={({ isActive }) => `font-chrome text-[12px] font-bold uppercase tracking-[0.1em] ${isActive ? 'text-gold border-b-2 border-gold pb-1' : 'text-on-surface-variant'}`}>
+            <NavLink key={item.to} to={item.to} end className={({ isActive }) => `font-chrome text-[12px] font-bold uppercase tracking-[0.1em] ${isActive ? 'text-gold border-b-2 border-gold pb-1' : 'text-on-surface-variant'}`}>
               {item.label}
             </NavLink>
           ))}
