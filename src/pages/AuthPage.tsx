@@ -24,6 +24,31 @@ export function AuthPage() {
     setLoading(true);
 
     if (mode === 'sign-up') {
+      if (password.length < 8 || password.length > 12) {
+        setError('Password must be 8-12 characters long.');
+        setLoading(false);
+        return;
+      }
+      if (!/[A-Z]/.test(password)) {
+        setError('Password must include at least one uppercase letter.');
+        setLoading(false);
+        return;
+      }
+      if (!/[a-z]/.test(password)) {
+        setError('Password must include at least one lowercase letter.');
+        setLoading(false);
+        return;
+      }
+      if (!/[0-9]/.test(password)) {
+        setError('Password must include at least one number.');
+        setLoading(false);
+        return;
+      }
+      if (!/[^A-Za-z0-9]/.test(password)) {
+        setError('Password must include at least one special character.');
+        setLoading(false);
+        return;
+      }
       const { error: err } = await supabase.auth.signUp({ email, password });
       if (err) {
         setError(err.message);
@@ -76,11 +101,12 @@ export function AuthPage() {
               <input
                 type="password"
                 required
-                minLength={6}
+                minLength={8}
+                maxLength={12}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 className="w-full border border-gold bg-transparent px-4 py-3 font-narrative text-body-md text-on-surface placeholder:text-on-surface-variant/60 focus:border-secondary focus:outline-none"
-                placeholder="At least 6 characters"
+                placeholder="8-12 chars, upper, lower, number, symbol"
               />
             </div>
 
