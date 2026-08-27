@@ -1,10 +1,14 @@
 import { useState, useEffect, useCallback } from 'react';
+import { Link } from 'react-router-dom';
+import { Button } from '@app/components/Button';
 import { Icon } from '@app/components/Icon';
 import { JournalField } from '@app/components/JournalField';
 import { SiteHeader } from '@app/components/SiteHeader';
 import { SiteFooter } from '@app/components/SiteFooter';
 import { PSALM_26 } from '@app/data/psalm26';
 import { supabase } from '@app/lib/supabase';
+import { useAuth } from '@app/lib/auth';
+import { ROUTES } from '@app/app/routes';
 
 interface ReflectionRow {
   id: string;
@@ -14,13 +18,14 @@ interface ReflectionRow {
 
 export function ReflectionPage() {
   const study = PSALM_26;
-  const allPrompts = [...study.reflectionPrompts, study.prayerPrompt];
+  const { user, loading: authLoading } = useAuth();
 
   const [drafts, setDrafts] = useState<Record<string, string>>({});
   const [savedRows, setSavedRows] = useState<Record<string, ReflectionRow>>({});
   const [savingKeys, setSavingKeys] = useState<Set<string>>(new Set());
 
   useEffect(() => {
+    if (!user) return;
     async function load() {
       const { data } = await supabase
         .from('reflections')
@@ -38,7 +43,7 @@ export function ReflectionPage() {
       }
     }
     load();
-  }, [study.id]);
+  }, [study.id, user]);
 
   const handleChange = useCallback((key: string, value: string) => {
     setDrafts((prev) => ({ ...prev, [key]: value }));
@@ -91,6 +96,37 @@ export function ReflectionPage() {
       return next;
     });
   }, [savedRows]);
+
+  if (authLoading) {
+    return (
+      <>
+        <SiteHeader title="Walk Before Me" progress={study.completed / study.total} />
+        <main className="max-w-container mx-auto px-margin-mobile md:px-0 pt-10 text-center">
+          <p className="font-narrative text-body-lg text-on-surface-variant">Loading...</p>
+        </main>
+        <SiteFooter quote={study.footerQuote} />
+      </>
+    );
+  }
+
+  if (!user) {
+    return (
+      <>
+        <SiteHeader title="Walk Before Me" progress={study.completed / study.total} />
+        <main className="max-w-container mx-auto px-margin-mobile md:px-0 pt-10 flex flex-col items-center gap-6">
+          <Icon name="edit_note" size={64} className="text-gold" />
+          <h1 className="font-chrome text-[32px] font-bold uppercase tracking-[0.05em] text-primary">Personal Reflection</h1>
+          <p className="font-narrative text-body-md text-on-surface-variant text-center max-w-[360px]">
+            Sign in to write and save your reflections. Your entries are private and tied to your account.
+          </p>
+          <Link to={ROUTES.auth}>
+            <Button label="Sign In" icon="login" />
+          </Link>
+        </main>
+        <SiteFooter quote={study.footerQuote} />
+      </>
+    );
+  }
 
   return (
     <>

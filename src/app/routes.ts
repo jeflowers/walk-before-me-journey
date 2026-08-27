@@ -9,6 +9,7 @@ export const ROUTES = {
   lexicon: '/study/psalm-26/lexicon',
   profile: '/profile',
   commemoration: '/study/psalm-26/complete',
+  auth: '/auth',
 } as const;
 
 export type RouteKey = keyof typeof ROUTES;

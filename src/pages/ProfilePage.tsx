@@ -1,12 +1,47 @@
+import { Link } from 'react-router-dom';
 import { Button } from '@app/components/Button';
 import { Chip } from '@app/components/Chip';
 import { Icon } from '@app/components/Icon';
 import { SiteHeader } from '@app/components/SiteHeader';
 import { SiteFooter } from '@app/components/SiteFooter';
 import { PSALM_26, PROFILE } from '@app/data/psalm26';
+import { useAuth } from '@app/lib/auth';
+import { ROUTES } from '@app/app/routes';
 
 export function ProfilePage() {
   const study = PSALM_26;
+  const { user, loading, signOut } = useAuth();
+
+  if (loading) {
+    return (
+      <>
+        <SiteHeader title="Sacred Archive" progress={study.completed / study.total} />
+        <main className="max-w-container mx-auto px-margin-mobile md:px-0 pt-10 text-center">
+          <p className="font-narrative text-body-lg text-on-surface-variant">Loading...</p>
+        </main>
+        <SiteFooter quote={study.footerQuote} />
+      </>
+    );
+  }
+
+  if (!user) {
+    return (
+      <>
+        <SiteHeader title="Sacred Archive" progress={study.completed / study.total} />
+        <main className="max-w-container mx-auto px-margin-mobile md:px-0 pt-10 flex flex-col items-center gap-6">
+          <Icon name="account_circle" size={64} className="text-gold" />
+          <h1 className="font-chrome text-[32px] font-bold uppercase tracking-[0.05em] text-primary">Your Sacred Archive</h1>
+          <p className="font-narrative text-body-md text-on-surface-variant text-center max-w-[360px]">
+            Sign in to save your reflections, track your journey progress, and access your personal archive.
+          </p>
+          <Link to={ROUTES.auth}>
+            <Button label="Sign In" icon="login" />
+          </Link>
+        </main>
+        <SiteFooter quote={study.footerQuote} />
+      </>
+    );
+  }
 
   return (
     <>
@@ -22,10 +57,11 @@ export function ProfilePage() {
                 </div>
               </div>
               <h1 className="font-chrome text-[32px] font-semibold uppercase tracking-[0.05em] text-primary">{PROFILE.name}</h1>
+              <p className="font-narrative text-[14px] text-on-surface-variant">{user.email}</p>
               <Chip style="outline">{PROFILE.rank}</Chip>
               <p className="font-narrative text-[16px] text-on-surface-variant">Two journeys complete. Twelve reflections archived.</p>
               <div className="flex gap-3 mt-2">
-                <Button label="Settings" style="outline" icon="settings" />
+                <Button label="Sign Out" style="outline" icon="logout" onClick={signOut} />
               </div>
             </div>
           </aside>
@@ -84,7 +120,9 @@ export function ProfilePage() {
                   </div>
                 ))}
                 <div className="mt-5">
-                  <Button label="New Entry" style="outline" icon="add" />
+                  <Link to={ROUTES.reflection}>
+                    <Button label="New Entry" style="outline" icon="add" />
+                  </Link>
                 </div>
               </div>
             </div>

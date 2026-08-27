@@ -10,6 +10,7 @@ import { LexiconPage } from '@app/pages/LexiconPage';
 import { ProfilePage } from '@app/pages/ProfilePage';
 import { CommemorationPage } from '@app/pages/CommemorationPage';
 import { ReflectionPage } from '@app/pages/ReflectionPage';
+import { AuthPage } from '@app/pages/AuthPage';
 
 export const router = createBrowserRouter([
   {
@@ -24,6 +25,7 @@ export const router = createBrowserRouter([
       { path: ROUTES.lexicon, element: <LexiconPage /> },
       { path: ROUTES.profile, element: <ProfilePage /> },
       { path: ROUTES.commemoration, element: <CommemorationPage /> },
+      { path: ROUTES.auth, element: <AuthPage /> },
     ],
   },
 ]);
