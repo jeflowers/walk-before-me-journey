@@ -5,7 +5,7 @@ export interface NextMeeting {
   isLive: boolean;
 }
 
-export function nextOccurrence(schedule: MeetingSchedule, now: Date = new Date()): NextMeeting {
+export function nextOccurrence(schedule: MeetingSchedule, now: Date = new Date(), hour12 = true): NextMeeting {
   const { weekday, hour, minute, timeZone, durationMinutes } = schedule;
 
   const parts = new Intl.DateTimeFormat('en-US', {
@@ -37,7 +37,7 @@ export function nextOccurrence(schedule: MeetingSchedule, now: Date = new Date()
 
   if (daysUntil === 0) {
     if (nowInZoneMs >= startTodayMs && nowInZoneMs < endTodayMs) {
-      return { label: formatTime(hour, minute, timeZone), isLive: true };
+      return { label: formatTime(hour, minute, timeZone, hour12), isLive: true };
     }
     if (nowInZoneMs >= endTodayMs) {
       daysUntil = 7;
@@ -45,26 +45,26 @@ export function nextOccurrence(schedule: MeetingSchedule, now: Date = new Date()
   }
 
   const nextDate = new Date(Date.UTC(currentYear, currentMonth, currentDay + daysUntil, hour, minute));
-  const label = formatLabel(nextDate, timeZone);
+  const label = formatLabel(nextDate, timeZone, hour12);
   return { label, isLive: false };
 }
 
-function formatTime(hour: number, minute: number, timeZone: string): string {
+function formatTime(hour: number, minute: number, timeZone: string, hour12: boolean): string {
   const d = new Date(Date.UTC(2024, 0, 1, hour, minute));
   return new Intl.DateTimeFormat('en-US', {
     hour: 'numeric',
     minute: '2-digit',
-    hour12: true,
+    hour12,
     timeZone: 'UTC',
   }).format(d) + ` ${shortZone(timeZone)}`;
 }
 
-function formatLabel(utcDate: Date, timeZone: string): string {
+function formatLabel(utcDate: Date, timeZone: string, hour12: boolean): string {
   const formatted = new Intl.DateTimeFormat('en-US', {
     weekday: 'long',
     hour: 'numeric',
     minute: '2-digit',
-    hour12: true,
+    hour12,
     timeZone: 'UTC',
   }).format(utcDate);
   return `${formatted} ${shortZone(timeZone)}`;

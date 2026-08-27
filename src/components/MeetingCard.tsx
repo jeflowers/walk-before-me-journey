@@ -7,16 +7,19 @@ import { useAuth } from '@app/lib/auth';
 import { useRole } from '@app/lib/useRole';
 import { useMeetingAccess } from '@app/lib/useMeetingAccess';
 import { nextOccurrence } from '@app/lib/nextOccurrence';
+import { useTimeFormat } from '@app/lib/useTimeFormat';
 import { FAMILY_PRAYER } from '@app/data/meeting';
 
 export function MeetingCard() {
   const { user, loading: authLoading } = useAuth();
   const { approved, loading: roleLoading } = useRole();
   const meeting = useMeetingAccess(FAMILY_PRAYER.slug);
+  const { format, toggle } = useTimeFormat();
   const [showPasscode, setShowPasscode] = useState(false);
   const [copied, setCopied] = useState(false);
 
-  const { label: nextLabel, isLive } = nextOccurrence(FAMILY_PRAYER);
+  const hour12 = format === '12h';
+  const { label: nextLabel, isLive } = nextOccurrence(FAMILY_PRAYER, new Date(), hour12);
 
   const handleCopy = useCallback(async (text: string) => {
     await navigator.clipboard.writeText(text);
@@ -24,7 +27,17 @@ export function MeetingCard() {
     setTimeout(() => setCopied(false), 2000);
   }, []);
 
-  // State: loading
+  const timeToggle = (
+    <button
+      type="button"
+      onClick={toggle}
+      className="ml-auto font-chrome text-[11px] uppercase tracking-[0.1em] text-secondary border border-secondary px-2 py-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-secondary"
+      aria-label={hour12 ? 'Switch to 24-hour time' : 'Switch to 12-hour time'}
+    >
+      {hour12 ? '24h' : '12h'}
+    </button>
+  );
+
   if (authLoading || roleLoading || meeting.loading) {
     return (
       <div className="border border-outline-variant bg-surface-container-low p-6">
@@ -36,7 +49,6 @@ export function MeetingCard() {
     );
   }
 
-  // State: signed out
   if (!user) {
     return (
       <div className="border border-outline-variant bg-surface-container-low p-6">
@@ -58,7 +70,6 @@ export function MeetingCard() {
     );
   }
 
-  // State: not approved
   if (!approved) {
     return (
       <div className="border border-outline-variant bg-surface-container-low p-6">
@@ -73,7 +84,6 @@ export function MeetingCard() {
     );
   }
 
-  // State: error
   if (meeting.error) {
     return (
       <div className="border border-outline-variant bg-surface-container-low p-6">
@@ -88,13 +98,13 @@ export function MeetingCard() {
     );
   }
 
-  // State: approved but no meeting row configured
   if (!meeting.joinUrl) {
     return (
       <div className="border border-outline-variant bg-surface-container-low p-6">
         <div className="flex items-center gap-3 mb-3">
           <Icon name="videocam" className="text-gold" />
           <h3 className="font-chrome text-headline-sm uppercase text-primary">{FAMILY_PRAYER.title}</h3>
+          {timeToggle}
         </div>
         <div className="flex items-center gap-3 mb-3">
           {isLive && <Chip>Live Now</Chip>}
@@ -107,13 +117,13 @@ export function MeetingCard() {
     );
   }
 
-  // State: approved with full access
   return (
     <div className="border border-outline-variant bg-surface-container-low p-6">
       <div className="flex items-center gap-3 mb-4">
         <Icon name="videocam" className="text-gold" />
         <h3 className="font-chrome text-headline-sm uppercase text-primary">{FAMILY_PRAYER.title}</h3>
         {isLive && <Chip>Live Now</Chip>}
+        {timeToggle}
       </div>
 
       <div className="flex items-center gap-3 mb-5">

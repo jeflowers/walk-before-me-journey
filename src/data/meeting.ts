@@ -12,8 +12,8 @@ export const FAMILY_PRAYER: MeetingSchedule = {
   slug: 'family-prayer-zoom-meeting',
   title: 'Family Prayer',
   weekday: 4, // Thursday
-  hour: 19,
-  minute: 0,
+  hour: 20,
+  minute: 30,
   timeZone: 'America/Los_Angeles',
   durationMinutes: 60,
 };
