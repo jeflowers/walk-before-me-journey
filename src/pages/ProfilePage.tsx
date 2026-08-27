@@ -25,8 +25,8 @@ interface ReflectionEntry {
 }
 
 interface ProgressEntry {
-  waypoint_id: string;
-  completed: boolean;
+  waypoint_number: number;
+  completed_at: string;
 }
 
 export function ProfilePage() {
@@ -51,7 +51,7 @@ export function ProfilePage() {
       const [profileRes, reflectionsRes, progressRes] = await Promise.all([
         supabase.from('profiles').select('first_name, last_name, username, avatar_url').eq('id', user!.id).maybeSingle(),
         supabase.from('reflections').select('prompt_key, body, updated_at').eq('study_id', study.id).order('updated_at', { ascending: false }),
-        supabase.from('waypoint_progress').select('waypoint_id, completed').eq('study_id', study.id),
+        supabase.from('waypoint_progress').select('waypoint_number, completed_at').eq('study_id', study.id).eq('user_id', user!.id),
       ]);
       if (profileRes.data) {
         setProfile(profileRes.data);
@@ -118,14 +118,14 @@ export function ProfilePage() {
     ? `${profile.first_name}${profile.last_name ? ' ' + profile.last_name : ''}`
     : user?.email?.split('@')[0] || 'Student';
 
-  const completedWaypoints = progress.filter((p) => p.completed).length;
+  const completedWaypoints = progress.length;
   const totalWaypoints = study.total;
   const journeyPercent = totalWaypoints > 0 ? Math.round((completedWaypoints / totalWaypoints) * 100) : 0;
 
   if (authLoading) {
     return (
       <>
-        <SiteHeader title="Sacred Archive" progress={study.completed / study.total} />
+        <SiteHeader title="Sacred Archive" progress={0} />
         <main className="max-w-container mx-auto px-margin-mobile md:px-0 pt-10 text-center">
           <p className="font-narrative text-body-lg text-on-surface-variant">Loading...</p>
         </main>
@@ -137,7 +137,7 @@ export function ProfilePage() {
   if (!user) {
     return (
       <>
-        <SiteHeader title="Sacred Archive" progress={study.completed / study.total} />
+        <SiteHeader title="Sacred Archive" progress={0} />
         <main className="max-w-container mx-auto px-margin-mobile md:px-0 pt-10 flex flex-col items-center gap-6">
           <Icon name="account_circle" size={64} className="text-gold" />
           <h1 className="font-chrome text-[32px] font-bold uppercase tracking-[0.05em] text-primary">Your Sacred Archive</h1>
