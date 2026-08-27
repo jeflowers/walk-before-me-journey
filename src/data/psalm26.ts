@@ -75,8 +75,8 @@ export const PSALM_26: Study = {
     { term: 'Pyrōson', language: 'Greek LXX', transliteration: 'Divine Refinement; Test by fire', definition: "To burn, refine with fire. The LXX translation uses this intense metallurgical term to describe God's examination of the heart and mind.", significance: "Significance in 'Walk Before Me': An active plea for God to purify the believer's motives. The walk of integrity welcomes the refining fire to burn away impurities." },
   ],
   reflectionPrompts: [
-    { label: 'Note 01', prompt: "Where is the Lord calling me to a more consistent 'walk' of integrity this week?", placeholder: 'Begin journaling here...' },
-    { label: 'Note 02', prompt: 'Which waypoint resonated most with my current season, and why?', placeholder: 'Begin journaling here...' },
+    { label: 'Prompt 01', prompt: "Where is the Lord calling me to a more consistent 'walk' of integrity this week?", placeholder: 'Begin journaling here...' },
+    { label: 'Prompt 02', prompt: 'Which waypoint resonated most with my current season, and why?', placeholder: 'Begin journaling here...' },
   ],
   prayerPrompt: { label: 'Prayer', prompt: 'A Prayer for Refinement (Pyrōson)', placeholder: 'Lord, refine my heart...' },
 };

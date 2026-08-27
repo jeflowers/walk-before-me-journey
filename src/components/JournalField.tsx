@@ -12,19 +12,11 @@ interface JournalFieldProps {
   onDelete: () => void;
   saving?: boolean;
   saved?: boolean;
+  showUpdated?: boolean;
 }
 
-export function JournalField({ prompt, rows = 8, value, onChange, onSave, onDelete, saving, saved }: JournalFieldProps) {
+export function JournalField({ prompt, rows = 8, value, onChange, onSave, onDelete, saving, saved, showUpdated }: JournalFieldProps) {
   const [confirmDelete, setConfirmDelete] = useState(false);
-  const [showUpdated, setShowUpdated] = useState(false);
-
-  function handleSave() {
-    onSave();
-    if (saved) {
-      setShowUpdated(true);
-      setTimeout(() => setShowUpdated(false), 2000);
-    }
-  }
 
   function handleDelete() {
     if (!confirmDelete) {
@@ -77,7 +69,7 @@ export function JournalField({ prompt, rows = 8, value, onChange, onSave, onDele
         <div className="flex items-center gap-3 mt-1">
           <button
             type="button"
-            onClick={handleSave}
+            onClick={onSave}
             disabled={saving || !value.trim()}
             className="inline-flex items-center gap-2 font-chrome text-[12px] font-bold uppercase tracking-[0.1em] px-4 py-2 bg-navy text-parchment border border-gold hover:bg-navy/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-secondary disabled:opacity-50"
           >

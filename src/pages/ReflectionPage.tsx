@@ -25,6 +25,7 @@ export function ReflectionPage() {
   const [savingKeys, setSavingKeys] = useState<Set<string>>(new Set());
   const [confirmDeleteKey, setConfirmDeleteKey] = useState<string | null>(null);
   const [showUpdatedKey, setShowUpdatedKey] = useState<string | null>(null);
+  const [showSignInPrompt, setShowSignInPrompt] = useState(false);
 
   useEffect(() => {
     if (!user) return;
@@ -52,6 +53,10 @@ export function ReflectionPage() {
   }, []);
 
   const handleSave = useCallback(async (key: string) => {
+    if (!user) {
+      setShowSignInPrompt(true);
+      return;
+    }
     setSavingKeys((prev) => new Set(prev).add(key));
     const body = drafts[key] || '';
     const existing = savedRows[key];
@@ -65,6 +70,8 @@ export function ReflectionPage() {
         .maybeSingle();
       if (data) {
         setSavedRows((prev) => ({ ...prev, [key]: data }));
+        setShowUpdatedKey(key);
+        setTimeout(() => setShowUpdatedKey(null), 2000);
       }
     } else {
       const { data } = await supabase
@@ -81,7 +88,7 @@ export function ReflectionPage() {
       next.delete(key);
       return next;
     });
-  }, [drafts, savedRows, study.id]);
+  }, [drafts, savedRows, study.id, user]);
 
   const handleDelete = useCallback(async (key: string) => {
     const existing = savedRows[key];
@@ -111,25 +118,6 @@ export function ReflectionPage() {
     );
   }
 
-  if (!user) {
-    return (
-      <>
-        <SiteHeader title="Walk Before Me" progress={study.completed / study.total} />
-        <main className="max-w-container mx-auto px-margin-mobile md:px-0 pt-10 flex flex-col items-center gap-6">
-          <Icon name="edit_note" size={64} className="text-gold" />
-          <h1 className="font-chrome text-[32px] font-bold uppercase tracking-[0.05em] text-primary">Personal Reflection</h1>
-          <p className="font-narrative text-body-md text-on-surface-variant text-center max-w-[360px]">
-            Sign in to write and save your reflections. Your entries are private and tied to your account.
-          </p>
-          <Link to={ROUTES.auth}>
-            <Button label="Sign In" icon="login" />
-          </Link>
-        </main>
-        <SiteFooter quote={study.footerQuote} />
-      </>
-    );
-  }
-
   return (
     <>
       <SiteHeader title="Walk Before Me" progress={study.completed / study.total} />
@@ -144,6 +132,19 @@ export function ReflectionPage() {
           </p>
         </div>
 
+        {/* Sign-in banner */}
+        {!user && showSignInPrompt && (
+          <div className="mb-6 bg-parchment border border-gold p-4 flex items-center gap-4">
+            <Icon name="lock" className="text-gold" />
+            <p className="font-narrative text-body-md text-navy flex-1">
+              Sign in to save your reflections. Your entries are private and tied to your account.
+            </p>
+            <Link to={ROUTES.auth}>
+              <Button label="Sign In" icon="login" />
+            </Link>
+          </div>
+        )}
+
         {/* Note cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {study.reflectionPrompts.map((p) => (
@@ -157,6 +158,7 @@ export function ReflectionPage() {
               onDelete={() => handleDelete(p.label)}
               saving={savingKeys.has(p.label)}
               saved={!!savedRows[p.label]}
+              showUpdated={showUpdatedKey === p.label}
             />
           ))}
         </div>
@@ -207,10 +209,6 @@ export function ReflectionPage() {
                     type="button"
                     onClick={() => {
                       handleSave(study.prayerPrompt.label);
-                      if (savedRows[study.prayerPrompt.label]) {
-                        setShowUpdatedKey(study.prayerPrompt.label);
-                        setTimeout(() => setShowUpdatedKey(null), 2000);
-                      }
                     }}
                     disabled={savingKeys.has(study.prayerPrompt.label) || !(drafts[study.prayerPrompt.label] || '').trim()}
                     className="inline-flex items-center gap-2 font-chrome text-[12px] font-bold uppercase tracking-[0.1em] px-4 py-2 bg-navy text-parchment border border-gold hover:bg-navy/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-secondary disabled:opacity-50"
