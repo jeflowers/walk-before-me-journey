@@ -23,6 +23,8 @@ export function ReflectionPage() {
   const [drafts, setDrafts] = useState<Record<string, string>>({});
   const [savedRows, setSavedRows] = useState<Record<string, ReflectionRow>>({});
   const [savingKeys, setSavingKeys] = useState<Set<string>>(new Set());
+  const [confirmDeleteKey, setConfirmDeleteKey] = useState<string | null>(null);
+  const [showUpdatedKey, setShowUpdatedKey] = useState<string | null>(null);
 
   useEffect(() => {
     if (!user) return;
@@ -179,30 +181,66 @@ export function ReflectionPage() {
               onChange={(e) => handleChange(study.prayerPrompt.label, e.target.value)}
             />
             <div className="flex items-center gap-3 mt-1">
-              <button
-                type="button"
-                onClick={() => handleSave(study.prayerPrompt.label)}
-                disabled={savingKeys.has(study.prayerPrompt.label)}
-                className="inline-flex items-center gap-2 font-chrome text-[12px] font-bold uppercase tracking-[0.1em] px-4 py-2 bg-navy text-parchment border border-gold hover:bg-navy/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-secondary disabled:opacity-50"
-              >
-                <Icon name="check" size={16} />
-                {savingKeys.has(study.prayerPrompt.label) ? 'Saving...' : savedRows[study.prayerPrompt.label] ? 'Update' : 'Save'}
-              </button>
-              {savedRows[study.prayerPrompt.label] && (
-                <button
-                  type="button"
-                  onClick={() => handleDelete(study.prayerPrompt.label)}
-                  className="inline-flex items-center gap-2 font-chrome text-[12px] font-bold uppercase tracking-[0.1em] px-4 py-2 border border-navy/40 text-navy hover:border-navy focus-visible:outline focus-visible:outline-2 focus-visible:outline-secondary"
-                >
-                  <Icon name="delete" size={16} />
-                  Delete
-                </button>
-              )}
-              {savedRows[study.prayerPrompt.label] && (
-                <span className="ml-auto font-chrome text-[11px] uppercase tracking-[0.1em] text-navy/60 flex items-center gap-1">
-                  <Icon name="cloud_done" size={14} />
-                  Saved
-                </span>
+              {confirmDeleteKey === study.prayerPrompt.label ? (
+                <div className="flex items-center gap-3 w-full border border-red-400/50 bg-red-50 p-3">
+                  <Icon name="warning" size={18} className="text-red-600" />
+                  <span className="font-chrome text-[12px] font-bold uppercase tracking-[0.05em] text-red-700">Delete this entry?</span>
+                  <button
+                    type="button"
+                    onClick={() => { setConfirmDeleteKey(null); handleDelete(study.prayerPrompt.label); }}
+                    className="ml-auto inline-flex items-center gap-2 font-chrome text-[12px] font-bold uppercase tracking-[0.1em] px-4 py-2 bg-red-600 text-white hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-secondary"
+                  >
+                    <Icon name="delete" size={16} />
+                    Confirm
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setConfirmDeleteKey(null)}
+                    className="inline-flex items-center gap-2 font-chrome text-[12px] font-bold uppercase tracking-[0.1em] px-4 py-2 border border-navy/40 text-navy hover:border-navy focus-visible:outline focus-visible:outline-2 focus-visible:outline-secondary"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              ) : (
+                <>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      handleSave(study.prayerPrompt.label);
+                      if (savedRows[study.prayerPrompt.label]) {
+                        setShowUpdatedKey(study.prayerPrompt.label);
+                        setTimeout(() => setShowUpdatedKey(null), 2000);
+                      }
+                    }}
+                    disabled={savingKeys.has(study.prayerPrompt.label) || !(drafts[study.prayerPrompt.label] || '').trim()}
+                    className="inline-flex items-center gap-2 font-chrome text-[12px] font-bold uppercase tracking-[0.1em] px-4 py-2 bg-navy text-parchment border border-gold hover:bg-navy/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-secondary disabled:opacity-50"
+                  >
+                    <Icon name="check" size={16} />
+                    {savingKeys.has(study.prayerPrompt.label) ? 'Saving...' : savedRows[study.prayerPrompt.label] ? 'Update' : 'Save'}
+                  </button>
+                  {savedRows[study.prayerPrompt.label] && (
+                    <button
+                      type="button"
+                      onClick={() => setConfirmDeleteKey(study.prayerPrompt.label)}
+                      className="inline-flex items-center gap-2 font-chrome text-[12px] font-bold uppercase tracking-[0.1em] px-4 py-2 border border-navy/40 text-navy hover:border-navy focus-visible:outline focus-visible:outline-2 focus-visible:outline-secondary"
+                    >
+                      <Icon name="delete" size={16} />
+                      Delete
+                    </button>
+                  )}
+                  {showUpdatedKey === study.prayerPrompt.label && (
+                    <span className="ml-auto font-chrome text-[11px] uppercase tracking-[0.1em] text-green-700 flex items-center gap-1">
+                      <Icon name="check_circle" size={14} />
+                      Updated
+                    </span>
+                  )}
+                  {showUpdatedKey !== study.prayerPrompt.label && savedRows[study.prayerPrompt.label] && (
+                    <span className="ml-auto font-chrome text-[11px] uppercase tracking-[0.1em] text-navy/60 flex items-center gap-1">
+                      <Icon name="cloud_done" size={14} />
+                      Saved
+                    </span>
+                  )}
+                </>
               )}
             </div>
           </div>
