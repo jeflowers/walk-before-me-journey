@@ -123,10 +123,10 @@ export function WaypointPage() {
             <div className="border border-gold/60 p-6 flex flex-col gap-3">
               <span className="font-chrome text-[12px] font-bold uppercase tracking-[0.15em] text-gold">Materials</span>
               {['Facilitator Guide', 'Student Handout', 'Quick Reference Card', 'Print Study'].map((mat) => (
-                <span key={mat} className="flex items-center gap-3">
+                <button key={mat} type="button" className="flex items-center gap-3 text-left hover:text-secondary transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-secondary">
                   <Icon name="library_books" size={18} className="text-secondary" />
-                  <span className="font-narrative text-[16px] text-on-surface">{mat}</span>
-                </span>
+                  <span className="font-narrative text-[16px] text-on-surface hover:text-secondary">{mat}</span>
+                </button>
               ))}
             </div>
 
