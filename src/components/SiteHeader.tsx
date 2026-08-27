@@ -17,7 +17,7 @@ export function SiteHeader({ title = 'Walk Before Me', progress = 0 }: { title?:
       <div className="max-w-container mx-auto h-16 px-margin-mobile md:px-0 flex items-center justify-between">
         <div className="flex items-center gap-4 shrink-0 whitespace-nowrap">
           <Icon name="menu" className="text-gold md:hidden" />
-          <span className="font-chrome text-[12px] font-bold uppercase tracking-[0.2em] text-gold">Emmaus Road</span>
+          <NavLink to={ROUTES.landing} className="font-chrome text-[12px] font-bold uppercase tracking-[0.2em] text-gold hover:text-secondary">Emmaus Road</NavLink>
           <span className="text-outline-variant hidden md:inline">|</span>
           <span className="font-chrome text-[14px] font-bold uppercase tracking-[0.12em] text-parchment hidden md:inline">{title}</span>
         </div>
