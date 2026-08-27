@@ -29,7 +29,7 @@ export function SiteHeader({ title = 'Walk Before Me', progress = 0 }: { title?:
           ))}
         </nav>
         <div className="flex items-center gap-4 shrink-0">
-          <Icon name="search" className="text-gold hidden md:inline-block" />
+          <NavLink to={ROUTES.lexicon} aria-label="Search Lexicon" className="hidden md:inline-block text-gold hover:text-secondary"><Icon name="search" /></NavLink>
           <NavLink to={ROUTES.profile} aria-label="Profile"><Icon name="account_circle" filled className="text-gold" /></NavLink>
         </div>
       </div>

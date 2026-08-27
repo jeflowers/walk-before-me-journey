@@ -7,6 +7,8 @@ import { ScriptureBlock } from '@app/components/ScriptureBlock';
 import { SiteHeader } from '@app/components/SiteHeader';
 import { SiteFooter } from '@app/components/SiteFooter';
 import { PSALM_26 } from '@app/data/psalm26';
+import { useProgress } from '@app/lib/useProgress';
+import { useAuth } from '@app/lib/auth';
 
 export function WaypointPage() {
   const { number } = useParams<{ number: string }>();
@@ -25,6 +27,10 @@ export function WaypointPage() {
       </>
     );
   }
+
+  const { user } = useAuth();
+  const { getState, markComplete } = useProgress(study.id, study.waypoints);
+  const wpState = getState(waypoint.number);
 
   const prev = idx > 0 ? study.waypoints[idx - 1] : null;
   const next = idx < study.waypoints.length - 1 ? study.waypoints[idx + 1] : null;
@@ -129,6 +135,20 @@ export function WaypointPage() {
                 </button>
               ))}
             </div>
+
+            {/* Mark Complete */}
+            {user && wpState !== 'complete' && (
+              <div className="border border-gold/60 p-6 flex flex-col gap-3">
+                <span className="font-chrome text-[12px] font-bold uppercase tracking-[0.15em] text-gold">Progress</span>
+                <Button label="Mark Complete" icon="check_circle" onClick={() => markComplete(waypoint.number)} />
+              </div>
+            )}
+            {user && wpState === 'complete' && (
+              <div className="border border-secondary/60 p-6 flex items-center gap-3">
+                <Icon name="check_circle" filled className="text-secondary" />
+                <span className="font-chrome text-[12px] font-bold uppercase tracking-[0.1em] text-secondary">Completed</span>
+              </div>
+            )}
 
             {/* Reflect */}
             <div className="border border-gold/60 p-6 flex flex-col gap-3">
