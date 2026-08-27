@@ -61,7 +61,7 @@ export function StudyHomePage() {
     <>
       <SiteHeader title="Walk Before Me" progress={completedCount / study.total} />
       <main className="max-w-container mx-auto px-margin-mobile md:px-0">
-        <section className="mt-8">
+        <section className="mt-4">
           <MeetingCard />
         </section>
 

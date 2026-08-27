@@ -13,6 +13,10 @@ export function LandingPage() {
     <>
       <SiteHeader title="Psalm 26" progress={0} />
       <main className="max-w-container mx-auto px-margin-mobile md:px-0">
+        <section className="mt-6">
+          <MeetingCard />
+        </section>
+
         {/* Hero */}
         <section className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center py-16 border-b border-gold/40">
           <div className="md:col-span-6 flex flex-col gap-6">
@@ -40,10 +44,6 @@ export function LandingPage() {
           <div className="md:col-span-6 h-[300px] md:h-[420px] border border-gold p-2 bg-surface-container-lowest">
             <img className="w-full h-full object-cover" src={study.heroImage} alt={study.title} />
           </div>
-        </section>
-
-        <section className="mt-10">
-          <MeetingCard />
         </section>
 
         {/* Waypoint cards */}
