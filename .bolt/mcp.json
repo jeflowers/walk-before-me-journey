@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "github": {
+      "enabled": true
+    },
+    "notion": {
+      "enabled": true
+    },
+    "huggingface": {
+      "enabled": false
+    },
+    "firecrawl": {
+      "enabled": false
+    }
+  }
+}
