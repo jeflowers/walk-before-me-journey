@@ -14,7 +14,7 @@ export function MeetingCard() {
   const { user, loading: authLoading } = useAuth();
   const { approved, loading: roleLoading } = useRole();
   const meeting = useMeetingAccess(FAMILY_PRAYER.slug);
-  const { format, toggle, timeZone } = useTimeFormat();
+  const { format, timeZone } = useTimeFormat();
   const [showPasscode, setShowPasscode] = useState(false);
   const [copied, setCopied] = useState(false);
 
@@ -27,16 +27,6 @@ export function MeetingCard() {
     setTimeout(() => setCopied(false), 2000);
   }, []);
 
-  const timeToggle = (
-    <button
-      type="button"
-      onClick={toggle}
-      className="ml-auto font-chrome text-[11px] uppercase tracking-[0.1em] text-secondary border border-secondary px-2 py-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-secondary"
-      aria-label={hour12 ? 'Switch to 24-hour time' : 'Switch to 12-hour time'}
-    >
-      {hour12 ? '24h' : '12h'}
-    </button>
-  );
 
   if (authLoading || roleLoading || meeting.loading) {
     return (
@@ -104,7 +94,6 @@ export function MeetingCard() {
         <div className="flex items-center gap-3 mb-3">
           <Icon name="videocam" className="text-gold" />
           <h3 className="font-chrome text-headline-sm uppercase text-primary">{FAMILY_PRAYER.title}</h3>
-          {timeToggle}
         </div>
         <div className="flex items-center gap-3 mb-3">
           {isLive && <Chip>Live Now</Chip>}
@@ -123,7 +112,6 @@ export function MeetingCard() {
         <Icon name="videocam" className="text-gold" />
         <h3 className="font-chrome text-headline-sm uppercase text-primary">{FAMILY_PRAYER.title}</h3>
         {isLive && <Chip>Live Now</Chip>}
-        {timeToggle}
       </div>
 
       <div className="flex items-center gap-3 mb-5">
