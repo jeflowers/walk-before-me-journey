@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { ROUTES } from '@app/app/routes';
 import { Icon } from '@app/components/Icon';
+import { useAuth } from '@app/lib/auth';
 
 const NAV: { label: string; to: string }[] = [
   { label: 'Journey', to: ROUTES.studyHome },
@@ -10,8 +11,9 @@ const NAV: { label: string; to: string }[] = [
   { label: 'Lexicon', to: ROUTES.lexicon },
 ];
 
-/** Persistent navy header with the 2px gold rule; the gold progress line tracks study completion (DESIGN.md "Progress Indicators"). */
 export function SiteHeader({ title = 'Walk Before Me', progress = 0 }: { title?: string; progress?: number }) {
+  const { user, displayName } = useAuth();
+
   return (
     <header className="w-full bg-navy border-b-2 border-gold relative">
       <div className="max-w-container mx-auto h-16 px-margin-mobile md:px-0 flex items-center justify-between">
@@ -28,9 +30,14 @@ export function SiteHeader({ title = 'Walk Before Me', progress = 0 }: { title?:
             </NavLink>
           ))}
         </nav>
-        <div className="flex items-center gap-4 shrink-0">
+        <div className="flex items-center gap-3 shrink-0">
           <NavLink to={ROUTES.lexicon} aria-label="Search Lexicon" className="hidden md:inline-block text-gold hover:text-secondary"><Icon name="search" /></NavLink>
-          <NavLink to={ROUTES.profile} aria-label="Profile"><Icon name="account_circle" filled className="text-gold" /></NavLink>
+          <NavLink to={ROUTES.profile} aria-label="Profile" className="flex flex-col items-center gap-0.5">
+            <Icon name="account_circle" filled className="text-gold" />
+            {user && displayName && (
+              <span className="font-chrome text-[9px] font-bold uppercase tracking-[0.05em] text-gold leading-none">{displayName}</span>
+            )}
+          </NavLink>
         </div>
       </div>
       <div className="absolute left-0 -bottom-[2px] h-[2px] bg-secondary" style={{ width: `${Math.round(progress * 100)}%` }} aria-hidden="true" />

@@ -29,7 +29,7 @@ interface ProgressEntry {
 
 export function ProfilePage() {
   const study = PSALM_26;
-  const { user, loading: authLoading, signOut } = useAuth();
+  const { user, loading: authLoading, signOut, refreshProfile } = useAuth();
 
   const [profile, setProfile] = useState<Profile | null>(null);
   const [reflections, setReflections] = useState<ReflectionEntry[]>([]);
@@ -70,6 +70,7 @@ export function ProfilePage() {
       .select('first_name, last_name, avatar_url')
       .maybeSingle();
     if (data) setProfile(data);
+    await refreshProfile();
     setSaving(false);
     setEditing(false);
   }
