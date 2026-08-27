@@ -8,6 +8,7 @@ import { SiteHeader } from '@app/components/SiteHeader';
 import { SiteFooter } from '@app/components/SiteFooter';
 import { PSALM_26 } from '@app/data/psalm26';
 import { useProgress } from '@app/lib/useProgress';
+import { getMaterials, getMaterialUrl } from '@app/data/materials';
 import { useAuth } from '@app/lib/auth';
 
 export function WaypointPage() {
@@ -128,16 +129,17 @@ export function WaypointPage() {
             {/* Materials */}
             <div className="border border-gold/60 p-6 flex flex-col gap-3">
               <span className="font-chrome text-[12px] font-bold uppercase tracking-[0.15em] text-gold">Materials</span>
-              {['Facilitator Guide', 'Student Handout', 'Quick Reference Card', 'Print Study'].map((mat) => (
-                <button
-                  key={mat}
-                  type="button"
+              {getMaterials(waypoint.number).map((item) => (
+                <a
+                  key={item.type}
+                  href={getMaterialUrl(item.filename)}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-3 text-left hover:text-secondary transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-secondary"
-                  onClick={() => alert(`${mat} will be available soon.`)}
                 >
-                  <Icon name="library_books" size={18} className="text-secondary" />
-                  <span className="font-narrative text-[16px] text-on-surface hover:text-secondary">{mat}</span>
-                </button>
+                  <Icon name={item.icon} size={18} className="text-secondary" />
+                  <span className="font-narrative text-[16px] text-on-surface hover:text-secondary">{item.label}</span>
+                </a>
               ))}
             </div>
 

@@ -31,7 +31,9 @@ export function LandingPage() {
               <Link to={ROUTES.studyHome}>
                 <Button label="Begin the Journey" />
               </Link>
-              <Button label="Facilitator Materials" style="outline" icon="menu_book" />
+              <Link to={ROUTES.waypoints}>
+                <Button label="Facilitator Materials" style="outline" icon="menu_book" />
+              </Link>
             </div>
           </div>
           <div className="md:col-span-6 h-[300px] md:h-[420px] border border-gold p-2 bg-surface-container-lowest">
