@@ -71,21 +71,20 @@ export function JournalField({ prompt, rows = 8, value, onChange, onSave, onDele
             type="button"
             onClick={onSave}
             disabled={saving || !value.trim()}
-            className="inline-flex items-center gap-2 font-chrome text-[12px] font-bold uppercase tracking-[0.1em] px-4 py-2 bg-navy text-parchment border border-gold hover:bg-navy/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-secondary disabled:opacity-50"
+            className="inline-flex items-center gap-2 font-chrome text-[12px] font-bold uppercase tracking-[0.1em] px-4 py-2 bg-navy text-parchment border border-gold hover:bg-navy/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-secondary disabled:opacity-40 disabled:cursor-not-allowed"
           >
-            <Icon name="check" size={16} />
+            <Icon name={saved ? 'sync' : 'check'} size={16} />
             {saving ? 'Saving...' : saved ? 'Update' : 'Save'}
           </button>
-          {saved && (
-            <button
-              type="button"
-              onClick={handleDelete}
-              className="inline-flex items-center gap-2 font-chrome text-[12px] font-bold uppercase tracking-[0.1em] px-4 py-2 border border-navy/40 text-navy hover:border-navy focus-visible:outline focus-visible:outline-2 focus-visible:outline-secondary"
-            >
-              <Icon name="delete" size={16} />
-              Delete
-            </button>
-          )}
+          <button
+            type="button"
+            onClick={handleDelete}
+            disabled={!saved}
+            className="inline-flex items-center gap-2 font-chrome text-[12px] font-bold uppercase tracking-[0.1em] px-4 py-2 border border-navy/40 text-navy hover:border-navy focus-visible:outline focus-visible:outline-2 focus-visible:outline-secondary disabled:opacity-40 disabled:cursor-not-allowed"
+          >
+            <Icon name="delete" size={16} />
+            Delete
+          </button>
           {showUpdated && (
             <span className="ml-auto font-chrome text-[11px] uppercase tracking-[0.1em] text-green-700 flex items-center gap-1">
               <Icon name="check_circle" size={14} />

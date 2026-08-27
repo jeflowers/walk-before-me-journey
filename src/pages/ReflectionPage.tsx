@@ -211,21 +211,20 @@ export function ReflectionPage() {
                       handleSave(study.prayerPrompt.label);
                     }}
                     disabled={savingKeys.has(study.prayerPrompt.label) || !(drafts[study.prayerPrompt.label] || '').trim()}
-                    className="inline-flex items-center gap-2 font-chrome text-[12px] font-bold uppercase tracking-[0.1em] px-4 py-2 bg-navy text-parchment border border-gold hover:bg-navy/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-secondary disabled:opacity-50"
+                    className="inline-flex items-center gap-2 font-chrome text-[12px] font-bold uppercase tracking-[0.1em] px-4 py-2 bg-navy text-parchment border border-gold hover:bg-navy/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-secondary disabled:opacity-40 disabled:cursor-not-allowed"
                   >
-                    <Icon name="check" size={16} />
+                    <Icon name={savedRows[study.prayerPrompt.label] ? 'sync' : 'check'} size={16} />
                     {savingKeys.has(study.prayerPrompt.label) ? 'Saving...' : savedRows[study.prayerPrompt.label] ? 'Update' : 'Save'}
                   </button>
-                  {savedRows[study.prayerPrompt.label] && (
-                    <button
-                      type="button"
-                      onClick={() => setConfirmDeleteKey(study.prayerPrompt.label)}
-                      className="inline-flex items-center gap-2 font-chrome text-[12px] font-bold uppercase tracking-[0.1em] px-4 py-2 border border-navy/40 text-navy hover:border-navy focus-visible:outline focus-visible:outline-2 focus-visible:outline-secondary"
-                    >
-                      <Icon name="delete" size={16} />
-                      Delete
-                    </button>
-                  )}
+                  <button
+                    type="button"
+                    onClick={() => setConfirmDeleteKey(study.prayerPrompt.label)}
+                    disabled={!savedRows[study.prayerPrompt.label]}
+                    className="inline-flex items-center gap-2 font-chrome text-[12px] font-bold uppercase tracking-[0.1em] px-4 py-2 border border-navy/40 text-navy hover:border-navy focus-visible:outline focus-visible:outline-2 focus-visible:outline-secondary disabled:opacity-40 disabled:cursor-not-allowed"
+                  >
+                    <Icon name="delete" size={16} />
+                    Delete
+                  </button>
                   {showUpdatedKey === study.prayerPrompt.label && (
                     <span className="ml-auto font-chrome text-[11px] uppercase tracking-[0.1em] text-green-700 flex items-center gap-1">
                       <Icon name="check_circle" size={14} />
