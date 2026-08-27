@@ -9,7 +9,7 @@ export interface MeetingSchedule {
 }
 
 export const FAMILY_PRAYER: MeetingSchedule = {
-  slug: 'family-prayer',
+  slug: 'family-prayer-zoom-meeting',
   title: 'Family Prayer',
   weekday: 4, // Thursday
   hour: 19,
