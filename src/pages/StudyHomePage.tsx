@@ -61,6 +61,10 @@ export function StudyHomePage() {
     <>
       <SiteHeader title="Walk Before Me" progress={completedCount / study.total} />
       <main className="max-w-container mx-auto px-margin-mobile md:px-0">
+        <section className="mt-8">
+          <MeetingCard />
+        </section>
+
         <section className="relative mt-8 border border-outline-variant overflow-hidden h-[320px] md:h-[420px]">
           <img src={study.heroImage} alt={study.title} className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/70 to-transparent" />
@@ -89,10 +93,6 @@ export function StudyHomePage() {
               <span className="text-[16px] leading-[1.5] text-on-surface-variant hidden md:block">{action.detail}</span>
             </Link>
           ))}
-        </section>
-
-        <section className="mt-8">
-          <MeetingCard />
         </section>
 
         <section className="mt-12 border border-outline-variant bg-surface-container-low p-6 md:p-8">
