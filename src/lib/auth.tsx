@@ -7,6 +7,7 @@ interface AuthState {
   user: User | null;
   loading: boolean;
   displayName: string | null;
+  avatarUrl: string | null;
   refreshProfile: () => Promise<void>;
   signOut: () => Promise<void>;
 }
@@ -16,6 +17,7 @@ const AuthContext = createContext<AuthState>({
   user: null,
   loading: true,
   displayName: null,
+  avatarUrl: null,
   refreshProfile: async () => {},
   signOut: async () => {},
 });
@@ -24,14 +26,16 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [session, setSession] = useState<Session | null>(null);
   const [loading, setLoading] = useState(true);
   const [displayName, setDisplayName] = useState<string | null>(null);
+  const [avatarUrl, setAvatarUrl] = useState<string | null>(null);
 
   async function fetchProfile(userId: string) {
     const { data } = await supabase
       .from('profiles')
-      .select('first_name, username')
+      .select('first_name, username, avatar_url')
       .eq('id', userId)
       .maybeSingle();
     setDisplayName(data?.username || data?.first_name || null);
+    setAvatarUrl(data?.avatar_url || null);
   }
 
   useEffect(() => {
@@ -47,6 +51,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         fetchProfile(s.user.id);
       } else {
         setDisplayName(null);
+        setAvatarUrl(null);
       }
     });
 
@@ -61,10 +66,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     await supabase.auth.signOut();
     setSession(null);
     setDisplayName(null);
+    setAvatarUrl(null);
   };
 
   return (
-    <AuthContext.Provider value={{ session, user: session?.user ?? null, loading, displayName, refreshProfile, signOut }}>
+    <AuthContext.Provider value={{ session, user: session?.user ?? null, loading, displayName, avatarUrl, refreshProfile, signOut }}>
       {children}
     </AuthContext.Provider>
   );

@@ -14,7 +14,7 @@ const NAV: { label: string; to: string }[] = [
 ];
 
 export function SiteHeader({ title = 'Walk Before Me', progress = 0 }: { title?: string; progress?: number }) {
-  const { user, displayName } = useAuth();
+  const { user, displayName, avatarUrl } = useAuth();
   const [searchOpen, setSearchOpen] = useState(false);
 
   return (
@@ -39,7 +39,13 @@ export function SiteHeader({ title = 'Walk Before Me', progress = 0 }: { title?:
               <Icon name="search" />
             </button>
             <NavLink to={ROUTES.profile} aria-label="Profile" className="flex flex-col items-center gap-0.5">
-              <Icon name="account_circle" filled className="text-gold" />
+              {avatarUrl ? (
+                <div className="w-7 h-7 border border-gold overflow-hidden rounded-full">
+                  <img src={avatarUrl} alt={displayName || 'Profile'} className="w-full h-full object-cover" />
+                </div>
+              ) : (
+                <Icon name="account_circle" filled className="text-gold" />
+              )}
               {user && displayName && (
                 <span className="font-chrome text-[9px] font-bold uppercase tracking-[0.05em] text-gold leading-none">{displayName}</span>
               )}
