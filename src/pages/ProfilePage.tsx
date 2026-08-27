@@ -43,6 +43,7 @@ export function ProfilePage() {
   const [username, setUsername] = useState('');
   const [saving, setSaving] = useState(false);
   const [uploading, setUploading] = useState(false);
+  const [uploadError, setUploadError] = useState('');
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -83,20 +84,30 @@ export function ProfilePage() {
   async function handleAvatarUpload(e: React.ChangeEvent<HTMLInputElement>) {
     if (!user || !e.target.files?.length) return;
     const file = e.target.files[0];
+    setUploadError('');
+    const extByType: Record<string, string> = {
+      'image/jpeg': 'jpg',
+      'image/png': 'png',
+      'image/webp': 'webp',
+    };
+    const ext = extByType[file.type];
+    if (!ext) {
+      setUploadError('Please choose a JPEG, PNG or WebP image.');
+      return;
+    }
     if (file.size > 2 * 1024 * 1024) {
-      alert('Image must be under 2MB');
+      setUploadError('Image must be under 2MB.');
       return;
     }
     setUploading(true);
-    const ext = file.name.split('.').pop() || 'jpg';
     const path = `${user.id}/avatar.${ext}`;
 
     const { error: uploadError } = await supabase.storage
       .from('avatars')
-      .upload(path, file, { upsert: true });
+      .upload(path, file, { upsert: true, contentType: file.type });
 
     if (uploadError) {
-      console.error('Upload failed:', uploadError.message);
+      setUploadError('We could not upload that image. Please try again.');
       setUploading(false);
       return;
     }
@@ -189,6 +200,10 @@ export function ProfilePage() {
                   className="hidden"
                 />
               </div>
+
+              {uploadError && (
+                <p role="alert" className="font-narrative text-[14px] text-red-400">{uploadError}</p>
+              )}
 
               {/* Name + Edit */}
               {editing ? (

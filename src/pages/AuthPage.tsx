@@ -24,8 +24,8 @@ export function AuthPage() {
     setLoading(true);
 
     if (mode === 'sign-up') {
-      if (password.length < 8 || password.length > 12) {
-        setError('Password must be 8-12 characters long.');
+      if (password.length < 8 || password.length > 128) {
+        setError('Password must be between 8 and 128 characters long.');
         setLoading(false);
         return;
       }
@@ -51,14 +51,14 @@ export function AuthPage() {
       }
       const { error: err } = await supabase.auth.signUp({ email, password });
       if (err) {
-        setError(err.message);
+        setError('We could not complete your sign up. Please check your details and try again.');
         setLoading(false);
         return;
       }
     } else {
       const { error: err } = await supabase.auth.signInWithPassword({ email, password });
       if (err) {
-        setError(err.message);
+        setError('That email and password combination did not match. Please try again.');
         setLoading(false);
         return;
       }
@@ -102,11 +102,11 @@ export function AuthPage() {
                 type="password"
                 required
                 minLength={8}
-                maxLength={12}
+                maxLength={128}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 className="w-full border border-gold bg-transparent px-4 py-3 font-narrative text-body-md text-on-surface placeholder:text-on-surface-variant/60 focus:border-secondary focus:outline-none"
-                placeholder="8-12 chars, upper, lower, number, symbol"
+                placeholder="8+ chars, upper, lower, number, symbol"
               />
             </div>
 
