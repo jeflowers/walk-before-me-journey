@@ -51,7 +51,7 @@ export function WaypointPage() {
 
             {/* Hero image */}
             <div className="relative h-[280px] md:h-[400px] border border-gold p-2 bg-surface-container-lowest">
-              <img className="w-full h-full object-cover" src={waypoint.image} alt="" />
+              <img className="w-full h-full object-cover" src={waypoint.image} alt={waypoint.trackerName} />
               {waypoint.coord && (
                 <div className="absolute right-6 top-6">
                   <Chip style="navy">{waypoint.coord}</Chip>
@@ -99,7 +99,7 @@ export function WaypointPage() {
             <div className="border border-gold/60 p-6 flex flex-col gap-4">
               <span className="font-chrome text-[12px] font-bold uppercase tracking-[0.15em] text-gold">Navigation</span>
               {prevLink ? (
-                <Link to={prevLink} className="flex items-center justify-between border-b border-gold/30 pb-3">
+                <Link to={prevLink} className="flex items-center justify-between border-b border-gold/30 pb-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-secondary">
                   <span className="font-narrative text-[16px] text-on-surface-variant">Previous</span>
                   <span className="font-chrome text-[12px] font-bold uppercase tracking-[0.1em] text-parchment">
                     Waypoint {String(prev!.number).padStart(2, '0')} &middot; {prev!.trackerName}
@@ -111,7 +111,7 @@ export function WaypointPage() {
                   <span className="font-chrome text-[12px] font-bold uppercase tracking-[0.1em] text-parchment">Start of Journey</span>
                 </span>
               )}
-              <Link to={nextLink} className="flex items-center justify-between">
+              <Link to={nextLink} className="flex items-center justify-between focus-visible:outline focus-visible:outline-2 focus-visible:outline-secondary">
                 <span className="font-narrative text-[16px] text-on-surface-variant">Next</span>
                 <span className="font-chrome text-[12px] font-bold uppercase tracking-[0.1em] text-secondary">
                   {next ? `Waypoint ${String(next.number).padStart(2, '0')} \u00b7 ${next.trackerName}` : 'Journey Complete'}

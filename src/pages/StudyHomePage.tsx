@@ -32,7 +32,7 @@ function ProgressNode({ waypoint, last }: { waypoint: Waypoint; last: boolean })
         {!last ? <div className={`flex-1 h-[2px] ml-2 ${locked ? 'bg-outline-variant' : 'bg-secondary'}`} /> : null}
       </div>
       <span className={`font-chrome text-[10px] uppercase tracking-[0.15em] ${locked ? 'text-outline' : 'text-secondary'}`}>Waypoint {waypoint.numeral}</span>
-      <Link to={ROUTES.waypoint.replace(':number', String(waypoint.number))} className={`font-chrome text-[16px] ${waypoint.state === 'current' ? 'font-bold text-on-surface' : locked ? 'text-outline' : 'text-on-surface'}`}>
+      <Link to={ROUTES.waypoint.replace(':number', String(waypoint.number))} className={`font-chrome text-[16px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-secondary ${waypoint.state === 'current' ? 'font-bold text-on-surface' : locked ? 'text-outline' : 'text-on-surface'}`}>
         {waypoint.name}
       </Link>
     </li>
@@ -48,7 +48,7 @@ export function StudyHomePage() {
       <SiteHeader title="Walk Before Me" progress={study.completed / study.total} />
       <main className="max-w-container mx-auto px-margin-mobile md:px-0">
         <section className="relative mt-8 border border-outline-variant overflow-hidden h-[320px] md:h-[420px]">
-          <img src={study.heroImage} alt="" className="w-full h-full object-cover" />
+          <img src={study.heroImage} alt={study.title} className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/70 to-transparent" />
           <div className="absolute left-6 md:left-10 bottom-6 md:bottom-10 flex flex-col gap-3">
             <span className="font-chrome text-label-technical uppercase tracking-[0.2em] text-secondary">Emmaus Road</span>
@@ -63,7 +63,7 @@ export function StudyHomePage() {
 
         <section className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mt-8">
           {QUICK_ACTIONS.map((action) => (
-            <Link key={action.label} to={action.to} className="border border-outline-variant bg-surface-container-low p-5 md:p-6 flex flex-col gap-3">
+            <Link key={action.label} to={action.to} className="border border-outline-variant bg-surface-container-low p-5 md:p-6 flex flex-col gap-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-secondary">
               <Icon name={action.icon} className="text-secondary" />
               <span className="font-chrome text-label-technical uppercase text-on-surface">{action.label}</span>
               <span className="text-[16px] leading-[1.5] text-on-surface-variant hidden md:block">{action.detail}</span>

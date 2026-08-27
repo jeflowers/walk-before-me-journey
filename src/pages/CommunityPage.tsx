@@ -43,7 +43,7 @@ export function CommunityPage() {
               key={f}
               type="button"
               onClick={() => setActive(f)}
-              className={`font-chrome text-[12px] font-bold uppercase tracking-[0.1em] px-2 py-1 ${
+              className={`font-chrome text-[12px] font-bold uppercase tracking-[0.1em] px-2 py-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-secondary ${
                 f === active
                   ? 'bg-secondary text-navy'
                   : 'border border-gold text-gold'

@@ -35,7 +35,7 @@ export function LandingPage() {
             </div>
           </div>
           <div className="md:col-span-6 h-[300px] md:h-[420px] border border-gold p-2 bg-surface-container-lowest">
-            <img className="w-full h-full object-cover" src={study.heroImage} alt="" />
+            <img className="w-full h-full object-cover" src={study.heroImage} alt={study.title} />
           </div>
         </section>
 

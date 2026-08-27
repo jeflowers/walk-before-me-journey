@@ -80,7 +80,7 @@ export function WaypointsPage() {
                 {current.trackerName} <span className="text-secondary">({current.verses})</span>
               </h2>
               <div className="h-[260px] border border-gold p-2">
-                <img className="w-full h-full object-cover" src={current.image} alt="" />
+                <img className="w-full h-full object-cover" src={current.image} alt={current.trackerName} />
               </div>
               <ScriptureBlock scripture={current.scripture} />
               <p className="font-narrative text-body-md leading-[1.6] text-on-surface">

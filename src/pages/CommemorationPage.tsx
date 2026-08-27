@@ -31,7 +31,7 @@ export function CommemorationPage() {
 
             {/* Hero image */}
             <div className="h-[240px] md:h-[320px] border border-gold p-2 bg-surface-container-lowest">
-              <img className="w-full h-full object-cover" src={study.heroImage} alt="" />
+              <img className="w-full h-full object-cover" src={study.heroImage} alt={study.title} />
             </div>
 
             {/* Core mandate scripture card */}

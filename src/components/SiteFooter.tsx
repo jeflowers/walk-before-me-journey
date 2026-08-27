@@ -11,7 +11,7 @@ export function SiteFooter({ quote }: { quote: Scripture }) {
         </div>
         <div className="md:col-span-5 flex md:justify-end gap-8 whitespace-nowrap">
           {['About the Journey', 'Historical Context', 'Privacy'].map((label) => (
-            <a key={label} href="#" className="font-chrome text-label-technical uppercase text-secondary">{label}</a>
+            <a key={label} href="#" className="font-chrome text-label-technical uppercase text-secondary focus-visible:outline focus-visible:outline-2 focus-visible:outline-secondary">{label}</a>
           ))}
         </div>
       </div>

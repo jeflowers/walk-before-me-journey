@@ -9,9 +9,8 @@ import { CommunityPage } from '@app/pages/CommunityPage';
 import { LexiconPage } from '@app/pages/LexiconPage';
 import { ProfilePage } from '@app/pages/ProfilePage';
 import { CommemorationPage } from '@app/pages/CommemorationPage';
-import { PlaceholderPage } from '@app/pages/PlaceholderPage';
+import { ReflectionPage } from '@app/pages/ReflectionPage';
 
-/** One entry per screen in the Psalm 26 flow. Replace each PlaceholderPage as the page is built. */
 export const router = createBrowserRouter([
   {
     element: <AppShell />,
@@ -20,7 +19,7 @@ export const router = createBrowserRouter([
       { path: ROUTES.studyHome, element: <StudyHomePage /> },
       { path: ROUTES.waypoints, element: <WaypointsPage /> },
       { path: ROUTES.waypoint, element: <WaypointPage /> },
-      { path: ROUTES.reflection, element: <PlaceholderPage name="Personal Reflection" reference="reference/desktop/personal_reflection_psalm_26.html" /> },
+      { path: ROUTES.reflection, element: <ReflectionPage /> },
       { path: ROUTES.community, element: <CommunityPage /> },
       { path: ROUTES.lexicon, element: <LexiconPage /> },
       { path: ROUTES.profile, element: <ProfilePage /> },

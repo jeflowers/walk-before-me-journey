@@ -18,7 +18,7 @@ export function ProfilePage() {
             <div className="border-t-4 border-secondary bg-surface-container-low p-8 flex flex-col items-center gap-4 text-center">
               <div className="w-32 h-32 border border-gold p-1">
                 <div className="w-full h-full overflow-hidden">
-                  <img className="w-full h-full object-cover" src={PROFILE.avatar} alt="" />
+                  <img className="w-full h-full object-cover" src={PROFILE.avatar} alt={`${PROFILE.name} profile`} />
                 </div>
               </div>
               <h1 className="font-chrome text-[32px] font-semibold uppercase tracking-[0.05em] text-primary">{PROFILE.name}</h1>

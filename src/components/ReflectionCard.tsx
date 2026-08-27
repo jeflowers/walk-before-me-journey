@@ -17,7 +17,7 @@ export function ReflectionCard({ reflection }: ReflectionCardProps) {
       <div className="flex items-center gap-3">
         <div className="w-10 h-10 rounded-full overflow-hidden border border-navy">
           {reflection.avatar ? (
-            <img className="w-full h-full object-cover" src={reflection.avatar} alt="" />
+            <img className="w-full h-full object-cover" src={reflection.avatar} alt={`${reflection.author} avatar`} />
           ) : (
             <div className="w-full h-full bg-navy flex items-center justify-center">
               <Icon name="person" className="text-gold" />

@@ -12,7 +12,7 @@ export function WaypointCard({ waypoint, flip }: WaypointCardProps) {
   return (
     <section className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center py-12 border-b border-gold/20">
       <div className={`md:col-span-5 ${flip ? 'md:order-2' : ''} h-48 md:h-[300px] border border-parchment p-2 bg-surface-container-lowest`}>
-        <img className="w-full h-full object-cover" src={waypoint.image} alt="" />
+        <img className="w-full h-full object-cover" src={waypoint.image} alt={waypoint.name} />
       </div>
       <div className={`md:col-span-7 ${flip ? 'md:order-1 md:pr-8' : 'md:pl-8'} flex flex-col gap-5`}>
         <Chip style="filled">Waypoint {waypoint.numeral}</Chip>
