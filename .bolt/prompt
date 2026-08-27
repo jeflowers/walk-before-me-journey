@@ -1,0 +1,13 @@
+You are building "Walk Before Me Journey", a scripture-study web app (Psalm 26 flagship flow). The visual identity is "Modern Artifact": deep navy sheets, gold accents, parchment content cards, EB Garamond for scripture and body, Space Grotesk for chrome and labels, Material Symbols icons, sharp 0px corners, no shadows, 1px hard borders, depth by tonal layers only.
+
+Non-negotiable rules:
+1. Tokens only. Every color, type role, spacing and radius comes from tailwind.config.js (surface, navy, gold, secondary, parchment, on-surface, outline-variant, text-display-lg, text-headline-md, text-headline-sm, text-body-lg, text-body-md, text-scripture, text-label-technical, text-citation, font-chrome, font-narrative, max-w-container, px-margin-mobile, pl-scripture-indent). Never write a hex value in a component.
+2. Layout spec is the reference HTML. Desktop layouts: reference/desktop/*.html (1440px, 1200px container, 12-column grid, 64px margins). Mobile layouts: reference/mobile/*.html (390px, Stitch export). Match structure, spacing and hierarchy; do not invent new sections.
+3. Content comes from src/data/psalm26.ts (typed in src/data/types.ts). No copy in components. Keep KJV 1611 spellings exactly as they are in the data.
+4. Reuse components in src/components before creating new ones: SiteHeader, SiteFooter, BottomNav, Button, Chip, Icon, ScriptureBlock. Build new shared pieces (WaypointCard, TimelineNode, LexiconCard, ReflectionCard, JournalField, IndexedCard) in src/components with named exports.
+5. Code standards: TypeScript strict, named exports only (no default exports except where Vite requires none), absolute imports with @app/..., one component per file, props typed with interfaces, no inline hex, no eval, no external UI kits, react-router-dom v6 for routes (src/app/routes.ts is the route table).
+6. Responsive: desktop first from the desktop reference, then the mobile reference at <768px. Mobile keeps the fixed BottomNav (4 tabs) and a 64px header; desktop hides the BottomNav and shows the nav links.
+7. Accessibility: semantic landmarks, alt text on images, visible focus (outline in secondary color), buttons are <button>, links are <a>/<Link>.
+8. Scope discipline: change only the files named in the prompt. Do not restyle existing components while adding a page. No animations unless asked.
+9. Icons: <Icon name="material_symbol_name" filled /> only; never inline SVG for Material icons.
+10. Every page renders SiteHeader (title + progress) at the top and SiteFooter with PSALM_26.footerQuote at the bottom.

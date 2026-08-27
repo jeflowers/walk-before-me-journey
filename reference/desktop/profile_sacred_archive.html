@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sacred Archive - User Profile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = { darkMode: "class", theme: { extend: { "colors": {"on-surface":"#e5e2db","on-surface-variant":"#c4c6cf","background":"#131410","surface":"#131410","surface-bright":"#3a3935","surface-container-lowest":"#0e0e0b","surface-container-low":"#1c1c18","surface-container":"#20201c","surface-container-high":"#2a2a26","surface-container-highest":"#353530","surface-variant":"#353530","outline":"#8e9198","outline-variant":"#43474e","primary":"#afc8f0","on-primary":"#163152","primary-container":"#001f3f","on-primary-container":"#6f88ad","secondary":"#e9c349","on-secondary":"#3c2f00","secondary-container":"#af8d11","on-secondary-container":"#342800","tertiary":"#c8c6c5","error":"#ffb4ab","parchment":"#f4f1ea","gold":"#d4af37","navy":"#001f3f","parchment-ink":"#e5e2db"}, "fontFamily": { "display-lg": ["Space Grotesk"], "headline-md": ["Space Grotesk"], "headline-sm": ["Space Grotesk"], "body-lg": ["EB Garamond"], "body-md": ["EB Garamond"], "scripture-block": ["EB Garamond"], "label-technical": ["Space Grotesk"], "citation": ["Space Grotesk"] }, "borderRadius": { "DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px" } } } }
+</script>
+<style>
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  .material-symbols-outlined.filled { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  .lines { background-image: repeating-linear-gradient(to bottom, transparent 0, transparent 35px, #001f3f33 35px, #001f3f33 36px); }
+</style>
+</head>
+<body class="antialiased min-h-screen bg-surface text-on-surface font-body-md">
+
+
+<header class="w-full bg-navy border-b-2 border-gold relative">
+  <div class="max-w-[1200px] mx-auto h-16 flex items-center justify-between">
+    <div class="flex items-center gap-4 shrink-0 whitespace-nowrap">
+      <span class="material-symbols-outlined text-gold">menu</span>
+      <span class="font-label-technical text-[12px] font-bold uppercase tracking-[0.2em] text-gold">Emmaus Road</span>
+      <span class="text-outline-variant">|</span>
+      <span class="font-label-technical text-[14px] font-bold uppercase tracking-[0.12em] text-parchment">Sacred Archive</span>
+    </div>
+    <nav class="flex items-center gap-6 shrink-0">
+      <a class="font-label-technical text-[12px] font-bold uppercase tracking-[0.1em] text-gold border-b-2 border-gold pb-1">Journey</a>
+      <a class="font-label-technical text-[12px] font-bold uppercase tracking-[0.1em] text-on-surface-variant">Waypoints</a>
+      <a class="font-label-technical text-[12px] font-bold uppercase tracking-[0.1em] text-on-surface-variant">Scripture</a>
+      <a class="font-label-technical text-[12px] font-bold uppercase tracking-[0.1em] text-on-surface-variant">Reflections</a>
+      <a class="font-label-technical text-[12px] font-bold uppercase tracking-[0.1em] text-on-surface-variant">Community</a>
+      <a class="font-label-technical text-[12px] font-bold uppercase tracking-[0.1em] text-on-surface-variant">Lexicon</a>
+      <a class="font-label-technical text-[12px] font-bold uppercase tracking-[0.1em] text-on-surface-variant">Materials</a>
+    </nav>
+    <div class="flex items-center gap-4 shrink-0">
+      <span class="material-symbols-outlined text-gold">search</span>
+      <span class="material-symbols-outlined text-gold filled">account_circle</span>
+    </div>
+  </div>
+  <div class="absolute left-0 bottom-[-2px] h-[2px] bg-secondary" style="width:100%"></div>
+</header>
+<main class="max-w-[1200px] mx-auto grid grid-cols-12 gap-6 pt-10">
+  <aside class="col-span-4">
+    <div class="border-t-4 border-secondary bg-surface-container-low p-8 flex flex-col items-center gap-4 text-center">
+      <div class="w-32 h-32 border border-gold p-1"><div class="w-full h-full overflow-hidden"><img class="w-full h-full object-cover " src="/images/avatar_profile_theophilus.jpg" alt=""/></div></div>
+      <h1 class="font-headline-md text-[32px] font-semibold uppercase tracking-[0.05em] text-primary">Theophilus</h1>
+      <span class="inline-block w-fit self-start font-label-technical text-[12px] font-bold uppercase tracking-[0.1em] text-gold border border-gold px-2 py-1">Scholar Rank</span>
+      <p class="font-body-md text-[16px] text-on-surface-variant">Two journeys complete. Twelve reflections archived.</p>
+      <div class="flex gap-3 mt-2"><button class="inline-flex items-center gap-2 border border-gold text-gold font-label-technical text-[14px] font-bold uppercase tracking-[0.1em] px-6 py-4">Settings<span class="material-symbols-outlined text-[18px]">settings</span></button></div>
+    </div>
+  </aside>
+  <section class="col-span-8 flex flex-col gap-6">
+    <div class="border border-secondary bg-surface-container-low p-6">
+      <div class="flex items-center justify-between border-b border-secondary pb-3"><span class="font-label-technical text-[12px] font-bold uppercase tracking-[0.15em] text-secondary">Journey Progress</span><span class="material-symbols-outlined text-secondary">timeline</span></div>
+      <div class="mt-5"><div class="flex justify-between"><span class="font-label-technical text-[14px] font-bold uppercase tracking-[0.05em] text-on-surface">Zechariah 4: The Lampstand</span><span class="font-label-technical text-[12px] font-bold text-secondary">100%</span></div><div class="h-[2px] bg-outline-variant mt-2"><div class="h-[2px] bg-secondary" style="width:100%"></div></div></div><div class="mt-5"><div class="flex justify-between"><span class="font-label-technical text-[14px] font-bold uppercase tracking-[0.05em] text-on-surface">Psalm 26: The Path of Integrity</span><span class="font-label-technical text-[12px] font-bold text-secondary">100%</span></div><div class="h-[2px] bg-outline-variant mt-2"><div class="h-[2px] bg-secondary" style="width:100%"></div></div></div><div class="mt-5"><div class="flex justify-between"><span class="font-label-technical text-[14px] font-bold uppercase tracking-[0.05em] text-on-surface">Romans 8: Life in the Spirit</span><span class="font-label-technical text-[12px] font-bold text-secondary">43%</span></div><div class="h-[2px] bg-outline-variant mt-2"><div class="h-[2px] bg-secondary" style="width:43%"></div></div></div>
+    </div>
+    <div class="grid grid-cols-2 gap-6">
+      <div class="border border-secondary bg-surface-container-low p-6">
+        <div class="flex items-center justify-between border-b border-secondary pb-3"><span class="font-label-technical text-[12px] font-bold uppercase tracking-[0.15em] text-secondary">Earned Commemorations</span><span class="material-symbols-outlined text-secondary">military_tech</span></div>
+        <div class="grid grid-cols-2 gap-4 mt-5">
+          <div class="border border-secondary p-5 flex flex-col items-center gap-2 text-center"><span class="material-symbols-outlined filled text-secondary text-[36px]">emoji_objects</span><span class="font-label-technical text-[12px] font-bold uppercase tracking-[0.05em] text-on-surface">The Golden Bowl</span><span class="font-label-technical text-[10px] font-bold uppercase tracking-[0.15em] text-secondary">ZEC 4</span></div><div class="border border-secondary p-5 flex flex-col items-center gap-2 text-center"><span class="material-symbols-outlined filled text-secondary text-[36px]">shield</span><span class="font-label-technical text-[12px] font-bold uppercase tracking-[0.05em] text-on-surface">Path of Integrity</span><span class="font-label-technical text-[10px] font-bold uppercase tracking-[0.15em] text-secondary">PSA 26</span></div>
+        </div>
+      </div>
+      <div class="border border-secondary bg-surface-container-low p-6">
+        <div class="flex items-center justify-between border-b border-secondary pb-3"><span class="font-label-technical text-[12px] font-bold uppercase tracking-[0.15em] text-secondary">Personal Reflections</span><span class="material-symbols-outlined text-secondary">book_4</span></div>
+        <div class="border-l-2 border-secondary pl-4 mt-5"><span class="font-label-technical text-[10px] font-bold uppercase tracking-[0.15em] text-secondary">Oct 24, 2024</span><h3 class="font-label-technical text-[14px] font-bold uppercase text-primary mt-1">On the Infinite Source of Oil</h3><p class="font-body-md italic text-[14px] leading-[1.5] text-on-surface-variant mt-1">The perpetual flow observed in the vision suggests a reliance beyond human effort...</p></div><div class="border-l-2 border-secondary pl-4 mt-5"><span class="font-label-technical text-[10px] font-bold uppercase tracking-[0.15em] text-secondary">Sep 15, 2024</span><h3 class="font-label-technical text-[14px] font-bold uppercase text-primary mt-1">Walking in Truth</h3><p class="font-body-md italic text-[14px] leading-[1.5] text-on-surface-variant mt-1">Vindication is not self-declared but established through a consistent, observable walk...</p></div>
+        <div class="mt-5"><button class="inline-flex items-center gap-2 border border-gold text-gold font-label-technical text-[14px] font-bold uppercase tracking-[0.1em] px-6 py-4">New Entry<span class="material-symbols-outlined text-[18px]">add</span></button></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="w-full bg-surface border-t border-outline-variant mt-16">
+  <div class="max-w-[1200px] mx-auto py-10 grid grid-cols-12 gap-6 items-center">
+    <div class="col-span-7">
+      <p class="font-body-md italic text-[18px] leading-[1.6] text-on-surface-variant">Not by might, nor by power, but by my spirit, saith the LORD of hosts.</p>
+      <p class="font-citation text-[14px] font-bold uppercase tracking-[0.1em] text-gold mt-2">Zechariah 4:6</p>
+    </div>
+    <div class="col-span-5 flex justify-end gap-8 whitespace-nowrap">
+      <a class="font-label-technical text-[12px] font-bold uppercase tracking-[0.1em] text-secondary">About the Journey</a>
+      <a class="font-label-technical text-[12px] font-bold uppercase tracking-[0.1em] text-secondary">Historical Context</a>
+      <a class="font-label-technical text-[12px] font-bold uppercase tracking-[0.1em] text-secondary">Privacy</a>
+    </div>
+  </div>
+</footer>
+</body></html>

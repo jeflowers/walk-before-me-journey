@@ -1,0 +1,220 @@
+<!DOCTYPE html><html class="dark" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Walk Before Me - Waypoints</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#c8c6c5",
+                        "secondary": "#e9c349",
+                        "secondary-fixed": "#ffe088",
+                        "on-error": "#690005",
+                        "on-primary-fixed-variant": "#2f486a",
+                        "on-secondary-fixed": "#241a00",
+                        "on-primary-container": "#6f88ad",
+                        "outline-variant": "#43474e",
+                        "on-background": "#e5e2db",
+                        "on-surface": "#e5e2db",
+                        "on-tertiary-container": "#888686",
+                        "surface": "#131410",
+                        "inverse-surface": "#e5e2db",
+                        "surface-container-high": "#2a2a26",
+                        "surface-container": "#20201c",
+                        "secondary-container": "#af8d11",
+                        "on-tertiary": "#313030",
+                        "primary-fixed": "#d4e3ff",
+                        "primary": "#afc8f0",
+                        "on-surface-variant": "#c4c6cf",
+                        "secondary-fixed-dim": "#e9c349",
+                        "surface-bright": "#3a3935",
+                        "primary-container": "#001f3f",
+                        "surface-container-lowest": "#0e0e0b",
+                        "primary-fixed-dim": "#afc8f0",
+                        "on-secondary": "#3c2f00",
+                        "background": "#131410",
+                        "tertiary": "#c8c6c5",
+                        "error-container": "#93000a",
+                        "on-secondary-fixed-variant": "#574500",
+                        "surface-container-highest": "#353530",
+                        "tertiary-fixed": "#e5e2e1",
+                        "on-tertiary-fixed": "#1c1b1b",
+                        "inverse-on-surface": "#31312c",
+                        "tertiary-container": "#1f1f1f",
+                        "on-secondary-container": "#342800",
+                        "on-primary-fixed": "#001c3a",
+                        "on-error-container": "#ffdad6",
+                        "surface-variant": "#353530",
+                        "inverse-primary": "#476083",
+                        "outline": "#8e9198",
+                        "on-tertiary-fixed-variant": "#474746",
+                        "surface-container-low": "#1c1c18",
+                        "error": "#ffb4ab",
+                        "surface-dim": "#131410",
+                        "surface-tint": "#afc8f0",
+                        "on-primary": "#163152",
+                        "parchment": "#F4F1EA"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "scripture-indent": "32px",
+                        "unit": "4px",
+                        "margin-mobile": "16px",
+                        "container-max": "1200px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["EB Garamond"],
+                        "scripture-block": ["EB Garamond"],
+                        "display-lg": ["Space Grotesk"],
+                        "headline-sm": ["Space Grotesk"],
+                        "body-md": ["EB Garamond"],
+                        "headline-md": ["Space Grotesk"],
+                        "label-technical": ["Space Grotesk"],
+                        "citation": ["Space Grotesk"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["20px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "scripture-block": ["22px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-sm": ["20px", { "lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "body-md": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-md": ["32px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "label-technical": ["12px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                        "citation": ["14px", { "lineHeight": "1", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: theme('colors.surface'); color: theme('colors.on-surface'); }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+</head>
+<body class="font-body-md antialiased pb-24 pt-16">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface-container-lowest text-secondary dark:text-secondary fixed top-0 w-full z-50 border-b border-secondary-container transition-colors duration-200 flex justify-between items-center px-margin-mobile h-16 w-full">
+<button class="hover:opacity-80 p-2 -ml-2">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-headline-sm text-headline-sm text-secondary uppercase tracking-widest font-bold">Walk Before Me</h1>
+<button class="hover:opacity-80 p-2 -mr-2">
+<span class="material-symbols-outlined">history_edu</span>
+</button>
+</header>
+<main class="max-w-[1200px] mx-auto px-margin-mobile py-8">
+<div class="mb-12">
+<h2 class="font-headline-md text-headline-md text-secondary mb-2">Psalm 26</h2>
+<p class="font-body-lg text-on-surface-variant">5 / 7 WAYPOINTS COMPLETE — A pilgrimage of integrity.</p>
+</div>
+<div class="relative border-l border-secondary ml-4 pl-8"><!-- WP 1 -->
+<div class="relative group mb-12">
+<div class="absolute -left-[41px] top-4 w-4 h-4 bg-surface border-2 border-secondary rounded-full z-10 group-hover:bg-secondary transition-colors"></div>
+<div class="bg-surface-container border border-secondary-container p-6 relative overflow-hidden">
+<div class="absolute inset-0 opacity-10 bg-cover bg-center" style="background-image: url('/images/tracker_bg_1.jpg')"></div>
+<div class="relative z-10">
+<span class="inline-block border border-secondary px-2 py-1 font-label-technical text-label-technical text-secondary mb-3">WAYPOINT 1</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">THE APPEAL <span class="text-secondary opacity-70">(V. 1-3)</span></h3>
+<p class="font-body-md text-on-surface-variant">David opens by inviting God's scrutiny, a bold declaration of transparency.</p>
+</div>
+</div>
+</div>
+<!-- WP 2 -->
+<div class="relative group mb-12">
+<div class="absolute -left-[41px] top-4 w-4 h-4 bg-surface border-2 border-secondary rounded-full z-10 group-hover:bg-secondary transition-colors"></div>
+<div class="bg-surface-container border border-secondary-container p-6 relative overflow-hidden">
+<div class="absolute inset-0 opacity-10 bg-cover bg-center" style="background-image: url('/images/tracker_bg_2.jpg')"></div>
+<div class="relative z-10">
+<span class="inline-block border border-secondary px-2 py-1 font-label-technical text-label-technical text-secondary mb-3">WAYPOINT 2</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">THE REFUSAL <span class="text-secondary opacity-70">(V. 4-5)</span></h3>
+<p class="font-body-md text-on-surface-variant">A conscious, deliberate separation from the deceitful and wicked.</p>
+</div>
+</div>
+</div>
+<!-- WP 3 -->
+<div class="relative group mb-12">
+<div class="absolute -left-[41px] top-4 w-4 h-4 bg-surface border-2 border-secondary rounded-full z-10 group-hover:bg-secondary transition-colors"></div>
+<div class="bg-surface-container border border-secondary-container p-6 relative overflow-hidden">
+<div class="absolute inset-0 opacity-10 bg-cover bg-center" style="background-image: url('https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg')"></div>
+<div class="relative z-10">
+<span class="inline-block border border-secondary px-2 py-1 font-label-technical text-label-technical text-secondary mb-3">WAYPOINT 3</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">THE RITUAL <span class="text-secondary opacity-70">(V. 6-7)</span></h3>
+<p class="font-body-md text-on-surface-variant">Washing hands in innocence to approach the altar of the Lord.</p>
+</div>
+</div>
+</div>
+<!-- WP 4 - ACTIVE -->
+<div class="relative group mb-12">
+<div class="absolute -left-[41px] top-4 w-4 h-4 bg-secondary rounded-full z-10"></div>
+<div class="bg-surface-container border border-secondary-container p-6 relative overflow-hidden">
+<div class="absolute inset-0 opacity-20 bg-cover bg-center mix-blend-overlay" style="background-image: url('https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg')"></div>
+<div class="relative z-10"><span class="inline-block border border-secondary px-2 py-1 font-label-technical text-label-technical text-secondary mb-3">WAYPOINT 4</span><h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">THE AFFECTION <span class="text-secondary opacity-70">(V. 8)</span></h3><p class="font-body-md text-on-surface-variant">A profound, emotional declaration of love for God's dwelling place.</p></div>
+</div>
+</div>
+<!-- WP 5 -->
+<div class="relative group mb-12">
+<div class="absolute -left-[41px] top-4 w-5 h-5 bg-secondary rounded-full z-10 flex items-center justify-center"><span class="material-symbols-outlined text-primary-container text-[14px] font-bold">check</span></div>
+<div class="bg-surface-container border border-secondary-container p-6 relative overflow-hidden">
+<div class="relative z-10">
+<span class="inline-block border border-secondary px-2 py-1 font-label-technical text-label-technical text-secondary mb-3">WAYPOINT 5</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">THE PETITION <span class="text-secondary opacity-70">(V. 9-10)</span></h3>
+<p class="font-body-md text-on-surface-variant">A desperate plea to not be gathered with sinners.</p>
+</div>
+</div>
+</div>
+<!-- WP 6 -->
+<div class="relative group mb-12">
+<div class="absolute -left-[43px] top-4 w-5 h-5 bg-secondary border-2 border-secondary rounded-full z-10 shadow-[0_0_15px_rgba(233,195,73,0.5)]"></div>
+<div class="bg-primary-container border-2 border-secondary p-6 relative overflow-hidden transform scale-[1.02] shadow-[0_0_25px_rgba(233,195,73,0.3)] transition-transform">
+<div class="relative z-10"><span class="inline-block bg-secondary text-primary-container px-2 py-1 font-label-technical text-label-technical mb-3 font-bold">CURRENT WAYPOINT</span><h3 class="font-headline-sm text-headline-sm text-secondary-fixed mb-2">THE RESOLVE <span class="text-secondary opacity-90">(V. 11)</span></h3><p class="font-body-lg text-on-surface italic mb-4">"I will walk in my integrity; redeem me and be merciful to me."</p><p class="font-body-md text-on-surface-variant">A renewed commitment to integrity and a cry for redemption.</p><button class="mt-4 bg-secondary text-primary-container font-label-technical text-label-technical px-6 py-3 uppercase tracking-wider hover:bg-secondary-fixed active:scale-95 transition-all w-full md:w-auto">Enter Study</button></div>
+</div>
+</div>
+<!-- WP 7 -->
+<div class="relative group">
+<div class="absolute -left-[41px] top-4 w-4 h-4 bg-surface border-2 border-secondary rounded-full z-10 group-hover:bg-secondary transition-colors"></div>
+<div class="bg-surface-container border border-secondary-container p-6 relative overflow-hidden">
+<div class="relative z-10">
+<span class="inline-block border border-secondary px-2 py-1 font-label-technical text-label-technical text-secondary mb-3">WAYPOINT 7</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">THE STAND <span class="text-secondary opacity-70">(V. 12)</span></h3>
+<p class="font-body-md text-on-surface-variant">The final destination: standing firmly on level ground, praising the Lord.</p>
+</div>
+</div>
+</div></div>
+<div class="mt-16 text-center pb-8">
+<p class="font-citation text-citation text-secondary tracking-widest uppercase opacity-70">Zechariah 4:6</p>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 bg-surface dark:bg-surface-container-lowest border-t border-secondary-container">
+<!-- Waypoints (Active) -->
+<a class="flex flex-col items-center justify-center text-secondary border-t-2 border-secondary pt-1 w-full h-full hover:text-secondary-fixed active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span class="font-label-technical text-label-technical">Waypoints</span>
+</a>
+<!-- Scripture -->
+<a class="flex flex-col items-center justify-center text-on-tertiary-container pt-1 w-full h-full hover:text-secondary-fixed active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined mb-1">menu_book</span>
+<span class="font-label-technical text-label-technical">Scripture</span>
+</a>
+<!-- Reflections -->
+<a class="flex flex-col items-center justify-center text-on-tertiary-container pt-1 w-full h-full hover:text-secondary-fixed active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined mb-1">edit_note</span>
+<span class="font-label-technical text-label-technical">Reflections</span>
+</a>
+</nav>
+
+
+</body></html>

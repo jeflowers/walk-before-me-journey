@@ -1,0 +1,269 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Waypoint 5: The Petition</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-high": "#2a2a26",
+                      "on-background": "#e5e2db",
+                      "on-secondary": "#3c2f00",
+                      "surface-bright": "#3a3935",
+                      "tertiary-fixed": "#e5e2e1",
+                      "tertiary-fixed-dim": "#c8c6c5",
+                      "secondary-fixed-dim": "#e9c349",
+                      "on-secondary-fixed": "#241a00",
+                      "on-primary": "#163152",
+                      "surface-variant": "#353530",
+                      "on-primary-fixed-variant": "#2f486a",
+                      "tertiary-container": "#1f1f1f",
+                      "on-tertiary-fixed": "#1c1b1b",
+                      "error": "#ffb4ab",
+                      "on-primary-fixed": "#001c3a",
+                      "primary-container": "#001f3f",
+                      "surface-container-highest": "#353530",
+                      "primary-fixed-dim": "#afc8f0",
+                      "surface-container": "#20201c",
+                      "secondary": "#e9c349",
+                      "surface": "#131410",
+                      "on-error": "#690005",
+                      "outline": "#8e9198",
+                      "surface-dim": "#131410",
+                      "secondary-container": "#af8d11",
+                      "on-tertiary": "#313030",
+                      "surface-tint": "#afc8f0",
+                      "inverse-on-surface": "#31312c",
+                      "surface-container-low": "#1c1c18",
+                      "on-surface-variant": "#c4c6cf",
+                      "on-surface": "#e5e2db",
+                      "surface-container-lowest": "#0e0e0b",
+                      "on-error-container": "#ffdad6",
+                      "tertiary": "#c8c6c5",
+                      "error-container": "#93000a",
+                      "primary-fixed": "#d4e3ff",
+                      "on-primary-container": "#6f88ad",
+                      "secondary-fixed": "#ffe088",
+                      "outline-variant": "#43474e",
+                      "on-tertiary-container": "#888686",
+                      "on-tertiary-fixed-variant": "#474746",
+                      "primary": "#afc8f0",
+                      "background": "#131410",
+                      "on-secondary-container": "#342800",
+                      "inverse-surface": "#e5e2db",
+                      "inverse-primary": "#476083",
+                      "on-secondary-fixed-variant": "#574500",
+                      "parchment": "#F4F1EA",
+                      "navy": "#001F3F",
+                      "gold": "#D4AF37"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-mobile": "16px",
+                      "gutter": "24px",
+                      "container-max": "1200px",
+                      "margin-desktop": "64px",
+                      "scripture-indent": "32px",
+                      "unit": "4px"
+              },
+              "fontFamily": {
+                      "headline-md": [
+                              "Space Grotesk"
+                      ],
+                      "body-lg": [
+                              "EB Garamond"
+                      ],
+                      "body-md": [
+                              "EB Garamond"
+                      ],
+                      "headline-sm": [
+                              "Space Grotesk"
+                      ],
+                      "scripture-block": [
+                              "EB Garamond"
+                      ],
+                      "label-technical": [
+                              "Space Grotesk"
+                      ],
+                      "citation": [
+                              "Space Grotesk"
+                      ],
+                      "display-lg": [
+                              "Space Grotesk"
+                      ]
+              },
+              "fontSize": {
+                      "headline-md": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "20px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-md": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-sm": [
+                              "20px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "scripture-block": [
+                              "22px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-technical": [
+                              "12px",
+                              {
+                                      "lineHeight": "1",
+                                      "letterSpacing": "0.1em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "citation": [
+                              "14px",
+                              {
+                                      "lineHeight": "1",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        body {
+            background-color: #001F3F; /* Navy base */
+            color: #F4F1EA;
+        }
+        .parchment-sheet {
+            background-color: #F4F1EA;
+            color: #001F3F;
+            border: 1px solid #001F3F;
+        }
+      </style>
+</head>
+<body class="font-body-md antialiased pt-16 pb-20">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile h-16 bg-surface dark:bg-surface border-b border-secondary dark:border-secondary transition-colors duration-200 flat no shadows">
+<button class="text-primary dark:text-primary hover:bg-surface-container-high dark:hover:bg-surface-container-high p-2 flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="font-headline-sm text-[18px] uppercase tracking-widest text-primary dark:text-primary tracking-tighter font-bold">WALK BEFORE ME</h1>
+<div class="w-8 h-8 rounded-full bg-secondary overflow-hidden flex items-center justify-center">
+<span class="font-label-technical text-on-secondary">PA</span>
+</div>
+</header>
+<main class="w-full max-w-container-max mx-auto md:px-margin-desktop md:grid md:grid-cols-12 md:gap-gutter">
+<!-- Main Content Area -->
+<article class="md:col-span-8 md:col-start-3 space-y-8 p-margin-mobile md:p-0">
+<!-- Hero Section -->
+<section class="relative w-full aspect-[4/3] md:aspect-video mb-8 border border-secondary flex flex-col justify-end p-6">
+<img alt="Background" class="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-luminosity z-0" src="/images/hero_wp5_wp6.jpg">
+<div class="absolute inset-0 bg-gradient-to-t from-primary-container to-transparent z-10"></div>
+<div class="relative z-20 flex flex-col items-start border-l-2 border-secondary pl-4">
+<span class="font-label-technical text-secondary uppercase mb-2 bg-primary-container/80 px-2 py-1">WAYPOINT 05</span>
+<h2 class="font-display-lg text-on-surface mb-1">THE PETITION</h2>
+<span class="font-citation text-primary tracking-widest">PSALM 26: 9-11</span>
+</div>
+</section>
+<!-- Scripture Block -->
+<section class="parchment-sheet p-6 mb-8 relative before:absolute before:left-0 before:top-0 before:bottom-0 before:w-[2px] before:bg-secondary">
+<p class="font-scripture-block italic pl-scripture-indent text-navy mb-4">
+                    “Gather not my soul with sinners, nor my life with bloody men: In whose hands is mischief, and their right hand is full of bribes. But as for me, I will walk in mine integrity: redeem me, and be merciful unto me.”
+                </p>
+<div class="text-right">
+<span class="font-citation text-navy uppercase text-sm">King James Version</span>
+</div>
+</section>
+<!-- Content Section: The Cry for Mercy -->
+<section class="space-y-4 text-on-surface mb-8">
+<div class="flex items-center space-x-2 border-b border-surface-variant pb-2">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="priority">priority</span>
+<h3 class="font-headline-sm text-secondary uppercase">The Cry for Mercy</h3>
+</div>
+<p class="font-body-md text-on-surface-variant leading-relaxed">
+                    Here, the tone shifts from confident self-assessment to an urgent plea. Having established his intentional walk in integrity, the Psalmist now petitions for preservation. He asks not to be swept away in the judgment destined for the wicked.
+                </p>
+</section>
+<!-- Content Section: The Pivot to Redemption -->
+<section class="space-y-4 text-on-surface mb-8">
+<div class="flex items-center space-x-2 border-b border-surface-variant pb-2">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="transform">transform</span>
+<h3 class="font-headline-sm text-secondary uppercase">The Pivot to Redemption</h3>
+</div>
+<p class="font-body-md text-on-surface-variant leading-relaxed">
+                    This is the critical theological pivot of the Psalm. The claim of integrity is not a claim of sinlessness. The immediate follow-up to "I will walk in mine integrity" is the cry "redeem me." True biblical integrity recognizes its inherent need for a Redeemer.
+                </p>
+</section>
+<!-- Technical Callout: Lexical Note -->
+<aside class="border border-secondary bg-surface-container-low p-6 mb-8 relative">
+<div class="absolute -top-3 left-4 bg-surface px-2 border border-secondary flex items-center space-x-1">
+<span class="material-symbols-outlined text-secondary text-xs" data-icon="dictionary">dictionary</span>
+<span class="font-label-technical text-secondary uppercase">LEXICAL NOTE</span>
+</div>
+<h4 class="font-headline-sm text-on-surface mb-2 mt-2">Redeem Me (Pādâ)</h4>
+<p class="font-body-md text-on-surface-variant text-sm leading-relaxed mb-4">
+                    The Hebrew word <em class="text-on-surface">pādâ</em> implies a transfer of ownership, often involving a ransom price. It connects back to the overarching theme of being wholly devoted (consecrated) to the Lord, moving beyond mere self-righteousness to total reliance on divine rescue.
+                </p>
+<button class="bg-secondary text-on-secondary font-label-technical uppercase px-4 py-2 hover:bg-secondary-fixed transition-colors font-bold">
+                    Explore Lexicon
+                </button>
+</aside>
+</article>
+</main>
+<!-- BottomNavBar -->
+<footer class="w-full max-w-container-max mx-auto px-margin-mobile py-8 text-center border-t border-surface-variant/30 mb-20"><p class="font-citation text-secondary uppercase tracking-widest text-xs">“Not by might nor by power, but by my Spirit, says the Lord Almighty.”</p><p class="font-label-technical text-on-surface-variant text-[10px] mt-2">ZECHARIAH 4:6</p></footer><nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-margin-mobile pb-safe h-20 bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-secondary dark:border-secondary flat no shadows md:hidden">
+<button class="flex flex-col items-center justify-center text-secondary dark:text-secondary bg-surface-container-high dark:bg-surface-container-high rounded-none py-1 w-24 scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined mb-1" data-icon="location_on" style="font-variation-settings: 'FILL' 1;">location_on</span>
+<span class="font-label-technical text-label-technical uppercase">Waypoints</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant py-1 w-24 hover:text-secondary dark:hover:text-secondary scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined mb-1" data-icon="auto_stories">auto_stories</span>
+<span class="font-label-technical text-label-technical uppercase">Scripture</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant py-1 w-24 hover:text-secondary dark:hover:text-secondary scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined mb-1" data-icon="edit_note">edit_note</span>
+<span class="font-label-technical text-label-technical uppercase">Reflections</span>
+</button>
+</nav>
+
+
+</body></html>

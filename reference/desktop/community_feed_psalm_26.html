@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Community Reflection Feed - Emmaus Road</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = { darkMode: "class", theme: { extend: { "colors": {"on-surface":"#e5e2db","on-surface-variant":"#c4c6cf","background":"#131410","surface":"#131410","surface-bright":"#3a3935","surface-container-lowest":"#0e0e0b","surface-container-low":"#1c1c18","surface-container":"#20201c","surface-container-high":"#2a2a26","surface-container-highest":"#353530","surface-variant":"#353530","outline":"#8e9198","outline-variant":"#43474e","primary":"#afc8f0","on-primary":"#163152","primary-container":"#001f3f","on-primary-container":"#6f88ad","secondary":"#e9c349","on-secondary":"#3c2f00","secondary-container":"#af8d11","on-secondary-container":"#342800","tertiary":"#c8c6c5","error":"#ffb4ab","parchment":"#f4f1ea","gold":"#d4af37","navy":"#001f3f","parchment-ink":"#e5e2db"}, "fontFamily": { "display-lg": ["Space Grotesk"], "headline-md": ["Space Grotesk"], "headline-sm": ["Space Grotesk"], "body-lg": ["EB Garamond"], "body-md": ["EB Garamond"], "scripture-block": ["EB Garamond"], "label-technical": ["Space Grotesk"], "citation": ["Space Grotesk"] }, "borderRadius": { "DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px" } } } }
+</script>
+<style>
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  .material-symbols-outlined.filled { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  .lines { background-image: repeating-linear-gradient(to bottom, transparent 0, transparent 35px, #001f3f33 35px, #001f3f33 36px); }
+</style>
+</head>
+<body class="antialiased min-h-screen bg-navy text-on-surface font-body-md">
+
+
+<header class="w-full bg-navy border-b-2 border-gold relative">
+  <div class="max-w-[1200px] mx-auto h-16 flex items-center justify-between">
+    <div class="flex items-center gap-4 shrink-0 whitespace-nowrap">
+      <span class="material-symbols-outlined text-gold">menu</span>
+      <span class="font-label-technical text-[12px] font-bold uppercase tracking-[0.2em] text-gold">Emmaus Road</span>
+      <span class="text-outline-variant">|</span>
+      <span class="font-label-technical text-[14px] font-bold uppercase tracking-[0.12em] text-parchment">Walk Before Me</span>
+    </div>
+    <nav class="flex items-center gap-6 shrink-0">
+      <a class="font-label-technical text-[12px] font-bold uppercase tracking-[0.1em] text-on-surface-variant">Journey</a>
+      <a class="font-label-technical text-[12px] font-bold uppercase tracking-[0.1em] text-on-surface-variant">Waypoints</a>
+      <a class="font-label-technical text-[12px] font-bold uppercase tracking-[0.1em] text-on-surface-variant">Scripture</a>
+      <a class="font-label-technical text-[12px] font-bold uppercase tracking-[0.1em] text-on-surface-variant">Reflections</a>
+      <a class="font-label-technical text-[12px] font-bold uppercase tracking-[0.1em] text-gold border-b-2 border-gold pb-1">Community</a>
+      <a class="font-label-technical text-[12px] font-bold uppercase tracking-[0.1em] text-on-surface-variant">Lexicon</a>
+      <a class="font-label-technical text-[12px] font-bold uppercase tracking-[0.1em] text-on-surface-variant">Materials</a>
+    </nav>
+    <div class="flex items-center gap-4 shrink-0">
+      <span class="material-symbols-outlined text-gold">search</span>
+      <span class="material-symbols-outlined text-gold filled">account_circle</span>
+    </div>
+  </div>
+  <div class="absolute left-0 bottom-[-2px] h-[2px] bg-secondary" style="width:71%"></div>
+</header>
+<main class="max-w-[1200px] mx-auto pt-10">
+  <div class="flex items-end justify-between border-b border-gold/40 pb-6">
+    <div><span class="font-label-technical text-[12px] font-bold uppercase tracking-[0.2em] text-gold">Modern Artifact</span><h1 class="font-display-lg text-[56px] font-bold leading-[1.1] tracking-[-0.02em] uppercase text-parchment mt-2">Community</h1><p class="font-body-md text-[18px] text-on-surface-variant mt-2">Shared reflections from the current theological study tracks.</p></div>
+    <div class="flex items-center gap-3">
+      <div class="flex items-center gap-2 border border-gold px-3 py-2"><span class="material-symbols-outlined text-gold text-[18px]">search</span><span class="font-body-md text-[16px] text-on-surface-variant">Search reflections</span></div>
+      <button class="inline-flex items-center gap-2 bg-secondary text-on-secondary font-label-technical text-[14px] font-bold uppercase tracking-[0.1em] px-6 py-4">Share Reflection<span class="material-symbols-outlined text-[18px]">edit_note</span></button>
+    </div>
+  </div>
+  <div class="flex gap-3 mt-6"><span class="inline-block w-fit self-start font-label-technical text-[12px] font-bold uppercase tracking-[0.1em] text-gold border border-gold px-2 py-1">All Tracks</span><span class="inline-block w-fit self-start font-label-technical text-[12px] font-bold uppercase tracking-[0.1em] text-gold border border-gold px-2 py-1">Zechariah 4</span><span class="inline-block w-fit self-start font-label-technical text-[12px] font-bold uppercase tracking-[0.1em] text-navy bg-secondary px-2 py-1">Psalm 26</span><span class="inline-block w-fit self-start font-label-technical text-[12px] font-bold uppercase tracking-[0.1em] text-gold border border-gold px-2 py-1">Romans 8</span></div>
+  <div class="grid grid-cols-12 gap-6 mt-8">
+    <div class="col-span-6">
+<article class="bg-parchment border border-navy p-6 flex flex-col gap-4">
+  <div class="flex items-center justify-between"><span class="font-label-technical text-[12px] font-bold uppercase tracking-[0.1em] text-navy">Psalm 26: The Path of Integrity</span><span class="inline-block w-fit self-start font-label-technical text-[12px] font-bold uppercase tracking-[0.1em] text-gold border border-gold px-2 py-1">Divine Standard</span></div>
+  <div class="flex items-center gap-3">
+    <div class="w-10 h-10 rounded-full overflow-hidden border border-navy"><img class="w-full h-full object-cover " src="/images/avatar_feed.jpg" alt=""/></div>
+    <div class="flex flex-col"><span class="font-label-technical text-[12px] font-bold uppercase tracking-[0.1em] text-navy">Sarah M.</span><span class="font-body-md text-[14px] text-navy/70">1 hour ago</span></div>
+  </div>
+  <p class="font-body-lg text-[20px] leading-[1.6] text-navy">"Walking in integrity isn't about perfection, but about the orientation of the heart. It's the 'straight path' that requires constant recalibration against the Divine standard."</p>
+  <div class="border-l-2 border-gold pl-4"><p class="font-scripture-block italic text-[18px] leading-[1.5] text-navy">"Vindicate me, O LORD, for I have walked in my integrity, and I have trusted in the LORD without wavering."</p><p class="font-citation text-[12px] font-bold uppercase tracking-[0.1em] text-navy text-right mt-2">— Psalm 26:1</p></div>
+  <div class="flex items-center gap-6 border-t border-navy/30 pt-4">
+    <span class="flex items-center gap-1 text-navy"><span class="material-symbols-outlined text-[18px]">favorite</span><span class="font-label-technical text-[12px] font-bold">18</span></span>
+    <span class="flex items-center gap-1 text-navy"><span class="material-symbols-outlined text-[18px]">chat_bubble</span><span class="font-label-technical text-[12px] font-bold">5</span></span>
+    <span class="flex items-center gap-1 text-navy ml-auto"><span class="material-symbols-outlined text-[18px]">bookmark</span><span class="font-label-technical text-[12px] font-bold uppercase tracking-[0.1em]">Save</span></span>
+  </div>
+</article></div>
+    <div class="col-span-6">
+<article class="bg-parchment border border-navy p-6 flex flex-col gap-4">
+  <div class="flex items-center justify-between"><span class="font-label-technical text-[12px] font-bold uppercase tracking-[0.1em] text-navy">Zechariah 4: The Vision of the Lampstand</span><span class="inline-block w-fit self-start font-label-technical text-[12px] font-bold uppercase tracking-[0.1em] text-gold border border-gold px-2 py-1">Divine Sustenance</span></div>
+  <div class="flex items-center gap-3">
+    <div class="w-10 h-10 rounded-full overflow-hidden border border-navy"><div class="w-full h-full bg-navy flex items-center justify-center"><span class="material-symbols-outlined text-gold">person</span></div></div>
+    <div class="flex flex-col"><span class="font-label-technical text-[12px] font-bold uppercase tracking-[0.1em] text-navy">Benjamin S.</span><span class="font-body-md text-[14px] text-navy/70">2 hours ago</span></div>
+  </div>
+  <p class="font-body-lg text-[20px] leading-[1.6] text-navy">"The flow of oil through the pipes reminds me that divine sustenance is constant, provided we remain connected to the Source. My own striving often blocks the flow."</p>
+  <div class="border-l-2 border-gold pl-4"><p class="font-scripture-block italic text-[18px] leading-[1.5] text-navy">"Not by might, nor by power, but by my Spirit, saith the LORD of hosts."</p><p class="font-citation text-[12px] font-bold uppercase tracking-[0.1em] text-navy text-right mt-2">— Zechariah 4:6</p></div>
+  <div class="flex items-center gap-6 border-t border-navy/30 pt-4">
+    <span class="flex items-center gap-1 text-navy"><span class="material-symbols-outlined text-[18px]">favorite</span><span class="font-label-technical text-[12px] font-bold">12</span></span>
+    <span class="flex items-center gap-1 text-navy"><span class="material-symbols-outlined text-[18px]">chat_bubble</span><span class="font-label-technical text-[12px] font-bold">3</span></span>
+    <span class="flex items-center gap-1 text-navy ml-auto"><span class="material-symbols-outlined text-[18px]">bookmark</span><span class="font-label-technical text-[12px] font-bold uppercase tracking-[0.1em]">Save</span></span>
+  </div>
+</article></div>
+    <div class="col-span-6">
+<article class="bg-parchment border border-navy p-6 flex flex-col gap-4">
+  <div class="flex items-center justify-between"><span class="font-label-technical text-[12px] font-bold uppercase tracking-[0.1em] text-navy">Romans 8: Life in the Spirit</span><span class="inline-block w-fit self-start font-label-technical text-[12px] font-bold uppercase tracking-[0.1em] text-gold border border-gold px-2 py-1">No Condemnation</span></div>
+  <div class="flex items-center gap-3">
+    <div class="w-10 h-10 rounded-full overflow-hidden border border-navy"><img class="w-full h-full object-cover " src="/images/avatar_feed.jpg" alt=""/></div>
+    <div class="flex flex-col"><span class="font-label-technical text-[12px] font-bold uppercase tracking-[0.1em] text-navy">Sarah M.</span><span class="font-body-md text-[14px] text-navy/70">5 hours ago</span></div>
+  </div>
+  <p class="font-body-lg text-[20px] leading-[1.6] text-navy">"The tension between the 'flesh' and the 'Spirit' here isn't just moral; it feels ontological. It's about what sphere of reality we choose to inhabit."</p>
+  <div class="border-l-2 border-gold pl-4"><p class="font-scripture-block italic text-[18px] leading-[1.5] text-navy">"For those who live according to the flesh set their minds on the things of the flesh, but those who live according to the Spirit set their minds on the things of the Spirit."</p><p class="font-citation text-[12px] font-bold uppercase tracking-[0.1em] text-navy text-right mt-2">— Romans 8:5</p></div>
+  <div class="flex items-center gap-6 border-t border-navy/30 pt-4">
+    <span class="flex items-center gap-1 text-navy"><span class="material-symbols-outlined text-[18px]">favorite</span><span class="font-label-technical text-[12px] font-bold">24</span></span>
+    <span class="flex items-center gap-1 text-navy"><span class="material-symbols-outlined text-[18px]">chat_bubble</span><span class="font-label-technical text-[12px] font-bold">8</span></span>
+    <span class="flex items-center gap-1 text-navy ml-auto"><span class="material-symbols-outlined text-[18px]">bookmark</span><span class="font-label-technical text-[12px] font-bold uppercase tracking-[0.1em]">Save</span></span>
+  </div>
+</article></div>
+    <div class="col-span-6 border border-gold/40 p-8 flex flex-col items-center justify-center gap-4 text-center">
+      <span class="material-symbols-outlined text-gold text-[40px]">group</span>
+      <p class="font-body-md text-[18px] text-on-surface-variant">Filter by track to see reflections from your study group. New entries appear here after review.</p>
+      <button class="inline-flex items-center gap-2 border border-gold text-gold font-label-technical text-[14px] font-bold uppercase tracking-[0.1em] px-6 py-4">Share Your Reflection<span class="material-symbols-outlined text-[18px]">edit_note</span></button>
+    </div>
+  </div>
+</main>
+
+<footer class="w-full bg-navy border-t border-gold mt-16">
+  <div class="max-w-[1200px] mx-auto py-10 grid grid-cols-12 gap-6 items-center">
+    <div class="col-span-7">
+      <p class="font-body-md italic text-[18px] leading-[1.6] text-on-surface-variant">Not by might, nor by power, but by my spirit, saith the LORD of hosts.</p>
+      <p class="font-citation text-[14px] font-bold uppercase tracking-[0.1em] text-gold mt-2">Zechariah 4:6</p>
+    </div>
+    <div class="col-span-5 flex justify-end gap-8 whitespace-nowrap">
+      <a class="font-label-technical text-[12px] font-bold uppercase tracking-[0.1em] text-secondary">About the Journey</a>
+      <a class="font-label-technical text-[12px] font-bold uppercase tracking-[0.1em] text-secondary">Historical Context</a>
+      <a class="font-label-technical text-[12px] font-bold uppercase tracking-[0.1em] text-secondary">Privacy</a>
+    </div>
+  </div>
+</footer>
+</body></html>

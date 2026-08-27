@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Walk Before Me - Waypoints</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = { darkMode: "class", theme: { extend: { "colors": {"on-surface":"#e5e2db","on-surface-variant":"#c4c6cf","background":"#131410","surface":"#131410","surface-bright":"#3a3935","surface-container-lowest":"#0e0e0b","surface-container-low":"#1c1c18","surface-container":"#20201c","surface-container-high":"#2a2a26","surface-container-highest":"#353530","surface-variant":"#353530","outline":"#8e9198","outline-variant":"#43474e","primary":"#afc8f0","on-primary":"#163152","primary-container":"#001f3f","on-primary-container":"#6f88ad","secondary":"#e9c349","on-secondary":"#3c2f00","secondary-container":"#af8d11","on-secondary-container":"#342800","tertiary":"#c8c6c5","error":"#ffb4ab","parchment":"#f4f1ea","gold":"#d4af37","navy":"#001f3f","parchment-ink":"#e5e2db"}, "fontFamily": { "display-lg": ["Space Grotesk"], "headline-md": ["Space Grotesk"], "headline-sm": ["Space Grotesk"], "body-lg": ["EB Garamond"], "body-md": ["EB Garamond"], "scripture-block": ["EB Garamond"], "label-technical": ["Space Grotesk"], "citation": ["Space Grotesk"] }, "borderRadius": { "DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px" } } } }
+</script>
+<style>
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  .material-symbols-outlined.filled { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  .lines { background-image: repeating-linear-gradient(to bottom, transparent 0, transparent 35px, #001f3f33 35px, #001f3f33 36px); }
+</style>
+</head>
+<body class="antialiased min-h-screen bg-surface text-on-surface font-body-md">
+
+
+<header class="w-full bg-navy border-b-2 border-gold relative">
+  <div class="max-w-[1200px] mx-auto h-16 flex items-center justify-between">
+    <div class="flex items-center gap-4 shrink-0 whitespace-nowrap">
+      <span class="material-symbols-outlined text-gold">menu</span>
+      <span class="font-label-technical text-[12px] font-bold uppercase tracking-[0.2em] text-gold">Emmaus Road</span>
+      <span class="text-outline-variant">|</span>
+      <span class="font-label-technical text-[14px] font-bold uppercase tracking-[0.12em] text-parchment">Walk Before Me</span>
+    </div>
+    <nav class="flex items-center gap-6 shrink-0">
+      <a class="font-label-technical text-[12px] font-bold uppercase tracking-[0.1em] text-on-surface-variant">Journey</a>
+      <a class="font-label-technical text-[12px] font-bold uppercase tracking-[0.1em] text-gold border-b-2 border-gold pb-1">Waypoints</a>
+      <a class="font-label-technical text-[12px] font-bold uppercase tracking-[0.1em] text-on-surface-variant">Scripture</a>
+      <a class="font-label-technical text-[12px] font-bold uppercase tracking-[0.1em] text-on-surface-variant">Reflections</a>
+      <a class="font-label-technical text-[12px] font-bold uppercase tracking-[0.1em] text-on-surface-variant">Community</a>
+      <a class="font-label-technical text-[12px] font-bold uppercase tracking-[0.1em] text-on-surface-variant">Lexicon</a>
+      <a class="font-label-technical text-[12px] font-bold uppercase tracking-[0.1em] text-on-surface-variant">Materials</a>
+    </nav>
+    <div class="flex items-center gap-4 shrink-0">
+      <span class="material-symbols-outlined text-gold">search</span>
+      <span class="material-symbols-outlined text-gold filled">account_circle</span>
+    </div>
+  </div>
+  <div class="absolute left-0 bottom-[-2px] h-[2px] bg-secondary" style="width:71%"></div>
+</header>
+<main class="max-w-[1200px] mx-auto">
+  <section class="pt-10 pb-6 border-b border-outline-variant">
+    <h1 class="font-headline-md text-[32px] font-semibold text-secondary">Psalm 26</h1>
+    <p class="font-body-md text-[18px] text-on-surface-variant mt-2"><span class="uppercase tracking-[0.05em]">5 / 7 Waypoints complete</span> · A pilgrimage of integrity.</p>
+  </section>
+  <section class="grid grid-cols-12 gap-6 mt-8">
+    <div class="col-span-5 relative pl-10">
+      <div class="absolute left-3 top-2 bottom-2 w-[2px] bg-secondary"></div>
+      
+      <div class="relative mb-4">
+        <div class="absolute left-[-34px] top-5 w-4 h-4 rounded-full bg-surface border-2 border-secondary"></div>
+        <div class="bg-surface-container-low border border-outline-variant p-5 flex flex-col gap-2">
+          <span class="inline-block w-fit self-start font-label-technical text-[12px] font-bold uppercase tracking-[0.1em] text-gold border border-gold px-2 py-1">Waypoint 1</span>
+          <h3 class="font-headline-sm text-[18px] font-medium uppercase tracking-[0.05em] text-on-surface">The Appeal <span class="text-secondary">(v. 1-3)</span></h3>
+          <p class="font-body-md text-[16px] leading-[1.5] text-on-surface-variant">David opens by inviting God's scrutiny, a bold declaration of transparency.</p>
+        </div>
+      </div>
+      <div class="relative mb-4">
+        <div class="absolute left-[-34px] top-5 w-4 h-4 rounded-full bg-surface border-2 border-secondary"></div>
+        <div class="bg-surface-container-low border border-outline-variant p-5 flex flex-col gap-2">
+          <span class="inline-block w-fit self-start font-label-technical text-[12px] font-bold uppercase tracking-[0.1em] text-gold border border-gold px-2 py-1">Waypoint 2</span>
+          <h3 class="font-headline-sm text-[18px] font-medium uppercase tracking-[0.05em] text-on-surface">The Refusal <span class="text-secondary">(v. 4-5)</span></h3>
+          <p class="font-body-md text-[16px] leading-[1.5] text-on-surface-variant">A conscious, deliberate separation from the deceitful and wicked.</p>
+        </div>
+      </div>
+      <div class="relative mb-4">
+        <div class="absolute left-[-34px] top-5 w-4 h-4 rounded-full bg-surface border-2 border-secondary"></div>
+        <div class="bg-surface-container-low border border-outline-variant p-5 flex flex-col gap-2">
+          <span class="inline-block w-fit self-start font-label-technical text-[12px] font-bold uppercase tracking-[0.1em] text-gold border border-gold px-2 py-1">Waypoint 3</span>
+          <h3 class="font-headline-sm text-[18px] font-medium uppercase tracking-[0.05em] text-on-surface">The Ritual <span class="text-secondary">(v. 6-7)</span></h3>
+          <p class="font-body-md text-[16px] leading-[1.5] text-on-surface-variant">Washing hands in innocence to approach the altar of the Lord.</p>
+        </div>
+      </div>
+      <div class="relative mb-4">
+        <div class="absolute left-[-34px] top-5 w-4 h-4 rounded-full bg-surface border-2 border-secondary"></div>
+        <div class="bg-surface-container-low border border-outline-variant p-5 flex flex-col gap-2">
+          <span class="inline-block w-fit self-start font-label-technical text-[12px] font-bold uppercase tracking-[0.1em] text-gold border border-gold px-2 py-1">Waypoint 4</span>
+          <h3 class="font-headline-sm text-[18px] font-medium uppercase tracking-[0.05em] text-on-surface">The Affection <span class="text-secondary">(v. 8)</span></h3>
+          <p class="font-body-md text-[16px] leading-[1.5] text-on-surface-variant">A profound, emotional declaration of love for God's dwelling place.</p>
+        </div>
+      </div>
+      <div class="relative mb-4">
+        <div class="absolute left-[-34px] top-5 w-4 h-4 rounded-full bg-surface border-2 border-secondary"></div>
+        <div class="bg-surface-container-low border border-outline-variant p-5 flex flex-col gap-2">
+          <span class="inline-block w-fit self-start font-label-technical text-[12px] font-bold uppercase tracking-[0.1em] text-gold border border-gold px-2 py-1">Waypoint 5</span>
+          <h3 class="font-headline-sm text-[18px] font-medium uppercase tracking-[0.05em] text-on-surface">The Petition <span class="text-secondary">(v. 9-10)</span></h3>
+          <p class="font-body-md text-[16px] leading-[1.5] text-on-surface-variant">A desperate plea to not be gathered with sinners.</p>
+        </div>
+      </div>
+      <div class="relative mb-4">
+        <div class="absolute left-[-34px] top-5 w-4 h-4 rounded-full bg-secondary"></div>
+        <div class="bg-navy border border-secondary p-5 flex flex-col gap-2">
+          <span class="inline-block w-fit self-start font-label-technical text-[12px] font-bold uppercase tracking-[0.1em] text-navy bg-secondary px-2 py-1">Current Waypoint</span>
+          <h3 class="font-headline-sm text-[18px] font-medium uppercase tracking-[0.05em] text-on-surface">The Resolve <span class="text-secondary">(v. 11)</span></h3>
+          <p class="font-body-md text-[16px] leading-[1.5] text-on-surface-variant">A renewed commitment to integrity and a cry for redemption.</p>
+        </div>
+      </div>
+      <div class="relative mb-4">
+        <div class="absolute left-[-34px] top-5 w-4 h-4 rounded-full bg-surface border-2 border-outline-variant"></div>
+        <div class="bg-surface-container-low border border-outline-variant p-5 flex flex-col gap-2">
+          <span class="inline-block w-fit self-start font-label-technical text-[12px] font-bold uppercase tracking-[0.1em] text-gold border border-gold px-2 py-1">Waypoint 7</span>
+          <h3 class="font-headline-sm text-[18px] font-medium uppercase tracking-[0.05em] text-outline">The Stand <span class="text-secondary">(v. 12)</span></h3>
+          <p class="font-body-md text-[16px] leading-[1.5] text-outline">The final destination: standing firmly on level ground, praising the Lord.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-span-7">
+      <div class="sticky top-8 bg-navy border border-secondary p-8 flex flex-col gap-6">
+        <span class="inline-block w-fit self-start font-label-technical text-[12px] font-bold uppercase tracking-[0.1em] text-navy bg-secondary px-2 py-1">Current Waypoint</span>
+        <h2 class="font-headline-md text-[32px] font-semibold uppercase text-parchment">The Resolve <span class="text-secondary">(v. 11)</span></h2>
+        <div class="h-[260px] border border-gold p-2"><img class="w-full h-full object-cover " src="/images/hero_wp5_wp6.jpg" alt=""/></div>
+        <blockquote class="bg-navy border-l-2 border-gold pl-8 pr-6 py-6"><p class="font-scripture-block italic text-[22px] leading-[1.5] text-parchment">"But as for me, I will walk in mine integrity: redeem me, and be merciful unto me."</p><p class="font-citation text-[14px] font-bold uppercase tracking-[0.1em] text-gold text-right mt-4">Psalm 26:11</p></blockquote>
+        <p class="font-body-md text-[18px] leading-[1.6] text-on-surface">A renewed commitment to integrity and a cry for redemption. The resolve is born of dependence: the psalmist anchors the commitment in the mercy just requested.</p>
+        <div class="flex gap-4"><button class="inline-flex items-center gap-2 bg-secondary text-on-secondary font-label-technical text-[14px] font-bold uppercase tracking-[0.1em] px-6 py-4">Enter Study<span class="material-symbols-outlined text-[18px]">arrow_forward</span></button><button class="inline-flex items-center gap-2 border border-gold text-gold font-label-technical text-[14px] font-bold uppercase tracking-[0.1em] px-6 py-4">Reflection Prompts<span class="material-symbols-outlined text-[18px]">edit_note</span></button></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="w-full bg-surface border-t border-outline-variant mt-16">
+  <div class="max-w-[1200px] mx-auto py-10 grid grid-cols-12 gap-6 items-center">
+    <div class="col-span-7">
+      <p class="font-body-md italic text-[18px] leading-[1.6] text-on-surface-variant">Not by might, nor by power, but by my spirit, saith the LORD of hosts.</p>
+      <p class="font-citation text-[14px] font-bold uppercase tracking-[0.1em] text-gold mt-2">Zechariah 4:6</p>
+    </div>
+    <div class="col-span-5 flex justify-end gap-8 whitespace-nowrap">
+      <a class="font-label-technical text-[12px] font-bold uppercase tracking-[0.1em] text-secondary">About the Journey</a>
+      <a class="font-label-technical text-[12px] font-bold uppercase tracking-[0.1em] text-secondary">Historical Context</a>
+      <a class="font-label-technical text-[12px] font-bold uppercase tracking-[0.1em] text-secondary">Privacy</a>
+    </div>
+  </div>
+</footer>
+</body></html>

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sacred Archive - User Profile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400;1,700&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary-fixed": "#001c3a",
+                      "on-surface-variant": "#c4c6cf",
+                      "on-error": "#690005",
+                      "on-tertiary-fixed": "#1c1b1b",
+                      "inverse-primary": "#476083",
+                      "on-background": "#e5e2db",
+                      "tertiary-fixed": "#e5e2e1",
+                      "surface-container": "#20201c",
+                      "on-surface": "#e5e2db",
+                      "surface-variant": "#353530",
+                      "primary-fixed": "#d4e3ff",
+                      "error-container": "#93000a",
+                      "secondary-fixed": "#ffe088",
+                      "on-error-container": "#ffdad6",
+                      "inverse-on-surface": "#31312c",
+                      "inverse-surface": "#e5e2db",
+                      "surface-container-low": "#1c1c18",
+                      "surface-bright": "#3a3935",
+                      "primary-container": "#001f3f",
+                      "secondary-fixed-dim": "#e9c349",
+                      "on-tertiary-container": "#888686",
+                      "surface-container-high": "#2a2a26",
+                      "tertiary-container": "#1f1f1f",
+                      "tertiary": "#c8c6c5",
+                      "tertiary-fixed-dim": "#c8c6c5",
+                      "outline-variant": "#43474e",
+                      "background": "#131410",
+                      "primary": "#afc8f0",
+                      "on-primary": "#163152",
+                      "surface-dim": "#131410",
+                      "on-secondary-fixed-variant": "#574500",
+                      "on-primary-container": "#6f88ad",
+                      "surface-container-lowest": "#0e0e0b",
+                      "surface-tint": "#afc8f0",
+                      "on-secondary": "#3c2f00",
+                      "secondary": "#e9c349",
+                      "primary-fixed-dim": "#afc8f0",
+                      "on-secondary-container": "#342800",
+                      "on-secondary-fixed": "#241a00",
+                      "secondary-container": "#af8d11",
+                      "outline": "#8e9198",
+                      "surface": "#131410",
+                      "error": "#ffb4ab",
+                      "on-tertiary-fixed-variant": "#474746",
+                      "on-tertiary": "#313030",
+                      "surface-container-highest": "#353530",
+                      "on-primary-fixed-variant": "#2f486a"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-desktop": "64px",
+                      "gutter": "24px",
+                      "scripture-indent": "32px",
+                      "unit": "4px",
+                      "container-max": "1200px",
+                      "margin-mobile": "16px"
+              },
+              "fontFamily": {
+                      "scripture-block": [
+                              "EB Garamond"
+                      ],
+                      "body-lg": [
+                              "EB Garamond"
+                      ],
+                      "label-technical": [
+                              "Space Grotesk"
+                      ],
+                      "citation": [
+                              "Space Grotesk"
+                      ],
+                      "display-lg": [
+                              "Space Grotesk"
+                      ],
+                      "body-md": [
+                              "EB Garamond"
+                      ],
+                      "headline-md": [
+                              "Space Grotesk"
+                      ],
+                      "headline-sm": [
+                              "Space Grotesk"
+                      ]
+              },
+              "fontSize": {
+                      "scripture-block": [
+                              "22px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "20px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-technical": [
+                              "12px",
+                              {
+                                      "lineHeight": "1",
+                                      "letterSpacing": "0.1em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "citation": [
+                              "14px",
+                              {
+                                      "lineHeight": "1",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-sm": [
+                              "20px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "500"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen pb-24 pt-16 flex flex-col items-center">
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 bg-background border-b border-secondary-container">
+<button class="text-on-surface-variant hover:text-primary transition-colors scale-95 duration-150 p-2">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<div class="font-headline-sm text-headline-sm text-secondary-fixed tracking-widest text-center flex-1">
+            SACRED ARCHIVE
+        </div>
+<button class="text-on-surface-variant hover:text-primary transition-colors scale-95 duration-150 p-2">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</header>
+<main class="w-full max-w-container-max px-margin-mobile flex flex-col gap-8 mt-8">
+<!-- Header Section -->
+<section class="flex flex-col items-center border border-secondary-container p-6 bg-surface-container-low relative">
+<div class="absolute top-0 left-0 w-full h-1 bg-secondary"></div>
+<div class="w-24 h-24 rounded-none border border-secondary mb-4 overflow-hidden p-1 bg-surface-container">
+<img alt="Theophilus Avatar" class="w-full h-full object-cover grayscale opacity-80" data-alt="A stoic, slightly abstracted portrait of a classical scholar in muted gold and deep navy tones, evoking a timeless, contemplative mood within a minimalist setting." src="/images/avatar_profile_theophilus.jpg"/>
+</div>
+<h1 class="font-headline-md text-headline-md text-primary tracking-widest mb-1 uppercase">THEOPHILUS</h1>
+<div class="inline-flex items-center gap-2 border border-secondary-container px-3 py-1 bg-surface-container">
+<span class="material-symbols-outlined text-secondary text-sm icon-fill" data-icon="auto_awesome">auto_awesome</span>
+<span class="font-label-technical text-label-technical text-secondary uppercase">Scholar Rank</span>
+</div>
+</section>
+<!-- Progress Section -->
+<section class="border border-secondary-container p-6 bg-surface-container-low">
+<h2 class="font-label-technical text-label-technical text-secondary mb-6 border-b border-secondary-container pb-2 flex justify-between items-center">
+<span>JOURNEY PROGRESS</span>
+<span class="material-symbols-outlined text-secondary" data-icon="timeline">timeline</span>
+</h2>
+<div class="flex flex-col gap-6">
+<!-- Progress Item 1 -->
+<div>
+<div class="flex justify-between items-baseline mb-2">
+<h3 class="font-citation text-citation text-on-surface uppercase">Zechariah 4: The Lampstand</h3>
+<span class="font-label-technical text-label-technical text-secondary">100%</span>
+</div>
+<div class="h-1 bg-surface-container w-full">
+<div class="h-full bg-secondary w-full"></div>
+</div>
+</div>
+<!-- Progress Item 2 -->
+<div>
+<div class="flex justify-between items-baseline mb-2">
+<h3 class="font-citation text-citation text-on-surface uppercase">Psalm 26: The Path of Integrity</h3>
+<span class="font-label-technical text-label-technical text-secondary">100%</span>
+</div>
+<div class="h-1 bg-surface-container w-full">
+<div class="h-full bg-secondary w-full"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Commemorations Section -->
+<section class="border border-secondary-container p-6 bg-surface-container-low">
+<h2 class="font-label-technical text-label-technical text-secondary mb-6 border-b border-secondary-container pb-2 flex justify-between items-center">
+<span>EARNED COMMEMORATIONS</span>
+<span class="material-symbols-outlined text-secondary" data-icon="military_tech">military_tech</span>
+</h2>
+<div class="grid grid-cols-2 gap-4">
+<div class="border border-secondary-container bg-surface-container p-4 flex flex-col items-center justify-center aspect-square text-center hover:bg-surface-variant transition-colors group cursor-pointer">
+<span class="material-symbols-outlined text-secondary text-4xl mb-3 group-hover:scale-110 transition-transform icon-fill" data-icon="emoji_objects">emoji_objects</span>
+<span class="font-citation text-citation text-on-surface uppercase block text-xs">The Golden Bowl</span>
+<span class="font-label-technical text-label-technical text-on-surface-variant mt-2 text-[10px]">ZEC 4</span>
+</div>
+<div class="border border-secondary-container bg-surface-container p-4 flex flex-col items-center justify-center aspect-square text-center hover:bg-surface-variant transition-colors group cursor-pointer">
+<span class="material-symbols-outlined text-secondary text-4xl mb-3 group-hover:scale-110 transition-transform icon-fill" data-icon="shield">shield</span>
+<span class="font-citation text-citation text-on-surface uppercase block text-xs">Path of Integrity</span>
+<span class="font-label-technical text-label-technical text-on-surface-variant mt-2 text-[10px]">PSA 26</span>
+</div>
+</div>
+</section>
+<!-- Reflections Section -->
+<section class="border border-secondary-container bg-surface-container-low mb-8 overflow-hidden">
+<div class="p-6 pb-4 border-b border-secondary-container">
+<h2 class="font-label-technical text-label-technical text-secondary flex justify-between items-center">
+<span>PERSONAL REFLECTIONS</span>
+<span class="material-symbols-outlined text-secondary" data-icon="book_4">book_4</span>
+</h2>
+</div>
+<div class="flex overflow-x-auto p-6 gap-4 pb-8 snap-x" style="scrollbar-width: none;">
+<!-- Card 1 -->
+<div class="flex-none w-64 snap-start border border-secondary-container bg-surface-container relative group cursor-pointer">
+<div class="absolute top-0 left-0 w-1 h-full bg-secondary"></div>
+<div class="p-4 pl-6">
+<span class="font-label-technical text-label-technical text-secondary mb-2 block">OCT 24, 2024</span>
+<h3 class="font-citation text-citation text-primary uppercase mb-3 line-clamp-2">On the Infinite Source of Oil</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-3 text-sm italic">The perpetual flow observed in the vision suggests a reliance beyond human effort, deeply challenging my current perspective on spiritual stamina...</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="flex-none w-64 snap-start border border-secondary-container bg-surface-container relative group cursor-pointer">
+<div class="absolute top-0 left-0 w-1 h-full bg-surface-variant group-hover:bg-secondary transition-colors"></div>
+<div class="p-4 pl-6">
+<span class="font-label-technical text-label-technical text-on-surface-variant mb-2 block">SEP 15, 2024</span>
+<h3 class="font-citation text-citation text-on-surface uppercase mb-3 line-clamp-2">Walking in Truth</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-3 text-sm italic">Vindication is not self-declared but established through a consistent, observable walk. The altar serves as the center point of this orientation...</p>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="flex-none w-64 snap-start border border-secondary-container bg-surface-container relative group cursor-pointer flex items-center justify-center p-8">
+<div class="text-center">
+<span class="material-symbols-outlined text-secondary text-3xl mb-2" data-icon="add">add</span>
+<span class="font-label-technical text-label-technical text-secondary block">NEW ENTRY</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center pb-safe h-20 bg-surface-container border-t border-secondary-container md:hidden">
+<a class="flex flex-col items-center justify-center text-on-surface-variant pt-2 w-full h-full hover:bg-surface-variant transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="auto_stories">auto_stories</span>
+<span class="font-label-technical text-label-technical">JOURNEY</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant pt-2 w-full h-full hover:bg-surface-variant transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="groups">groups</span>
+<span class="font-label-technical text-label-technical">COMMUNITY</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant pt-2 w-full h-full hover:bg-surface-variant transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="explore">explore</span>
+<span class="font-label-technical text-label-technical">MAP</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary border-t-2 border-secondary pt-2 w-full h-full bg-surface-variant transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined mb-1 icon-fill" data-icon="account_circle">account_circle</span>
+<span class="font-label-technical text-label-technical">PROFILE</span>
+</a>
+</nav>
+</body></html>

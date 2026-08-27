@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Walk Before Me - Psalm 26 Journey</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary-container": "#1f1f1f",
+                        "tertiary-fixed": "#e5e2e1",
+                        "on-primary-fixed": "#001c3a",
+                        "on-primary-fixed-variant": "#2f486a",
+                        "outline": "#8e9198",
+                        "surface": "#131410",
+                        "inverse-on-surface": "#31312c",
+                        "surface-container-lowest": "#0e0e0b",
+                        "secondary-fixed-dim": "#e9c349",
+                        "on-error-container": "#ffdad6",
+                        "primary-fixed": "#d4e3ff",
+                        "on-tertiary-fixed": "#1c1b1b",
+                        "on-primary-container": "#6f88ad",
+                        "inverse-primary": "#476083",
+                        "on-tertiary-container": "#888686",
+                        "error": "#ffb4ab",
+                        "on-background": "#e5e2db",
+                        "primary-container": "#001f3f",
+                        "primary": "#afc8f0",
+                        "secondary-fixed": "#ffe088",
+                        "surface-container-high": "#2a2a26",
+                        "surface-bright": "#3a3935",
+                        "surface-variant": "#353530",
+                        "error-container": "#93000a",
+                        "tertiary": "#c8c6c5",
+                        "inverse-surface": "#e5e2db",
+                        "on-surface": "#e5e2db",
+                        "surface-container-low": "#1c1c18",
+                        "surface-container": "#20201c",
+                        "on-surface-variant": "#c4c6cf",
+                        "on-secondary": "#3c2f00",
+                        "surface-tint": "#afc8f0",
+                        "on-primary": "#163152",
+                        "outline-variant": "#43474e",
+                        "on-secondary-fixed": "#241a00",
+                        "background": "#131410",
+                        "on-tertiary": "#313030",
+                        "secondary-container": "#af8d11",
+                        "on-secondary-fixed-variant": "#574500",
+                        "secondary": "#e9c349",
+                        "on-secondary-container": "#342800",
+                        "tertiary-fixed-dim": "#c8c6c5",
+                        "surface-container-highest": "#353530",
+                        "on-tertiary-fixed-variant": "#474746",
+                        "primary-fixed-dim": "#afc8f0",
+                        "on-error": "#690005",
+                        "surface-dim": "#131410",
+                        "navy": "#001F3F",
+                        "parchment": "#F4F1EA",
+                        "gold": "#D4AF37"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px",
+                        "none": "0px"
+                    },
+                    spacing: {
+                        "margin-desktop": "64px",
+                        "gutter": "24px",
+                        "scripture-indent": "32px",
+                        "unit": "4px",
+                        "margin-mobile": "16px",
+                        "container-max": "1200px"
+                    },
+                    fontFamily: {
+                        "headline-md": ["Space Grotesk", "sans-serif"],
+                        "label-technical": ["Space Grotesk", "sans-serif"],
+                        "scripture-block": ["EB Garamond", "serif"],
+                        "headline-sm": ["Space Grotesk", "sans-serif"],
+                        "display-lg": ["Space Grotesk", "sans-serif"],
+                        "body-md": ["EB Garamond", "serif"],
+                        "body-lg": ["EB Garamond", "serif"],
+                        "citation": ["Space Grotesk", "sans-serif"]
+                    },
+                    fontSize: {
+                        "headline-md": ["32px", { lineHeight: "1.2", fontWeight: "600" }],
+                        "label-technical": ["12px", { lineHeight: "1", letterSpacing: "0.1em", fontWeight: "700" }],
+                        "scripture-block": ["22px", { lineHeight: "1.5", fontWeight: "400" }],
+                        "headline-sm": ["20px", { lineHeight: "1.4", letterSpacing: "0.05em", fontWeight: "500" }],
+                        "display-lg": ["48px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "body-md": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+                        "body-lg": ["20px", { lineHeight: "1.6", fontWeight: "400" }],
+                        "citation": ["14px", { lineHeight: "1", fontWeight: "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #F4F1EA; /* Parchment base for content */
+            color: #001F3F; /* Navy text */
+        }
+        .dark body {
+            background-color: #001F3F; /* Navy base for dark mode */
+            color: #F4F1EA; /* Parchment text */
+        }
+        
+        /* Gold Path Animation */
+        .gold-path {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            transition: stroke-dashoffset 0.5s ease-out;
+        }
+        
+        /* Content Sheets */
+        .content-sheet {
+            background-color: #F4F1EA;
+            border: 1px solid #001F3F;
+            color: #001F3F;
+        }
+        .dark .content-sheet {
+            background-color: #001F3F;
+            border: 1px solid #D4AF37;
+            color: #F4F1EA;
+        }
+        
+        /* Scripture Block */
+        .scripture-container {
+            background-color: rgba(244, 241, 234, 0.5);
+            border-left: 2px solid #D4AF37;
+        }
+        .dark .scripture-container {
+            background-color: rgba(0, 31, 63, 0.5);
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen pb-24 relative overflow-x-hidden">
+<!-- Background Path SVG -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none z-0" xmlns="http://www.w3.org/2000/svg">
+<path class="gold-path" d="M 50 100 Q 150 300 50 500 T 50 900 T 150 1300 T 50 1700 T 150 2100 T 50 2500 T 150 2900" fill="none" id="scroll-path" stroke="#D4AF37" stroke-width="2"></path>
+</svg>
+<!-- Top App Bar (From JSON) -->
+<header class="bg-primary-container dark:bg-primary-container fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 border-b-2 border-secondary dark:border-secondary shadow-none">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary dark:text-secondary cursor-pointer hover:opacity-80 transition-opacity duration-200" data-icon="menu">menu</span>
+<h1 class="text-headline-sm font-headline-sm font-bold text-secondary dark:text-secondary">Psalm 26: The Path of Integrity</h1>
+</div>
+<span class="material-symbols-outlined text-secondary dark:text-secondary cursor-pointer hover:opacity-80 transition-opacity duration-200" data-icon="map">map</span>
+</header>
+<!-- Main Content Container -->
+<main class="pt-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto relative z-10 flex flex-col gap-12">
+<!-- Waypoint 1 -->
+<section class="content-sheet p-6 relative">
+<div class="absolute -top-3 left-4 bg-navy dark:bg-parchment text-parchment dark:text-navy px-3 py-1 font-label-technical text-label-technical uppercase border border-navy dark:border-parchment">
+                Waypoint I
+            </div>
+<h2 class="font-headline-md text-headline-md mt-4 mb-4">Covenant Ground</h2>
+<div class="w-full h-48 mb-6 border border-navy dark:border-parchment overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A striking classical oil painting depicting a monumental, radiant encounter between a solitary figure and a divine presence on a rugged, barren landscape. The lighting is dramatic, high-contrast chiaroscuro, emphasizing the golden glow of the divine against a deep, dark sky. The mood is awe-inspiring and foundational, matching a modern-artifact, archival aesthetic." src="/images/wp01_covenant_ground.jpg"/>
+</div>
+<div class="scripture-container pl-scripture-indent py-4 mb-4">
+<p class="font-scripture-block text-scripture-block italic mb-2">"I am the Almightie God: walke before me, and be thou perfect."</p>
+<p class="font-citation text-citation text-right uppercase">Genesis 17:1</p>
+</div>
+<p class="font-body-md text-body-md">Does the walk begin with our strength, or His name?</p>
+</section>
+<!-- Waypoint 2 -->
+<section class="content-sheet p-6 relative ml-auto w-[90%]">
+<div class="absolute -top-3 left-4 bg-navy dark:bg-parchment text-parchment dark:text-navy px-3 py-1 font-label-technical text-label-technical uppercase border border-navy dark:border-parchment">
+                Waypoint II
+            </div>
+<h2 class="font-headline-md text-headline-md mt-4 mb-4">The Prayer Beneath</h2>
+<div class="w-full h-48 mb-6 border border-navy dark:border-parchment overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A solemn, brutalist architectural space rendered in a classical painting style. A figure kneels in deep shadow, seeking refuge. The light source is singular, piercing from above, casting stark contrasts. The color palette is dominated by deep navy shadows and stark, warm parchment highlights, conveying a mood of desperate trust and foundational reliance." src="/images/wp02_prayer_beneath.jpg"/>
+</div>
+<div class="scripture-container pl-scripture-indent py-4 mb-4">
+<p class="font-scripture-block text-scripture-block italic mb-2">"Let integrity and uprightnesse preserve me: for I wait on thee."</p>
+<p class="font-citation text-citation text-right uppercase">Psalm 25:21</p>
+</div>
+<p class="font-body-md text-body-md">Is integrity a claim of sinlessness, or a plea for preservation?</p>
+</section>
+<!-- Waypoint 3 -->
+<section class="content-sheet p-6 relative">
+<div class="absolute -top-3 left-4 bg-navy dark:bg-parchment text-parchment dark:text-navy px-3 py-1 font-label-technical text-label-technical uppercase border border-navy dark:border-parchment">
+                Waypoint III
+            </div>
+<h2 class="font-headline-md text-headline-md mt-4 mb-4">The Walk and The Trust</h2>
+<div class="w-full h-48 mb-6 border border-navy dark:border-parchment overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="An expansive, meticulously painted landscape showing a solitary traveler on a narrow, precarious, yet solid stone path. The style mimics an ancient cartographic illustration blended with dramatic renaissance lighting. Dominant colors are earthy ochre, deep navy skies, and stark gold lighting on the path itself. The mood is resolute and steadfast." src="/images/wp03_walk_and_trust.jpg"/>
+</div>
+<div class="scripture-container pl-scripture-indent py-4 mb-4">
+<p class="font-scripture-block text-scripture-block italic mb-2">"Judge me, O LORD, for I have walked in mine integrity: I have trusted also in the LORD: therfore I shall not slide."</p>
+<p class="font-citation text-citation text-right uppercase">Psalm 26:1, 3</p>
+</div>
+<p class="font-body-md text-body-md">Which holds the man: the walk, or the trust?</p>
+</section>
+<!-- Waypoint 4 -->
+<section class="content-sheet p-6 relative ml-auto w-[90%]">
+<div class="absolute -top-3 left-4 bg-navy dark:bg-parchment text-parchment dark:text-navy px-3 py-1 font-label-technical text-label-technical uppercase border border-navy dark:border-parchment">
+                Waypoint IV
+            </div>
+<h2 class="font-headline-md text-headline-md mt-4 mb-4">The Door Opened</h2>
+<div class="w-full h-48 mb-6 border border-navy dark:border-parchment overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="An intense, evocative portrayal of a refining furnace or an inner sanctum opened up. The style is raw and textual, like a historical study sketch. Fiery golds and deep, impenetrable blacks dominate, illustrating the concept of 'Tsaraph' (refinement). The mood is exposing, intimate, and rigorous, maintaining the documentary-like gravity of the design system." src="/images/wp04_door_opened.jpg"/>
+</div>
+<div class="scripture-container pl-scripture-indent py-4 mb-4">
+<p class="font-scripture-block text-scripture-block italic mb-2">"Examine me, O LORD, and prove me; try my reins and my heart."</p>
+<p class="font-citation text-citation text-right uppercase">Psalm 26:2</p>
+</div>
+<p class="font-body-md text-body-md">Do we open the inner rooms to the One we trust?</p>
+<div class="mt-4 border border-navy dark:border-parchment inline-block px-2 py-1">
+<span class="font-label-technical text-label-technical uppercase">Note: Tsaraph refined by fire</span>
+</div>
+</section>
+<!-- Waypoint 5 -->
+<section class="content-sheet p-6 relative">
+<div class="absolute -top-3 left-4 bg-navy dark:bg-parchment text-parchment dark:text-navy px-3 py-1 font-label-technical text-label-technical uppercase border border-navy dark:border-parchment">
+                Waypoint V
+            </div>
+<h2 class="font-headline-md text-headline-md mt-4 mb-4">The Habitation He Loves</h2>
+<div class="w-full h-48 mb-6 border border-navy dark:border-parchment overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A grand, austere architectural rendering of a sacred space, viewed from a slightly low angle. The style is hyper-detailed, resembling a vintage blueprint or architectural cross-section filled with classical painting elements. Light filters through high clerestory windows, casting long, sharp shadows. The palette uses strict navy outlines filled with varied parchment tones." src="/images/wp05_habitation.jpg"/>
+</div>
+<div class="scripture-container pl-scripture-indent py-4 mb-4">
+<p class="font-scripture-block text-scripture-block italic mb-2">"LORD, I have loved the habitation of thy house, and the place where thine honour dwelleth."</p>
+<p class="font-citation text-citation text-right uppercase">Psalm 26:4-8</p>
+</div>
+<p class="font-body-md text-body-md">Does our separation serve our loves?</p>
+</section>
+<!-- Waypoint 6 -->
+<section class="content-sheet p-6 relative ml-auto w-[90%]">
+<div class="absolute -top-3 left-4 bg-navy dark:bg-parchment text-parchment dark:text-navy px-3 py-1 font-label-technical text-label-technical uppercase border border-navy dark:border-parchment">
+                Waypoint VI
+            </div>
+<h2 class="font-headline-md text-headline-md mt-4 mb-4">The Redemption</h2>
+<div class="w-full h-48 mb-6 border border-navy dark:border-parchment overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A profound, symbolic composition depicting an act of divine intervention or rescue. A figure reaches up towards a descending, luminous hand. The style is classic, heavy, and textural, akin to an archival masterwork. Deep navy and striking gold contrasts dictate the emotional weight. The mood is somber yet overwhelmingly hopeful and redemptive." src="/images/wp06_redemption.jpg"/>
+</div>
+<div class="scripture-container pl-scripture-indent py-4 mb-4">
+<p class="font-scripture-block text-scripture-block italic mb-2">"But as for me, I will walke in mine integrity: redeeme me, and be mercifull unto me."</p>
+<p class="font-citation text-citation text-right uppercase">Psalm 26:9-11</p>
+</div>
+<p class="font-body-md text-body-md">Where does our integrity meet His mercy?</p>
+<div class="mt-4 border border-navy dark:border-parchment inline-block px-2 py-1">
+<span class="font-label-technical text-label-technical uppercase">Fulfilled in Christ</span>
+</div>
+</section>
+<!-- Waypoint 7 -->
+<section class="content-sheet p-6 relative mb-8">
+<div class="absolute -top-3 left-4 bg-navy dark:bg-parchment text-parchment dark:text-navy px-3 py-1 font-label-technical text-label-technical uppercase border border-navy dark:border-parchment">
+                Waypoint VII
+            </div>
+<h2 class="font-headline-md text-headline-md mt-4 mb-4">The Even Place</h2>
+<div class="w-full h-48 mb-6 border border-navy dark:border-parchment overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A serene, sweeping vista showing a vast, perfectly level plateau where a large congregation is gathered. The lighting is a bright, clear dawn, symbolizing resolution and stability. The style retains the harsh, technical edges of a modern artifact, juxtaposing the classical subject matter with stark, geometric framing in navy and soft parchment background." src="/images/wp07_even_place.jpg"/>
+</div>
+<div class="scripture-container pl-scripture-indent py-4 mb-4">
+<p class="font-scripture-block text-scripture-block italic mb-2">"My foot standeth in an even place: in the congregations will I blesse the LORD."</p>
+<p class="font-citation text-citation text-right uppercase">Psalm 26:12</p>
+</div>
+<p class="font-body-md text-body-md">When does private integrity become public praise?</p>
+</section>
+</main>
+<!-- Footer (From JSON) -->
+<footer class="bg-primary-container dark:bg-primary-container text-secondary dark:text-secondary w-full py-gutter px-margin-mobile text-center flex flex-col gap-4 mb-20 border-t border-secondary dark:border-secondary mt-gutter z-10 relative">
+<p class="text-body-md font-body-md">Not by might, nor by power, but by my spirit, saith the LORD of hosts. — Zechariah 4:6</p>
+<div class="flex flex-col gap-2">
+<a class="text-secondary opacity-70 hover:text-secondary-fixed transition-colors pointer transition-all font-label-technical text-label-technical uppercase" href="#">About the Journey</a>
+<a class="text-secondary opacity-70 hover:text-secondary-fixed transition-colors pointer transition-all font-label-technical text-label-technical uppercase" href="#">Historical Context</a>
+<a class="text-secondary opacity-70 hover:text-secondary-fixed transition-colors pointer transition-all font-label-technical text-label-technical uppercase" href="#">Privacy</a>
+</div>
+</footer>
+<!-- Bottom Nav Bar (From JSON) - Assuming 'Journey' is active based on intent -->
+<nav class="bg-primary-container dark:bg-primary-container fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 pb-safe border-t-2 border-secondary dark:border-secondary shadow-none">
+<div class="flex flex-col items-center justify-center bg-secondary text-on-secondary rounded-none p-2 scale-95 transition-transform duration-150 w-1/4 h-full cursor-pointer">
+<span class="material-symbols-outlined mb-1" data-icon="auto_stories">auto_stories</span>
+<span class="text-label-technical font-label-technical uppercase">Journey</span>
+</div>
+<div class="flex flex-col items-center justify-center text-secondary dark:text-secondary p-2 hover:bg-on-primary-fixed-variant dark:hover:bg-on-primary-fixed-variant w-1/4 h-full cursor-pointer transition-colors duration-200">
+<span class="material-symbols-outlined mb-1" data-icon="menu_book">menu_book</span>
+<span class="text-label-technical font-label-technical uppercase">Scripture</span>
+</div>
+<div class="flex flex-col items-center justify-center text-secondary dark:text-secondary p-2 hover:bg-on-primary-fixed-variant dark:hover:bg-on-primary-fixed-variant w-1/4 h-full cursor-pointer transition-colors duration-200">
+<span class="material-symbols-outlined mb-1" data-icon="lightbulb">lightbulb</span>
+<span class="text-label-technical font-label-technical uppercase">Reflections</span>
+</div>
+<div class="flex flex-col items-center justify-center text-secondary dark:text-secondary p-2 hover:bg-on-primary-fixed-variant dark:hover:bg-on-primary-fixed-variant w-1/4 h-full cursor-pointer transition-colors duration-200">
+<span class="material-symbols-outlined mb-1" data-icon="location_on">location_on</span>
+<span class="text-label-technical font-label-technical uppercase">Waypoints</span>
+</div>
+</nav>
+<script>
+        // Simple scroll animation for the gold path
+        const path = document.getElementById('scroll-path');
+        const pathLength = path.getTotalLength();
+        
+        path.style.strokeDasharray = pathLength;
+        path.style.strokeDashoffset = pathLength;
+
+        window.addEventListener('scroll', () => {
+            const scrollPercentage = (document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight);
+            const drawLength = pathLength * scrollPercentage;
+            path.style.strokeDashoffset = pathLength - drawLength;
+        });
+    </script>
+</body></html>

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Walk Before Me - Psalm 26 Journey Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "on-surface": "#e5e2db",
+                "on-surface-variant": "#c4c6cf",
+                "on-background": "#e5e2db",
+                "on-primary-container": "#6f88ad",
+                "tertiary-fixed-dim": "#c8c6c5",
+                "background": "#131410",
+                "inverse-primary": "#476083",
+                "surface-bright": "#3a3935",
+                "primary-fixed": "#d4e3ff",
+                "secondary-fixed-dim": "#e9c349",
+                "surface-container-lowest": "#0e0e0b",
+                "inverse-surface": "#e5e2db",
+                "on-tertiary-fixed": "#1c1b1b",
+                "outline-variant": "#43474e",
+                "surface-variant": "#353530",
+                "secondary": "#e9c349",
+                "surface-container-highest": "#353530",
+                "on-tertiary-fixed-variant": "#474746",
+                "inverse-on-surface": "#31312c",
+                "surface-tint": "#afc8f0",
+                "tertiary-fixed": "#e5e2e1",
+                "on-tertiary": "#313030",
+                "on-secondary-container": "#342800",
+                "on-primary": "#163152",
+                "on-tertiary-container": "#888686",
+                "surface-container-low": "#1c1c18",
+                "primary-fixed-dim": "#afc8f0",
+                "surface-container-high": "#2a2a26",
+                "error": "#ffb4ab",
+                "on-secondary-fixed": "#241a00",
+                "surface": "#131410",
+                "tertiary": "#c8c6c5",
+                "on-secondary-fixed-variant": "#574500",
+                "on-error": "#690005",
+                "error-container": "#93000a",
+                "surface-dim": "#131410",
+                "secondary-container": "#af8d11",
+                "tertiary-container": "#1f1f1f",
+                "on-error-container": "#ffdad6",
+                "on-secondary": "#3c2f00",
+                "outline": "#8e9198",
+                "on-primary-fixed": "#001c3a",
+                "secondary-fixed": "#ffe088",
+                "on-primary-fixed-variant": "#2f486a",
+                "primary": "#afc8f0",
+                "primary-container": "#001f3f",
+                "surface-container": "#20201c"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "margin-mobile": "16px",
+                "unit": "4px",
+                "scripture-indent": "32px",
+                "container-max": "1200px",
+                "gutter": "24px",
+                "margin-desktop": "64px"
+        },
+        "fontFamily": {
+                "body-lg": [
+                        "EB Garamond"
+                ],
+                "label-technical": [
+                        "Space Grotesk"
+                ],
+                "headline-sm": [
+                        "Space Grotesk"
+                ],
+                "display-lg": [
+                        "Space Grotesk"
+                ],
+                "citation": [
+                        "Space Grotesk"
+                ],
+                "body-md": [
+                        "EB Garamond"
+                ],
+                "headline-md": [
+                        "Space Grotesk"
+                ],
+                "scripture-block": [
+                        "EB Garamond"
+                ]
+        },
+        "fontSize": {
+                "body-lg": [
+                        "20px",
+                        {
+                                "lineHeight": "1.6",
+                                "fontWeight": "400"
+                        }
+                ],
+                "label-technical": [
+                        "12px",
+                        {
+                                "lineHeight": "1",
+                                "letterSpacing": "0.1em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "headline-sm": [
+                        "20px",
+                        {
+                                "lineHeight": "1.4",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "500"
+                        }
+                ],
+                "display-lg": [
+                        "48px",
+                        {
+                                "lineHeight": "1.1",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "citation": [
+                        "14px",
+                        {
+                                "lineHeight": "1",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-md": [
+                        "18px",
+                        {
+                                "lineHeight": "1.6",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-md": [
+                        "32px",
+                        {
+                                "lineHeight": "1.2",
+                                "fontWeight": "600"
+                        }
+                ],
+                "scripture-block": [
+                        "22px",
+                        {
+                                "lineHeight": "1.5",
+                                "fontWeight": "400"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        body {
+            background-color: #131410; /* Deep Navy/Surface */
+            color: #e5e2db;
+        }
+        
+        .artifact-border {
+            border: 1px solid #43474e;
+        }
+        
+        .gold-accent {
+            color: #e9c349;
+        }
+        
+        .progress-line {
+            width: 2px;
+            background-color: #43474e;
+            position: absolute;
+            left: 11px;
+            top: 24px;
+            bottom: -24px;
+            z-index: 0;
+        }
+        .progress-line.active {
+            background-color: #e9c349;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen pb-24 relative overflow-x-hidden font-body-md bg-surface">
+<!-- Top App Bar -->
+<header class="bg-surface/90 backdrop-blur-md fixed top-0 left-0 w-full z-50 flex justify-center items-center px-margin-mobile md:px-margin-desktop h-16 border-b border-outline-variant shadow-none">
+<h1 class="text-label-technical font-label-technical gold-accent uppercase tracking-[0.2em]">Emmaus Road</h1>
+</header>
+<!-- Main Content Container -->
+<main class="pt-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto relative z-10 flex flex-col gap-10">
+<!-- Hero Section -->
+<section class="flex flex-col gap-4">
+<div class="w-full h-64 artifact-border overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="The Even Place" src="/images/hero_home_wp7.jpg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent opacity-80"></div>
+</div>
+<div class="text-center mt-4">
+<h2 class="font-display-lg text-display-lg gold-accent uppercase tracking-widest mb-2">Walk Before Me</h2>
+<p class="font-headline-sm text-headline-sm text-on-surface-variant uppercase tracking-wider">A Journey Through Psalm 26</p>
+</div>
+</section>
+<!-- Actions Section -->
+<section class="flex flex-col gap-4">
+<button class="w-full bg-secondary text-on-secondary py-4 px-6 artifact-border font-label-technical text-label-technical uppercase tracking-widest hover:bg-secondary-fixed transition-colors flex items-center justify-center gap-2">
+            Continue Study: Waypoint VI
+            <span class="material-symbols-outlined text-lg" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<div class="grid grid-cols-3 gap-4 mt-2">
+<button class="bg-surface-container-low text-on-surface py-3 px-2 artifact-border flex flex-col items-center gap-2 hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-secondary" data-icon="menu_book">menu_book</span>
+<span class="font-label-technical text-[10px] uppercase tracking-wider">Lexicon</span>
+</button>
+<button class="bg-surface-container-low text-on-surface py-3 px-2 artifact-border flex flex-col items-center gap-2 hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-secondary" data-icon="lightbulb">lightbulb</span>
+<span class="font-label-technical text-[10px] uppercase tracking-wider">Reflections</span>
+</button>
+<button class="bg-surface-container-low text-on-surface py-3 px-2 artifact-border flex flex-col items-center gap-2 hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-secondary" data-icon="library_books">library_books</span>
+<span class="font-label-technical text-[10px] uppercase tracking-wider">Materials</span>
+</button>
+</div>
+</section>
+<!-- Progress Section -->
+<section class="flex flex-col gap-6 mt-4">
+<div class="flex justify-between items-center border-b border-outline-variant pb-2">
+<h3 class="font-label-technical text-label-technical uppercase tracking-widest text-on-surface-variant">Journey Progress</h3>
+<span class="font-label-technical text-label-technical gold-accent">5 / 7 Complete</span>
+</div>
+<div class="flex flex-col gap-0">
+<!-- Waypoint 1 -->
+<div class="flex items-start gap-4 relative pb-8">
+<div class="progress-line active"></div>
+<div class="relative z-10 w-6 h-6 rounded-full bg-secondary flex items-center justify-center shrink-0 border-2 border-surface">
+<span class="material-symbols-outlined text-on-secondary text-[14px]" data-icon="check">check</span>
+</div>
+<div class="flex flex-col mt-0.5">
+<span class="font-label-technical text-[10px] uppercase tracking-widest text-secondary">Waypoint I</span>
+<h4 class="font-headline-sm text-[18px] text-on-surface opacity-80">Covenant Ground</h4>
+</div>
+</div>
+<!-- Waypoint 2 -->
+<div class="flex items-start gap-4 relative pb-8">
+<div class="progress-line active"></div>
+<div class="relative z-10 w-6 h-6 rounded-full bg-secondary flex items-center justify-center shrink-0 border-2 border-surface">
+<span class="material-symbols-outlined text-on-secondary text-[14px]" data-icon="check">check</span>
+</div>
+<div class="flex flex-col mt-0.5">
+<span class="font-label-technical text-[10px] uppercase tracking-widest text-secondary">Waypoint II</span>
+<h4 class="font-headline-sm text-[18px] text-on-surface opacity-80">The Prayer Beneath</h4>
+</div>
+</div>
+<!-- Waypoint 3 -->
+<div class="flex items-start gap-4 relative pb-8">
+<div class="progress-line active"></div>
+<div class="relative z-10 w-6 h-6 rounded-full bg-secondary flex items-center justify-center shrink-0 border-2 border-surface">
+<span class="material-symbols-outlined text-on-secondary text-[14px]" data-icon="check">check</span>
+</div>
+<div class="flex flex-col mt-0.5">
+<span class="font-label-technical text-[10px] uppercase tracking-widest text-secondary">Waypoint III</span>
+<h4 class="font-headline-sm text-[18px] text-on-surface opacity-80">The Walk and The Trust</h4>
+</div>
+</div>
+<!-- Waypoint 4 -->
+<div class="flex items-start gap-4 relative pb-8">
+<div class="progress-line active"></div>
+<div class="relative z-10 w-6 h-6 rounded-full bg-secondary flex items-center justify-center shrink-0 border-2 border-surface">
+<span class="material-symbols-outlined text-on-secondary text-[14px]" data-icon="check">check</span>
+</div>
+<div class="flex flex-col mt-0.5">
+<span class="font-label-technical text-[10px] uppercase tracking-widest text-secondary">Waypoint IV</span>
+<h4 class="font-headline-sm text-[18px] text-on-surface opacity-80">The Door Opened</h4>
+</div>
+</div>
+<!-- Waypoint 5 -->
+<div class="flex items-start gap-4 relative pb-8">
+<div class="progress-line active"></div>
+<div class="relative z-10 w-6 h-6 rounded-full bg-secondary flex items-center justify-center shrink-0 border-2 border-surface">
+<span class="material-symbols-outlined text-on-secondary text-[14px]" data-icon="check">check</span>
+</div>
+<div class="flex flex-col mt-0.5">
+<span class="font-label-technical text-[10px] uppercase tracking-widest text-secondary">Waypoint V</span>
+<h4 class="font-headline-sm text-[18px] text-on-surface opacity-80">The Petition</h4>
+</div>
+</div>
+<!-- Waypoint 6 (Active) -->
+<div class="flex items-start gap-4 relative pb-8">
+<div class="progress-line"></div>
+<div class="relative z-10 w-6 h-6 rounded-full bg-surface flex items-center justify-center shrink-0 border-2 border-secondary shadow-[0_0_10px_rgba(233,195,73,0.3)]">
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+</div>
+<div class="flex flex-col mt-0.5">
+<span class="font-label-technical text-[10px] uppercase tracking-widest text-secondary">Waypoint VI</span>
+<h4 class="font-headline-sm text-[20px] text-on-surface gold-accent font-bold">The Resolve</h4>
+</div>
+</div>
+<!-- Waypoint 7 -->
+<div class="flex items-start gap-4 relative">
+<div class="relative z-10 w-6 h-6 rounded-full bg-surface flex items-center justify-center shrink-0 border-2 border-outline-variant">
+</div>
+<div class="flex flex-col mt-0.5">
+<span class="font-label-technical text-[10px] uppercase tracking-widest text-outline">Waypoint VII</span>
+<h4 class="font-headline-sm text-[18px] text-outline-variant">The Even Place</h4>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface text-secondary w-full py-gutter px-margin-mobile text-center flex flex-col gap-4 mb-20 border-t border-outline-variant mt-12 z-10 relative">
+<p class="text-body-md font-body-md italic text-on-surface-variant">Not by might, nor by power, but by my spirit, saith the LORD of hosts.</p>
+<p class="font-citation text-citation uppercase tracking-widest gold-accent text-[12px]">— Zechariah 4:6</p>
+</footer>
+<!-- Bottom Nav Bar -->
+<nav class="bg-surface fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 pb-safe border-t border-outline-variant shadow-none">
+<div class="flex flex-col items-center justify-center text-secondary p-2 hover:bg-surface-container-low w-1/4 h-full cursor-pointer transition-colors duration-200 active border-t-2 border-secondary">
+<span class="material-symbols-outlined mb-1" data-icon="auto_stories">auto_stories</span>
+<span class="text-[10px] font-label-technical uppercase tracking-wider">Journey</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-container-low w-1/4 h-full cursor-pointer transition-colors duration-200">
+<span class="material-symbols-outlined mb-1" data-icon="menu_book">menu_book</span>
+<span class="text-[10px] font-label-technical uppercase tracking-wider">Scripture</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-container-low w-1/4 h-full cursor-pointer transition-colors duration-200">
+<span class="material-symbols-outlined mb-1" data-icon="lightbulb">lightbulb</span>
+<span class="text-[10px] font-label-technical uppercase tracking-wider">Reflections</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-container-low w-1/4 h-full cursor-pointer transition-colors duration-200">
+<span class="material-symbols-outlined mb-1" data-icon="location_on">location_on</span>
+<span class="text-[10px] font-label-technical uppercase tracking-wider">Waypoints</span>
+</div>
+</nav>
+</body></html>

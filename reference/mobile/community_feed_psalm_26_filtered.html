@@ -1,0 +1,280 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Community Reflection Feed - Emmaus Road</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400;1,700&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error-container": "#ffdad6",
+                    "surface-bright": "#3a3935",
+                    "surface-container-low": "#1c1c18",
+                    "on-secondary": "#3c2f00",
+                    "primary-container": "#001f3f",
+                    "on-primary-container": "#6f88ad",
+                    "on-secondary-fixed": "#241a00",
+                    "surface-container": "#20201c",
+                    "surface-variant": "#353530",
+                    "on-surface-variant": "#c4c6cf",
+                    "on-tertiary-container": "#888686",
+                    "on-tertiary-fixed": "#1c1b1b",
+                    "primary-fixed-dim": "#afc8f0",
+                    "outline-variant": "#43474e",
+                    "on-background": "#e5e2db",
+                    "surface-tint": "#afc8f0",
+                    "on-error": "#690005",
+                    "inverse-on-surface": "#31312c",
+                    "surface-container-highest": "#353530",
+                    "error": "#ffb4ab",
+                    "surface-dim": "#131410",
+                    "inverse-surface": "#e5e2db",
+                    "surface-container-lowest": "#0e0e0b",
+                    "background": "#131410",
+                    "surface": "#131410",
+                    "tertiary": "#c8c6c5",
+                    "primary": "#afc8f0",
+                    "on-primary": "#163152",
+                    "secondary-fixed-dim": "#e9c349",
+                    "on-surface": "#e5e2db",
+                    "tertiary-fixed": "#e5e2e1",
+                    "on-secondary-container": "#342800",
+                    "tertiary-container": "#1f1f1f",
+                    "on-tertiary": "#313030",
+                    "surface-container-high": "#2a2a26",
+                    "secondary": "#e9c349",
+                    "tertiary-fixed-dim": "#c8c6c5",
+                    "primary-fixed": "#d4e3ff",
+                    "on-secondary-fixed-variant": "#574500",
+                    "error-container": "#93000a",
+                    "on-primary-fixed": "#001c3a",
+                    "secondary-fixed": "#ffe088",
+                    "secondary-container": "#af8d11",
+                    "on-primary-fixed-variant": "#2f486a",
+                    "outline": "#8e9198",
+                    "on-tertiary-fixed-variant": "#474746",
+                    "inverse-primary": "#476083"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "unit": "4px",
+                    "margin-mobile": "16px",
+                    "scripture-indent": "32px",
+                    "container-max": "1200px",
+                    "margin-desktop": "64px"
+            },
+            "fontFamily": {
+                    "body-lg": [
+                            "EB Garamond"
+                    ],
+                    "scripture-block": [
+                            "EB Garamond"
+                    ],
+                    "label-technical": [
+                            "Space Grotesk"
+                    ],
+                    "citation": [
+                            "Space Grotesk"
+                    ],
+                    "display-lg": [
+                            "Space Grotesk"
+                    ],
+                    "headline-sm": [
+                            "Space Grotesk"
+                    ],
+                    "headline-md": [
+                            "Space Grotesk"
+                    ],
+                    "body-md": [
+                            "EB Garamond"
+                    ]
+            },
+            "fontSize": {
+                    "body-lg": [
+                            "20px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "scripture-block": [
+                            "22px",
+                            {
+                                    "lineHeight": "1.5",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "label-technical": [
+                            "12px",
+                            {
+                                    "lineHeight": "1",
+                                    "letterSpacing": "0.1em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "citation": [
+                            "14px",
+                            {
+                                    "lineHeight": "1",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "display-lg": [
+                            "48px",
+                            {
+                                    "lineHeight": "1.1",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "headline-sm": [
+                            "20px",
+                            {
+                                    "lineHeight": "1.4",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "headline-md": [
+                            "32px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-md": [
+                            "18px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "fontWeight": "400"
+                            }
+                    ]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #001F3F; /* Deep Indigo Navy from the palette */
+            color: #F4F1EA; /* Parchment white */
+        }
+        
+        .parchment-bg {
+            background-color: #F4F1EA;
+            color: #001F3F;
+        }
+
+        .gold-border {
+            border-color: #D4AF37;
+        }
+        
+        .gold-text {
+            color: #D4AF37;
+        }
+
+        /* Material Icons setup */
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;  /* Preferred icon size */
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen pb-24 pt-16">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 border-b border-secondary dark:border-secondary bg-primary-container dark:bg-primary-container flex justify-between items-center px-gutter h-16 max-w-container-max mx-auto shadow-none">
+<button class="text-primary dark:text-primary hover:text-secondary transition-colors duration-200 active:scale-95 flex items-center justify-center p-2">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<div class="font-headline-md text-headline-md text-primary dark:text-primary tracking-tighter text-center flex-1">
+            MODERN ARTIFACT
+        </div>
+<button class="text-primary dark:text-primary hover:text-secondary transition-colors duration-200 active:scale-95 flex items-center justify-center p-2">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+</header>
+<!-- Main Content Container (Grid Layout) -->
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mt-8 md:grid md:grid-cols-12 md:gap-gutter">
+<!-- Left Sidebar / Marginalia (Desktop Only) -->
+<aside class="hidden md:block md:col-span-2">
+<div class="sticky top-24">
+<h3 class="font-label-technical text-label-technical uppercase gold-text mb-4 border-b border-secondary pb-2">Feed Filters</h3>
+<ul class="space-y-3 font-citation text-citation text-on-primary-container">
+<li class="hover:text-secondary cursor-pointer transition-colors duration-200 text-secondary">All Reflections</li>
+<li class="hover:text-secondary cursor-pointer transition-colors duration-200">My Cohort</li>
+<li class="hover:text-secondary cursor-pointer transition-colors duration-200">Recent Studies</li>
+<li class="hover:text-secondary cursor-pointer transition-colors duration-200">Saved Notes</li>
+</ul>
+</div>
+</aside>
+<!-- Feed Center Column -->
+<section class="md:col-span-8 flex flex-col space-y-8">
+<!-- Section Header -->
+<div class="mb-4">
+<h1 class="font-display-lg text-display-lg text-primary tracking-tight">COMMUNITY</h1>
+<p class="font-body-md text-body-md text-on-primary-container mt-2">Shared reflections from the current theological study tracks.</p>
+</div><div class="flex items-center gap-2 overflow-x-auto pb-4 mb-8 no-scrollbar">
+<button class="flex-none px-4 py-2 border border-secondary gold-text font-label-technical text-label-technical uppercase tracking-widest hover:bg-secondary/10 transition-all duration-200">All Tracks</button>
+<button class="flex-none px-4 py-2 border border-secondary gold-text font-label-technical text-label-technical uppercase tracking-widest hover:bg-secondary/10 transition-all duration-200">
+    Zechariah 4
+  </button>
+<button class="flex-none px-4 py-2 bg-secondary text-on-secondary font-label-technical text-label-technical uppercase tracking-widest transition-all duration-200">Psalm 26</button>
+<button class="flex-none px-4 py-2 border border-secondary gold-text font-label-technical text-label-technical uppercase tracking-widest hover:bg-secondary/10 transition-all duration-200">
+    Romans 8
+  </button>
+</div>
+<!-- Reflection Card 1 -->
+<article class="parchment-bg border border-primary-container rounded-none shadow-none flex flex-col relative overflow-hidden group"><div class="bg-primary-container w-full px-4 py-2 flex justify-between items-center"><div class="font-label-technical text-label-technical text-primary uppercase tracking-widest flex items-center gap-2"><span class="material-symbols-outlined text-[16px]" data-icon="auto_stories">auto_stories</span> Psalm 26: The Path of Integrity</div></div><div class="p-6 md:p-8"><div class="flex items-center gap-4 mb-8"><div class="w-12 h-12 rounded-none border border-primary-container bg-surface-container-highest overflow-hidden"><img alt="Avatar" class="w-full h-full object-cover grayscale mix-blend-multiply opacity-80" src="/images/avatar_feed.jpg"></div><div><div class="font-headline-sm text-headline-sm text-primary-container font-semibold">Sarah M.</div><div class="mt-2 inline-block px-2 py-0.5 border border-secondary gold-text font-label-technical text-[10px] uppercase tracking-widest">Divine Standard</div><div class="font-citation text-citation text-outline">1 hour ago</div></div></div><div class="font-body-lg text-body-lg text-primary-container leading-relaxed mb-8 pr-4 italic">"Walking in integrity isn't about perfection, but about the orientation of the heart. It's the 'straight path' that requires constant recalibration against the Divine standard."</div><div class="bg-surface-tint/10 p-6 border-l-2 gold-border ml-[32px]"><p class="font-scripture-block text-scripture-block text-primary-container italic mb-4">"Vindicate me, O LORD, for I have walked in my integrity, and I have trusted in the LORD without wavering."</p><div class="text-right font-citation text-citation text-primary-container/70 uppercase tracking-widest">— Psalm 26:1</div></div></div><div class="border-t border-primary-container/20 px-6 py-3 flex justify-end gap-6 bg-parchment-bg"><button class="font-label-technical text-label-technical text-primary-container hover:gold-text flex items-center gap-2 transition-colors uppercase tracking-widest"><span class="material-symbols-outlined text-[18px]" data-icon="favorite">favorite</span> 18</button><button class="font-label-technical text-label-technical text-primary-container hover:gold-text flex items-center gap-2 transition-colors uppercase tracking-widest"><span class="material-symbols-outlined text-[18px]" data-icon="chat_bubble">chat_bubble</span> 5</button><button class="font-label-technical text-label-technical text-primary-container hover:gold-text flex items-center gap-2 transition-colors uppercase tracking-widest"><span class="material-symbols-outlined text-[18px]" data-icon="bookmark">bookmark</span> Save</button></div></article>
+<!-- Reflection Card 2 (Slightly smaller structure for variety) -->
+</section>
+<!-- Right Sidebar (Desktop Only) -->
+<aside class="hidden md:block md:col-span-2">
+<!-- Empty space to maintain the 12-column grid and center the content -->
+</aside>
+</main>
+<!-- BottomNavBar (Mobile Only based on layout rules) -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-margin-mobile pb-4 h-20 bg-primary-container dark:bg-primary-container border-t border-secondary dark:border-secondary z-50 md:hidden">
+<!-- Journey (Inactive) -->
+<button class="flex flex-col items-center justify-center text-on-primary-container dark:text-on-primary-container pt-2 hover:bg-surface-variant/10 transition-all duration-300 ease-in-out w-full h-full">
+<span class="material-symbols-outlined mb-1" data-icon="auto_stories">auto_stories</span>
+<span class="font-label-technical text-label-technical uppercase">Journey</span>
+</button>
+<!-- Community (Active) -->
+<button class="flex flex-col items-center justify-center text-secondary dark:text-secondary border-t-2 border-secondary pt-2 hover:bg-surface-variant/10 transition-all duration-300 ease-in-out w-full h-full -mt-[2px]">
+<span class="material-symbols-outlined mb-1" data-icon="group" data-weight="fill" style="font-variation-settings: 'FILL' 1;">group</span>
+<span class="font-label-technical text-label-technical uppercase">Community</span>
+</button>
+<!-- Map (Inactive) -->
+<button class="flex flex-col items-center justify-center text-on-primary-container dark:text-on-primary-container pt-2 hover:bg-surface-variant/10 transition-all duration-300 ease-in-out w-full h-full">
+<span class="material-symbols-outlined mb-1" data-icon="explore">explore</span>
+<span class="font-label-technical text-label-technical uppercase">Map</span>
+</button>
+<!-- Profile (Inactive) -->
+<button class="flex flex-col items-center justify-center text-on-primary-container dark:text-on-primary-container pt-2 hover:bg-surface-variant/10 transition-all duration-300 ease-in-out w-full h-full">
+<span class="material-symbols-outlined mb-1" data-icon="person">person</span>
+<span class="font-label-technical text-label-technical uppercase">Profile</span>
+</button>
+</nav>
+
+
+</body></html>
