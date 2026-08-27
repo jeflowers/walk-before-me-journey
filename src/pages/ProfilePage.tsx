@@ -301,7 +301,7 @@ export function ProfilePage() {
                 {reflections.length > 0 ? (
                   <>
                     {reflections.slice(0, 3).map((r) => (
-                      <div key={r.prompt_key} className="border-l-2 border-secondary pl-4 mt-5">
+                      <Link key={r.prompt_key} to={ROUTES.reflection} className="block border-l-2 border-secondary pl-4 mt-5 hover:border-gold transition-colors">
                         <span className="font-chrome text-[10px] font-bold uppercase tracking-[0.15em] text-secondary">
                           {new Date(r.updated_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
                         </span>
@@ -309,7 +309,7 @@ export function ProfilePage() {
                         <p className="font-narrative italic text-[14px] leading-[1.5] text-on-surface-variant mt-1">
                           {r.body.length > 120 ? r.body.slice(0, 120) + '...' : r.body}
                         </p>
-                      </div>
+                      </Link>
                     ))}
                   </>
                 ) : (
